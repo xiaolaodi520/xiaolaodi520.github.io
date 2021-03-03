@@ -15,19 +15,17 @@
 
 
 
-<meta name="description" content="hit-the-corestrings查看字符串，好像还真得到一个有用的串：  这个串挺长的，{}的位置正确，凯撒、栅栏就别想了，能不能从串本身找到规律？ 仔细观察，发现前面部分的大写字母拼起来正好是ALEXCTF，而且每个字母之间隔了4个字母，写个脚本提取一下： 123456data &#x3D; &#39;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&amp;#123;">
+<meta name="description" content="hello?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不错的misc">
-<meta property="og:url" content="http://example.com/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/index.html">
+<meta property="og:title" content="BUU9">
+<meta property="og:url" content="http://example.com/2021/03/03/BUU9/index.html">
 <meta property="og:site_name" content="小老弟">
-<meta property="og:description" content="hit-the-corestrings查看字符串，好像还真得到一个有用的串：  这个串挺长的，{}的位置正确，凯撒、栅栏就别想了，能不能从串本身找到规律？ 仔细观察，发现前面部分的大写字母拼起来正好是ALEXCTF，而且每个字母之间隔了4个字母，写个脚本提取一下： 123456data &#x3D; &#39;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&amp;#123;">
+<meta property="og:description" content="hello?">
 <meta property="og:locale">
-<meta property="og:image" content="http://example.com/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/2012081046.png">
-<meta property="article:published_time" content="2020-12-08T02:38:01.000Z">
-<meta property="article:modified_time" content="2020-12-08T02:50:24.200Z">
+<meta property="article:published_time" content="2021-03-03T01:30:18.000Z">
+<meta property="article:modified_time" content="2021-03-03T02:13:16.216Z">
 <meta property="article:author" content="xiaolaodi520">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/2012081046.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -61,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>不错的misc | 小老弟</title>
+<title>BUU9 | 小老弟</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -262,11 +260,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-不错的misc" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-BUU9" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/" class="article-date">
-      <time datetime="2020-12-08T02:38:01.000Z" itemprop="datePublished">2020-12-08</time>
+      <a href="/2021/03/03/BUU9/" class="article-date">
+      <time datetime="2021-03-03T01:30:18.000Z" itemprop="datePublished">2021-03-03</time>
 </a>
 
 
@@ -281,7 +279,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      不错的misc
+      BUU9
     </h1>
   
 
@@ -298,12 +296,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="hit-the-core"><a href="#hit-the-core" class="headerlink" title="hit-the-core"></a><strong>hit-the-core</strong></h1><p>strings查看字符串，好像还真得到一个有用的串：<br><img src="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/2012081046.png" alt="图片"></p>
-<p> 这个串挺长的，{}的位置正确，凯撒、栅栏就别想了，能不能从串本身找到规律？</p>
-<p>仔细观察，发现前面部分的大写字母拼起来正好是ALEXCTF，而且每个字母之间隔了4个字母，写个脚本提取一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data &#x3D; &#39;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&#123;bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv&#125;&#39;</span><br><span class="line">flag &#x3D; &#39;&#39;</span><br><span class="line">for i in range(3, len(data), 5):</span><br><span class="line">    flag +&#x3D; data[i]</span><br><span class="line"> </span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
-<p>拿到flag：ALEXCTF{K33P_7H3_g00D_w0rk_up}</p>
-
+        
       
     </div>
     
@@ -311,13 +304,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/">不错的misc</a></p>
+        <p><span>本文标题:</span><a href="/2021/03/03/BUU9/">BUU9</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
-        <p><span>发布时间:</span>2020-12-08, 10:38:01</p>
-        <p><span>最后更新:</span>2020-12-08, 10:50:24</p>
+        <p><span>发布时间:</span>2021-03-03, 09:30:18</p>
+        <p><span>最后更新:</span>2021-03-03, 10:13:16</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/" title="不错的misc">http://example.com/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2021/03/03/BUU9/" title="BUU9">http://example.com/2021/03/03/BUU9/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/03/03/BUU9/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -329,16 +322,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2021/01/20/Bugku1/">
-                    Bugku1
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/">
-                    西南石油大学[智仁杯]MISC
+                <a href="/2021/03/01/BUU8/">
+                    BUU8
                 </a>
             </div>
         
@@ -350,7 +337,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hit-the-core"><span class="toc-number">1.</span> <span class="toc-text">hit-the-core</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -386,7 +373,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"不错的misc　| 小老弟　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"BUU9　| 小老弟　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -405,8 +392,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'http://example.com/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/';
-            this.page.identifier = '2020/12/08/不错的misc/';
+            this.page.url = 'http://example.com/2021/03/03/BUU9/';
+            this.page.identifier = '2021/03/03/BUU9/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -428,15 +415,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2021/01/20/Bugku1/" title="上一篇: Bugku1">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/" title="下一篇: 西南石油大学[智仁杯]MISC">
+            <a href="/2021/03/01/BUU8/" title="下一篇: BUU8">
                 <i class="fa fa-angle-right"></i>
             </a>
         
