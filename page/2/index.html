@@ -265,6 +265,110 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-BUU2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/02/21/BUU2/" class="article-date">
+      <time datetime="2021-02-21T02:41:52.000Z" itemprop="datePublished">2021-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/21/BUU2/">BUU2</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="刷新过的图片"><a href="#刷新过的图片" class="headerlink" title="刷新过的图片"></a><strong>刷新过的图片</strong></h1><p>由题目联想到F5隐写<br><img src="/2021/02/21/BUU2/1.png"><br>得到压缩包，发开发现flag<br><img src="/2021/02/21/BUU2/2.png"><br>flag{96efd0a2037d06f34199e921079778ee}</p>
+<hr>
+<hr>
+<h1 id="snake"><a href="#snake" class="headerlink" title="snake"></a><strong>snake</strong></h1><p>压缩包中是一个jpg文件，binwalk发现有隐藏文件，foremost分解后得到一个压缩包<br><img src="/2021/02/21/BUU2/3.png"><br>记事本打开key解码base64得到一句话<br><img src="/2021/02/21/BUU2/4.png"><br>看了下大佬的博客知道了Serpent加密算法，<br>百度搜索Nicki Minaj，找到了What is Nicki Minaj’s favorite song that refers to snakes?</p>
+<p><img src="/2021/02/21/BUU2/5.png"><br>去Serpent解密网站得到flag<br><img src="/2021/02/21/BUU2/6.png"></p>
+<p>CTF{who_knew_serpent_cipher_existed}</p>
+<hr>
+<hr>
+<h1 id="BJDCTF-2nd-圣火昭昭-y1ng"><a href="#BJDCTF-2nd-圣火昭昭-y1ng" class="headerlink" title="[BJDCTF 2nd]圣火昭昭-y1ng"></a><strong>[BJDCTF 2nd]圣火昭昭-y1ng</strong></h1><p><img src="/2021/02/21/BUU2/9.png"><br>题目说全靠猜，联想到了outguess</p>
+<p>看了大佬博客发现了exiftool工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ exiftool &#39;&#x2F;home&#x2F;kali1&#x2F;桌面&#x2F;CTF&#x2F;sheng_huo_zhao_zhao.jpg&#39; </span><br><span class="line">ExifTool Version Number         : 12.16</span><br><span class="line">File Name                       : sheng_huo_zhao_zhao.jpg</span><br><span class="line">Directory                       : &#x2F;home&#x2F;kali1&#x2F;桌面&#x2F;CTF</span><br><span class="line">File Size                       : 22 KiB</span><br><span class="line">File Modification Date&#x2F;Time     : 2020:03:12 16:13:37+08:00</span><br><span class="line">File Access Date&#x2F;Time           : 2021:02:21 11:10:55+08:00</span><br><span class="line">File Inode Change Date&#x2F;Time     : 2021:02:21 11:10:47+08:00</span><br><span class="line">File Permissions                : rw-------</span><br><span class="line">File Type                       : JPEG</span><br><span class="line">File Type Extension             : jpg</span><br><span class="line">MIME Type                       : image&#x2F;jpeg</span><br><span class="line">JFIF Version                    : 1.01</span><br><span class="line">Resolution Unit                 : inches</span><br><span class="line">X Resolution                    : 96</span><br><span class="line">Y Resolution                    : 96</span><br><span class="line">Exif Byte Order                 : Big-endian (Motorola, MM)</span><br><span class="line">XP Comment                      : 新佛曰：諸壽隸僧壽降吽壽諸壽陀壽摩隸僧缽薩願心壽咤壽囉寂壽闍諸壽哆壽慧壽聞壽色吽愍壽所壽蜜如</span><br><span class="line">Padding                         : (Binary data 2060 bytes, use -b option to extract)</span><br><span class="line">Image Width                     : 238</span><br><span class="line">Image Height                    : 316</span><br><span class="line">Encoding Process                : Baseline DCT, Huffman coding</span><br><span class="line">Bits Per Sample                 : 8</span><br><span class="line">Color Components                : 3</span><br><span class="line">Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)</span><br><span class="line">Image Size                      : 238x316</span><br><span class="line">Megapixels                      : 0.075</span><br></pre></td></tr></table></figure>
+<p>其实信息在属性中<br><img src="/2021/02/21/BUU2/7.png"><br>解新佛曰得到密码<br><img src="/2021/02/21/BUU2/8.png"><br>outguess得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ outguess -k gemlove -r &#39;&#x2F;home&#x2F;kali1&#x2F;桌面&#x2F;CTF&#x2F;sheng_huo_zhao_zhao.jpg&#39;  flag.txt</span><br><span class="line">Reading &#x2F;home&#x2F;kali1&#x2F;桌面&#x2F;CTF&#x2F;sheng_huo_zhao_zhao.jpg....</span><br><span class="line">Extracting usable bits:   16072 bits</span><br><span class="line">Steg retrieve: seed: 217, len: 35</span><br></pre></td></tr></table></figure>
+<p>BJD{wdnmd_misc_1s_so_Fuck1ng_e@sy}</p>
+<hr>
+<hr>
+<h1 id="梅花香之苦寒来"><a href="#梅花香之苦寒来" class="headerlink" title="梅花香之苦寒来"></a><strong>梅花香之苦寒来</strong></h1><p>在winhex中发现尾端有很长的16进制数据<br><img src="/2021/02/21/BUU2/10.png"><br>将这些数据转化，得到一系列坐标，<br><img src="/2021/02/21/BUU2/11.png"><br>这里学到了新的命令gnuplot，将这些坐标转换格式然后打印 <strong>去掉（），，变空格</strong><br><img src="/2021/02/21/BUU2/12.png"><br>扫描得到flag<br>flag{40fc0a979f759c8892f4dc045e28b820}</p>
+<hr>
+<hr>
+<h1 id="wireshark菜刀666"><a href="#wireshark菜刀666" class="headerlink" title="wireshark菜刀666"></a><strong>wireshark菜刀666</strong></h1><hr>
+<hr>
+<h1 id="wireshark被偷走的文件"><a href="#wireshark被偷走的文件" class="headerlink" title="wireshark被偷走的文件"></a><strong>wireshark被偷走的文件</strong></h1><hr>
+<hr>
+<h1 id="BJDCTF2020-认真你就输了"><a href="#BJDCTF2020-认真你就输了" class="headerlink" title="[BJDCTF2020]认真你就输了"></a><strong>[BJDCTF2020]认真你就输了</strong></h1><p>将下载的xls后缀改为zip，压缩包内搜索flag<br><img src="/2021/02/21/BUU2/13.png"><br>得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;M9eVfi2Pcs#&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<h1 id="GXYCTF2019-佛系青年"><a href="#GXYCTF2019-佛系青年" class="headerlink" title="[GXYCTF2019]佛系青年"></a><strong>[GXYCTF2019]佛系青年</strong></h1><p>压缩包伪加密，得到fo.txt，解佛曰得到flag</p>
+<hr>
+<hr>
+<h1 id="BJDCTF2020-藏藏藏"><a href="#BJDCTF2020-藏藏藏" class="headerlink" title="[BJDCTF2020]藏藏藏"></a><strong>[BJDCTF2020]藏藏藏</strong></h1><p>binwalk查看有zip压缩包，foremost分解得到zip<br>打开zip发现一个二维码，扫描二维码得到flag<br>flag{you are the best!}</p>
+<hr>
+<hr>
+<h1 id="wireshark秘密文件"><a href="#wireshark秘密文件" class="headerlink" title="wireshark秘密文件"></a><strong>wireshark秘密文件</strong></h1><hr>
+<hr>
+<h1 id="BJDCTF2020-你猜我是个啥"><a href="#BJDCTF2020-你猜我是个啥" class="headerlink" title="[BJDCTF2020]你猜我是个啥"></a><strong>[BJDCTF2020]你猜我是个啥</strong></h1><p>zip压缩包无法打开，放入winhex发现是一个png，<br>改为png是一个二维码，扫描二维码，提示flag不在那，<br>发现flag在十六进制末尾<br>flag{i_am_fl@g}</p>
+<hr>
+<hr>
+<h1 id="SWPU2019-神奇的二维码"><a href="#SWPU2019-神奇的二维码" class="headerlink" title="[SWPU2019]神奇的二维码"></a><strong>[SWPU2019]神奇的二维码</strong></h1><p>扫描二维码啥也没有，binwalk分析发现有隐藏RAR文件，<br>使用foremost未分解出来，使用binwalk -e ，得到四个RAR文件<br><img src="/2021/02/21/BUU2/14.png"><br>打开第二个压缩包得到第一个压缩包的密码，<br><img src="/2021/02/21/BUU2/15.png"><br>但是flag并不在第一个压缩包中，<br>这里第三个压缩包和第四个压缩包在虚拟机里内容一样，但是复制到主机上最后一个是一个mp3文件，<br>连续解base64得到第四个压缩包的密码<br><img src="/2021/02/21/BUU2/16.png"><br>打开是一个摩斯密码，解摩斯密码得到flag<br><img src="/2021/02/21/BUU2/17.png"><br>swpuctf{morseisveryveryeasy} </p>
+<hr>
+<hr>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h1><ol>
+<li>F5隐写</li>
+<li>Serpent加密算法</li>
+<li>exiftool工具</li>
+<li>outguess隐写</li>
+<li>gnuplot命令</li>
+<li>binwalk得到的文件foremost没有得到，RAR在虚拟机与主机内容不同。</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-攻防世界2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

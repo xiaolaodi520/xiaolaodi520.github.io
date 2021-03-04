@@ -9,8 +9,16 @@
 
 
     <url>
+        <loc>http://example.com/2021/03/04/BUU10/</loc>
+        <lastmod>2021-03-04T14:05:38.553Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://example.com/2021/03/03/BUU9/</loc>
-        <lastmod>2021-03-04T06:02:03.285Z</lastmod>
+        <lastmod>2021-03-04T10:11:53.017Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
