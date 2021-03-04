@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-04T05:34:41.834Z</updated>
+  <updated>2021-03-04T06:02:03.285Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2021/03/03/BUU9/"/>
     <id>http://example.com/2021/03/03/BUU9/</id>
     <published>2021-03-03T01:30:18.000Z</published>
-    <updated>2021-03-04T05:34:41.834Z</updated>
+    <updated>2021-03-04T06:02:03.285Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="GKCTF2020-Harley-Quinn"><a href="#GKCTF2020-Harley-Quinn" class="headerlink" title="[GKCTF2020]Harley Quinn"></a><strong>[GKCTF2020]Harley Quinn</strong></h1><p>打开压缩包内容如下<br><img src="/2021/03/03/BUU9/5.png"><br>有一张图片和一个mav音频<br>听到音频的尾端有电话拨号码，用audacity将其提取出来<br><img src="/2021/03/03/BUU9/1.png"><br>用dtmf2num转出来数字<br><img src="/2021/03/03/BUU9/2.png"><br>九建编码解码出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctfisfun</span><br></pre></td></tr></table></figure><p>根据提示下载了FreeFileCamouflage<br>按照如图解出flag<br><img src="/2021/03/03/BUU9/3.png" alt="1"><br>得到flag<br><img src="/2021/03/03/BUU9/4.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Pudd1n!!_y0u_F1nd_m3!&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="python-派大星的烦恼"><a href="#python-派大星的烦恼" class="headerlink" title="python 派大星的烦恼"></a><strong>python 派大星的烦恼</strong></h1><hr><hr><hr><h1 id="ACTF新生赛2020-明文攻击"><a href="#ACTF新生赛2020-明文攻击" class="headerlink" title="[ACTF新生赛2020]明文攻击"></a><strong>[ACTF新生赛2020]明文攻击</strong></h1><p>。。。<br>。。。。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="GKCTF2020-Harley-Quinn"><a href="#GKCTF2020-Harley-Quinn" class="headerlink" title="[GKCTF2020]Harley Quinn"></a><strong>[GKCTF2020]Harley Quinn</strong></h1><p>打开压缩包内容如下<br><img src="/2021/03/03/BUU9/5.png"><br>有一张图片和一个mav音频<br>听到音频的尾端有电话拨号码，用audacity将其提取出来<br><img src="/2021/03/03/BUU9/1.png"><br>用dtmf2num转出来数字<br><img src="/2021/03/03/BUU9/2.png"><br>九建编码解码出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctfisfun</span><br></pre></td></tr></table></figure><p>根据提示下载了FreeFileCamouflage<br>按照如图解出flag<br><img src="/2021/03/03/BUU9/3.png" alt="1"><br>得到flag<br><img src="/2021/03/03/BUU9/4.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Pudd1n!!_y0u_F1nd_m3!&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="python-派大星的烦恼"><a href="#python-派大星的烦恼" class="headerlink" title="python 派大星的烦恼"></a><strong>python 派大星的烦恼</strong></h1><hr><hr><hr><h1 id="ACTF新生赛2020-明文攻击"><a href="#ACTF新生赛2020-明文攻击" class="headerlink" title="[ACTF新生赛2020]明文攻击"></a><strong>[ACTF新生赛2020]明文攻击</strong></h1><p>。。。hi</p><p>。。。。</p>]]></content>
     
     
       
