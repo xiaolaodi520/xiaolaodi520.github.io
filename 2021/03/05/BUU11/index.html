@@ -15,17 +15,21 @@
 
 
 
-<meta name="description" content="hello?">
+<meta name="description" content="[UTCTF2020]basic-forensics打开后看到了很长的英文文章，还像是啥字频分析，结果直接搜了出来 1utflag&amp;#123;fil3_ext3nsi0ns_4r3nt_r34l&amp;#125;     [SCTF2019]电单车打开音频文件看到了长短波，半天没搞明白要干嘛，结果发现了原题里有描述  题目描述：截获了一台电动车的钥匙发出的锁车信号，3分钟之内，我要获得它地址位的全部信息">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUU11">
 <meta property="og:url" content="http://example.com/2021/03/05/BUU11/index.html">
 <meta property="og:site_name" content="小老弟">
-<meta property="og:description" content="hello?">
+<meta property="og:description" content="[UTCTF2020]basic-forensics打开后看到了很长的英文文章，还像是啥字频分析，结果直接搜了出来 1utflag&amp;#123;fil3_ext3nsi0ns_4r3nt_r34l&amp;#125;     [SCTF2019]电单车打开音频文件看到了长短波，半天没搞明白要干嘛，结果发现了原题里有描述  题目描述：截获了一台电动车的钥匙发出的锁车信号，3分钟之内，我要获得它地址位的全部信息">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/2021/03/05/BUU11/1.png">
+<meta property="og:image" content="http://example.com/2021/03/05/BUU11/2.png">
+<meta property="og:image" content="http://example.com/2021/03/05/BUU11/3.png">
 <meta property="article:published_time" content="2021-03-04T23:38:58.000Z">
-<meta property="article:modified_time" content="2021-03-04T23:38:58.160Z">
+<meta property="article:modified_time" content="2021-03-05T15:01:03.195Z">
 <meta property="article:author" content="xiaolaodi520">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/05/BUU11/1.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -296,7 +300,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h1 id="UTCTF2020-basic-forensics"><a href="#UTCTF2020-basic-forensics" class="headerlink" title="[UTCTF2020]basic-forensics"></a><strong>[UTCTF2020]basic-forensics</strong></h1><p>打开后看到了很长的英文文章，还像是啥字频分析，结果直接搜了出来<br><img src="/2021/03/05/BUU11/1.png"><br><img src="/2021/03/05/BUU11/2.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utflag&#123;fil3_ext3nsi0ns_4r3nt_r34l&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="SCTF2019-电单车"><a href="#SCTF2019-电单车" class="headerlink" title="[SCTF2019]电单车"></a><strong>[SCTF2019]电单车</strong></h1><p>打开音频文件看到了长短波，<br><img src="/2021/03/05/BUU11/3.png"><br>半天没搞明白要干嘛，结果发现了原题里有描述</p>
+<blockquote>
+<p>题目描述：截获了一台电动车的钥匙发出的锁车信号，3分钟之内，我要获得它地址位的全部信息。flag内容二进制表示即可。</p>
+</blockquote>
+<p>整理出二进制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0111010010101010011000100 0111010010101010011000100</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;01110100101010100110&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="CTF2019-otaku"><a href="#CTF2019-otaku" class="headerlink" title="*[CTF2019]otaku"></a>*<em>[<em>CTF2019]otaku</em></em></h1><p>始终没明白这个明文攻击<br>大佬的<a target="_blank" rel="noopener" href="https://blog.csdn.net/zxnimud5/article/details/108800686">wp</a> （<a target="_blank" rel="noopener" href="https://blog.csdn.net/zxnimud5/article/details/108800686%EF%BC%89">https://blog.csdn.net/zxnimud5/article/details/108800686）</a></p>
+<hr>
+<hr>
+<hr>
+<h1 id="hashcat"><a href="#hashcat" class="headerlink" title="hashcat"></a><strong>hashcat</strong></h1><p>1文件没有后缀，用file命令后，后缀为.doc，打开时需要密码，<br>破解办公文件用Accent OFFICE Password Recovery v5.1 CracKed By Hmily[LCG][LSG]工具爆出9919，<br>结果word文件显示乱码，xls打不开，改后缀为pptx，第7张白白的，搜索flag,有，替换颜色。</p>
+
       
     </div>
     
@@ -307,7 +335,7 @@
         <p><span>本文标题:</span><a href="/2021/03/05/BUU11/">BUU11</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
         <p><span>发布时间:</span>2021-03-05, 07:38:58</p>
-        <p><span>最后更新:</span>2021-03-05, 07:38:58</p>
+        <p><span>最后更新:</span>2021-03-05, 23:01:03</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2021/03/05/BUU11/" title="BUU11">http://example.com/2021/03/05/BUU11/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/03/05/BUU11/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -337,7 +365,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UTCTF2020-basic-forensics"><span class="toc-number">1.</span> <span class="toc-text">[UTCTF2020]basic-forensics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SCTF2019-%E7%94%B5%E5%8D%95%E8%BD%A6"><span class="toc-number">2.</span> <span class="toc-text">[SCTF2019]电单车</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CTF2019-otaku"><span class="toc-number">3.</span> <span class="toc-text">*[CTF2019]otaku</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hashcat"><span class="toc-number">4.</span> <span class="toc-text">hashcat</span></a></li></ol>
         
     </div>
     <style>
