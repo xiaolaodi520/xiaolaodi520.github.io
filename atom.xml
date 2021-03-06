@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-06T02:45:41.371Z</updated>
+  <updated>2021-03-06T14:31:21.619Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2021/03/06/BUU12/"/>
     <id>http://example.com/2021/03/06/BUU12/</id>
     <published>2021-03-06T02:24:49.000Z</published>
-    <updated>2021-03-06T02:45:41.371Z</updated>
+    <updated>2021-03-06T14:31:21.619Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="真的很杂"><a href="#真的很杂" class="headerlink" title="真的很杂"></a><strong>真的很杂</strong></h1><p>foremost分离出一个压缩包，里面的内容看着像apk文件，考虑进行反汇编</p><p>方法一：apktools</p><p>改后缀名为apk，命令：apktool d 00000010.apk<br><img src="/2021/03/06/BUU12/1.png"><br>生成的00000010文件就是源码了，在\smali\com\example\flag\MainActivity$1.smali文件里发现字符串：”TOO YOUNG TOO SIMPLE:flag{25f991b27f”，”dc2f7a82a2b34”，”86e81c4}”<br><img src="/2021/03/06/BUU12/2.png"><br>猜测flag{25f991b27f?dc2f7a82a2b34?86e81c4}，前一个是字母，后一个数字，爆破即可flag{25f991b27fcdc2f7a82a2b34386e81c4}</p><p>方法二：dex2jar和jd-gui</p><p>解压后的classes.dex放到dex2jar目录，命令：d2j-dex2jar classes.dex<br><img src="/2021/03/06/BUU12/3.png"><br>将生成的classes-dex2jar.jar用jd-gui打开，同样得到：</p><p>flag{25f991b27f?dc2f7a82a2b34?86e81c4}，再爆破，flag{25f991b27fcdc2f7a82a2b34386e81c4}<br><img src="/2021/03/06/BUU12/4.png"><br>作者：Du1in9<br>链接：<a href="https://www.jianshu.com/p/1a318f2b4082">https://www.jianshu.com/p/1a318f2b4082</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="真的很杂"><a href="#真的很杂" class="headerlink" title="真的很杂"></a><strong>真的很杂</strong></h1><p>foremost分离出一个压缩包，里面的内容看着像apk文件，考虑进行反汇编</p><p>方法一：apktools</p><p>改后缀名为apk，命令：apktool d 00000010.apk<br><img src="/2021/03/06/BUU12/1.png"><br>生成的00000010文件就是源码了，在\smali\com\example\flag\MainActivity$1.smali文件里发现字符串：”TOO YOUNG TOO SIMPLE:flag{25f991b27f”，”dc2f7a82a2b34”，”86e81c4}”<br><img src="/2021/03/06/BUU12/2.png"><br>猜测flag{25f991b27f?dc2f7a82a2b34?86e81c4}，前一个是字母，后一个数字，爆破即可flag{25f991b27fcdc2f7a82a2b34386e81c4}</p><p>方法二：dex2jar和jd-gui</p><p>解压后的classes.dex放到dex2jar目录，命令：d2j-dex2jar classes.dex<br><img src="/2021/03/06/BUU12/3.png"><br>将生成的classes-dex2jar.jar用jd-gui打开，同样得到：</p><p>flag{25f991b27f?dc2f7a82a2b34?86e81c4}，再爆破，flag{25f991b27fcdc2f7a82a2b34386e81c4}<br><img src="/2021/03/06/BUU12/4.png"><br>作者：Du1in9<br>链接：<a href="https://www.jianshu.com/p/1a318f2b4082">https://www.jianshu.com/p/1a318f2b4082</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p><hr><hr><hr><h1 id="湖南省赛2019-Findme"><a href="#湖南省赛2019-Findme" class="headerlink" title="[湖南省赛2019]Findme"></a><strong>[湖南省赛2019]Findme</strong></h1>]]></content>
     
     
       
