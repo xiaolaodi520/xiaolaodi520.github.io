@@ -446,10 +446,9 @@
 </blockquote>
 <p>整理出二进制</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0111010010101010011000100 0111010010101010011000100</span><br></pre></td></tr></table></figure>
-
-<p>得到flag</p>
+<p>地址位是中间的前20个bit:<br>得到flag</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;01110100101010100110&#125;</span><br></pre></td></tr></table></figure>
-
+<p>参考链接地址：<a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/wireless/191534.html">https://www.freebuf.com/articles/wireless/191534.html</a></p>
 <hr>
 <hr>
 <hr>
@@ -457,7 +456,35 @@
 <hr>
 <hr>
 <hr>
-<h1 id="hashcat"><a href="#hashcat" class="headerlink" title="hashcat"></a><strong>hashcat</strong></h1><p>1文件没有后缀，用file命令后，后缀为.doc，打开时需要密码，<br>破解办公文件用Accent OFFICE Password Recovery v5.1 CracKed By Hmily[LCG][LSG]工具爆出9919，<br>结果word文件显示乱码，xls打不开，改后缀为pptx，第7张白白的，搜索flag,有，替换颜色。</p>
+<h1 id="hashcat"><a href="#hashcat" class="headerlink" title="hashcat"></a><strong>hashcat</strong></h1><p>1文件没有后缀，用file命令后，除了知道有密码，没啥可用信息，binwalk分析后发现是office文件<br><img src="/2021/03/05/BUU11/4.png"><br>将后缀改为doc，发现需要密码<br><img src="/2021/03/05/BUU11/8.png"><br>破解办公文件用Accent OFFICE Password Recovery v5.1 CracKed By Hmily[LCG][LSG]工具<br><img src="/2021/03/05/BUU11/5.png"><br>爆出9919，<br>结果word文件打不开，xls打不开，改后缀为pptx打开了，<br><img src="/2021/03/05/BUU11/6.png"><br>第7张白白的，搜索flag,有，替换颜色。<br><img src="/2021/03/05/BUU11/7.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flag&#123;okYOUWIN&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
     </div>

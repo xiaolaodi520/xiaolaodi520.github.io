@@ -25,8 +25,13 @@
 <meta property="og:image" content="http://example.com/2021/03/05/BUU11/1.png">
 <meta property="og:image" content="http://example.com/2021/03/05/BUU11/2.png">
 <meta property="og:image" content="http://example.com/2021/03/05/BUU11/3.png">
+<meta property="og:image" content="http://example.com/2021/03/05/BUU11/4.png">
+<meta property="og:image" content="http://example.com/2021/03/05/BUU11/8.png">
+<meta property="og:image" content="http://example.com/2021/03/05/BUU11/5.png">
+<meta property="og:image" content="http://example.com/2021/03/05/BUU11/6.png">
+<meta property="og:image" content="http://example.com/2021/03/05/BUU11/7.png">
 <meta property="article:published_time" content="2021-03-04T23:38:58.000Z">
-<meta property="article:modified_time" content="2021-03-07T01:42:13.307Z">
+<meta property="article:modified_time" content="2021-03-07T03:31:35.770Z">
 <meta property="article:author" content="xiaolaodi520">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2021/03/05/BUU11/1.png">
@@ -312,10 +317,9 @@
 </blockquote>
 <p>整理出二进制</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0111010010101010011000100 0111010010101010011000100</span><br></pre></td></tr></table></figure>
-
-<p>得到flag</p>
+<p>地址位是中间的前20个bit:<br>得到flag</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;01110100101010100110&#125;</span><br></pre></td></tr></table></figure>
-
+<p>参考链接地址：<a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/wireless/191534.html">https://www.freebuf.com/articles/wireless/191534.html</a></p>
 <hr>
 <hr>
 <hr>
@@ -323,7 +327,35 @@
 <hr>
 <hr>
 <hr>
-<h1 id="hashcat"><a href="#hashcat" class="headerlink" title="hashcat"></a><strong>hashcat</strong></h1><p>1文件没有后缀，用file命令后，后缀为.doc，打开时需要密码，<br>破解办公文件用Accent OFFICE Password Recovery v5.1 CracKed By Hmily[LCG][LSG]工具爆出9919，<br>结果word文件显示乱码，xls打不开，改后缀为pptx，第7张白白的，搜索flag,有，替换颜色。</p>
+<h1 id="hashcat"><a href="#hashcat" class="headerlink" title="hashcat"></a><strong>hashcat</strong></h1><p>1文件没有后缀，用file命令后，除了知道有密码，没啥可用信息，binwalk分析后发现是office文件<br><img src="/2021/03/05/BUU11/4.png"><br>将后缀改为doc，发现需要密码<br><img src="/2021/03/05/BUU11/8.png"><br>破解办公文件用Accent OFFICE Password Recovery v5.1 CracKed By Hmily[LCG][LSG]工具<br><img src="/2021/03/05/BUU11/5.png"><br>爆出9919，<br>结果word文件打不开，xls打不开，改后缀为pptx打开了，<br><img src="/2021/03/05/BUU11/6.png"><br>第7张白白的，搜索flag,有，替换颜色。<br><img src="/2021/03/05/BUU11/7.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flag&#123;okYOUWIN&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
     </div>
@@ -335,7 +367,7 @@
         <p><span>本文标题:</span><a href="/2021/03/05/BUU11/">BUU11</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
         <p><span>发布时间:</span>2021-03-05, 07:38:58</p>
-        <p><span>最后更新:</span>2021-03-07, 09:42:13</p>
+        <p><span>最后更新:</span>2021-03-07, 11:31:35</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2021/03/05/BUU11/" title="BUU11">http://example.com/2021/03/05/BUU11/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/03/05/BUU11/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
