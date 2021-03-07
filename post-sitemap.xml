@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://example.com/2021/03/05/BUU11/</loc>
+        <lastmod>2021-03-07T05:02:58.910Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://example.com/2021/02/27/BUU6/</loc>
         <lastmod>2021-03-07T03:44:50.491Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -27,14 +35,6 @@
     <url>
         <loc>http://example.com/2021/03/04/BUU10/</loc>
         <lastmod>2021-03-07T03:35:32.660Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://example.com/2021/03/05/BUU11/</loc>
-        <lastmod>2021-03-07T03:31:35.770Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
