@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>http://example.com/2021/02/27/BUU6/</loc>
+        <lastmod>2021-03-07T03:44:50.491Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://example.com/2021/03/01/BUU8/</loc>
+        <lastmod>2021-03-07T03:39:20.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://example.com/2021/03/04/BUU10/</loc>
+        <lastmod>2021-03-07T03:35:32.660Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://example.com/2021/03/05/BUU11/</loc>
         <lastmod>2021-03-07T03:31:35.770Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,14 +49,6 @@
     </url>
 
     <url>
-        <loc>http://example.com/2021/03/04/BUU10/</loc>
-        <lastmod>2021-03-04T14:12:01.519Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://example.com/2021/03/03/BUU9/</loc>
         <lastmod>2021-03-04T10:11:53.017Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,14 +59,6 @@
     <url>
         <loc>http://example.com/2020/11/27/hello-world/</loc>
         <lastmod>2021-03-01T16:13:47.856Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://example.com/2021/03/01/BUU8/</loc>
-        <lastmod>2021-03-01T15:56:34.115Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -75,14 +83,6 @@
     <url>
         <loc>http://example.com/2021/02/28/BUU7/</loc>
         <lastmod>2021-02-28T14:00:16.199Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://example.com/2021/02/27/BUU6/</loc>
-        <lastmod>2021-02-28T03:55:59.588Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
