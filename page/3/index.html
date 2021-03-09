@@ -265,6 +265,233 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/30/markdown/" class="article-date">
+      <time datetime="2020-11-30T12:42:57.000Z" itemprop="datePublished">2020-11-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/30/markdown/">markdown</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="Markdown基本语法"><a href="#Markdown基本语法" class="headerlink" title="Markdown基本语法"></a><strong>Markdown基本语法</strong></h1><p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
+<p>相比WYSIWYG编辑器</p>
+<p>优点：<br>1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。<br>2、操作简单。比如:WYSIWYG编辑时标记个标题，先选中内容，再点击导航栏的标题按钮，选择几级标题。要三个步骤。而Markdown只需要在标题内容前加#即可</p>
+<p>缺点：<br>1、需要记一些语法（当然，是很简单。五分钟学会）。<br>2、有些平台不支持Markdown编辑模式。</p>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a><strong>标题</strong></h1><p>在想要设置为标题的文字前面加#来表示<br>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p>
+<p>注：标准语法一般在#后跟个空格再写文字，貌似简书不加空格也行。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这是一级标题</span><br><span class="line">## 这是二级标题</span><br><span class="line">### 这是三级标题</span><br><span class="line">#### 这是四级标题</span><br><span class="line">##### 这是五级标题</span><br><span class="line">###### 这是六级标题</span><br></pre></td></tr></table></figure>
+
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a><strong>字体</strong></h1><ul>
+<li><strong>加粗</strong></li>
+</ul>
+<p>要加粗的文字左右分别用两个*号包起来</p>
+<ul>
+<li><strong>斜体</strong></li>
+</ul>
+<p>要倾斜的文字左右分别用一个*号包起来</p>
+<ul>
+<li><strong>斜体加粗</strong></li>
+</ul>
+<p>要倾斜和加粗的文字左右分别用三个*号包起来</p>
+<ul>
+<li><strong>删除线</strong></li>
+</ul>
+<p>要加删除线的文字左右分别用两个~~号包起来</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**这是加粗的文字**</span><br><span class="line">*这是倾斜的文字*&#96;</span><br><span class="line">***这是斜体加粗的文字***</span><br><span class="line">~~这是加删除线的文字~~</span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em>`<br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h1><p>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br>n个…<br>貌似可以一直加下去，但没神马卵用</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;这是引用的内容</span><br><span class="line">&gt;&gt;这是引用的内容</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<p>这是引用的内容</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是引用的内容</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a><strong>分割线</strong></h1><p>三个或者三个以上的 - 或者 * 都可以。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">----</span><br><span class="line">***</span><br><span class="line">*****</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &#39;&#39;图片title&#39;&#39;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片](heihei.jpg)</span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="/2020/11/30/markdown/heihei.jpg" alt="图片"></p>
+<h1 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a><strong>超链接</strong></h1><p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址 &quot;超链接title&quot;)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[百度](http:&#x2F;&#x2F;baidu.com)</span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><a target="_blank" rel="noopener" href="http://baidu.com/">百度</a></p>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a><strong>列表</strong></h1><p><strong>无序列表</strong><br>语法：<br>无序列表用 - + * 任何一种都可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表内容</span><br><span class="line">+ 列表内容</span><br><span class="line">* 列表内容</span><br><span class="line"></span><br><span class="line">注意：- + * 跟内容之间都要有一个空格</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<ul>
+<li>列表内容</li>
+</ul>
+<p><strong>有序列表</strong><br>语法：<br>数字加点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 列表内容</span><br><span class="line">2. 列表内容</span><br><span class="line">3. 列表内容</span><br><span class="line"></span><br><span class="line">注意：序号跟内容之间要有空格</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<ol>
+<li>列表内容</li>
+<li>列表内容</li>
+<li>列表内容</li>
+</ol>
+<p><strong>列表嵌套</strong><br><strong>上一级和下一级之间三个空格即可</strong></p>
+<ul>
+<li><p>一级无序列表内容</p>
+<ul>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+</ul>
+</li>
+<li><p>一级无序列表内容</p>
+<ol>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><p>一级有序列表内容</p>
+<ul>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+<li>二级无序列表内容</li>
+</ul>
+</li>
+<li><p>一级有序列表内容</p>
+<ol>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+<li>二级有序列表内容</li>
+</ol>
+</li>
+</ol>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a><strong>表格</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，多加了几个</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 | 包起来。此处省略</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">姓名|技能|排行</span><br><span class="line">--|:--:|--:</span><br><span class="line">刘备|哭|大哥</span><br><span class="line">关羽|打|二哥</span><br><span class="line">张飞|骂|三弟</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th align="center">技能</th>
+<th align="right">排行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>刘备</td>
+<td align="center">哭</td>
+<td align="right">大哥</td>
+</tr>
+<tr>
+<td>关羽</td>
+<td align="center">打</td>
+<td align="right">二哥</td>
+</tr>
+<tr>
+<td>张飞</td>
+<td align="center">骂</td>
+<td align="right">三弟</td>
+</tr>
+</tbody></table>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h1><p>语法：<br>单行代码：代码之间分别用一个反引号包起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;代码内容&#96;</span><br></pre></td></tr></table></figure>
+<p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">  代码...</span><br><span class="line">  代码...</span><br><span class="line">  代码...</span><br><span class="line">  </span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><em>注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可</em></p>
+</blockquote>
+<p>示例：<br>单行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;wawohaolihai&#96;</span><br></pre></td></tr></table></figure>
+<p>代码块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(&#96;&#96;&#96;)</span><br><span class="line">    function fun()&#123;</span><br><span class="line">         echo &quot;这是一句非常牛逼的代码&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    fun();</span><br><span class="line">(&#96;&#96;&#96;)</span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><code>wawohaolihai</code><br>代码块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function fun()&#123;</span><br><span class="line">         echo &quot;这是一句非常牛逼的代码&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    fun();</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-攻防世界misc" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -420,6 +647,576 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-misc之内存取证" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/03/misc%E4%B9%8B%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/" class="article-date">
+      <time datetime="2020-11-03T05:48:30.000Z" itemprop="datePublished">2020-11-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/03/misc%E4%B9%8B%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/">misc之内存取证</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-misc之流量分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="article-date">
+      <time datetime="2020-11-02T05:46:55.000Z" itemprop="datePublished">2020-11-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">misc之流量分析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-misc之隐写" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/" class="article-date">
+      <time datetime="2020-11-01T07:15:45.000Z" itemprop="datePublished">2020-11-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/">misc之隐写</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a><strong>通用</strong></h1><h2 id="winhex-010Editor"><a href="#winhex-010Editor" class="headerlink" title="winhex  010Editor"></a><strong>winhex  010Editor</strong></h2><p>最常用的工具</p>
+<ol>
+<li>藏于文件尾</li>
+<li>附加其他文件</li>
+<li>含其他文件</li>
+<li>夹在两文件之间</li>
+<li>修改文件</li>
+<li>转编码</li>
+<li>异或运算</li>
+<li>图案</li>
+</ol>
+<h2 id="silenteye"><a href="#silenteye" class="headerlink" title="silenteye"></a><strong>silenteye</strong></h2><p>文件格式： png,jpg,jpeg,bmp,tiff,tif,wav<br>可加密码</p>
+<h2 id="binwalk"><a href="#binwalk" class="headerlink" title="binwalk"></a><strong>binwalk</strong></h2><p> <strong>获取帮助</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -h</span><br><span class="line">$ binwalk -help</span><br></pre></td></tr></table></figure>
+<p> <strong>固件扫描</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk firmware.bin </span><br></pre></td></tr></table></figure>
+<p> <strong>提取文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 使用默认的预定义配置文件</span><br><span class="line">$ binwalk -e firmware,bin</span><br><span class="line"></span><br><span class="line"> 使用指定自定义的配置文件my_extract.conf</span><br><span class="line">$ binwalk --extract&#x3D;.&#x2F;my.extract.conf firmware.bin</span><br></pre></td></tr></table></figure>
+
+
+
+<p> <strong>显示完整的扫描结果</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -I firmware.bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="foremost"><a href="#foremost" class="headerlink" title="foremost"></a><strong>foremost</strong></h2><p>最常用命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foremost filename</span><br></pre></td></tr></table></figure>
+<p>命令详情：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">c:\&gt; foremost [-v|-V|-h|-T|-Q|-q|-a|-w-d] [-t &lt;type&gt;] [-s &lt;blocks&gt;] [-k &lt;size&gt;]</span><br><span class="line">    [-b &lt;size&gt;] [-c &lt;file&gt;] [-o &lt;dir&gt;] [-i &lt;file]</span><br><span class="line"></span><br><span class="line">-V  - 显示版权信息并退出</span><br><span class="line">-t  - 指定文件类型.  (-t jpeg,pdf ...)</span><br><span class="line">-d  - 打开间接块检测 (针对UNIX文件系统)</span><br><span class="line">-i  - 指定输入文件 (默认为标准输入)</span><br><span class="line">-a  - 写入所有的文件头部, 不执行错误检测(损坏文件)</span><br><span class="line">-w  - 向磁盘写入审计文件，不写入任何检测到的文件</span><br><span class="line">-o  - 设置输出目录 (默认为.&#x2F;output)</span><br><span class="line">-c  - 设置配置文件 (默认为foremost.conf)</span><br><span class="line">-q  - 启用快速模式. 在512字节边界执行搜索.</span><br><span class="line">-Q  - 启用安静模式. 禁用输出消息.</span><br><span class="line">-v  - 详细模式. 向屏幕上记录所有消息。</span><br></pre></td></tr></table></figure>
+<p>文件恢复</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">formost -t 需要恢复文件类型后缀(如jpg) -i 扫描的分区 -o 指定存放文件的目录</span><br><span class="line">formost -q -b numbe(4096) -t 需要恢复文件类型后缀(如jpg) -i 扫描的分区 -o 指定存放文件的目录</span><br></pre></td></tr></table></figure>
+<h2 id="strings"><a href="#strings" class="headerlink" title="strings"></a><strong>strings</strong></h2><p>语法： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings [ -a ] [ - ] [ -o ] [ -t Format ] [ -n Number ] [ -Number ] [ file ... ]</span><br></pre></td></tr></table></figure>
+
+<p> 实例<br> 列出ls中所有的ASCII文本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings &#x2F;bin&#x2F;ls</span><br></pre></td></tr></table></figure>
+
+<p> 列出ls中所有的ASCII文本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;bin&#x2F;ls strings</span><br></pre></td></tr></table></figure>
+<p> 查找ls中包含libc的字符串，不区分大小写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings &#x2F;bin&#x2F;ls | grep -i libc</span><br></pre></td></tr></table></figure>
+<p>要搜索至少有 12 个字符的字符串，请输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings -12 strings</span><br></pre></td></tr></table></figure>
+<p>要搜索至少有 20 个字符的字符串，并以十六进制来显示偏移量，请输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings -t x -n 20 strings</span><br></pre></td></tr></table></figure>
+
+<p>选项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-a --all：扫描整个文件而不是只扫描目标文件初始化和装载段</span><br><span class="line">-f –print-file-name：在显示字符串前先显示文件名</span><br><span class="line">-n –bytes&#x3D;[number]：找到并且输出所有NUL终止符序列</span><br><span class="line">- ：设置显示的最少的字符数，默认是4个字符</span><br><span class="line">-t --radix&#x3D;&#123;o,d,x&#125; ：输出字符的位置，基于八进制，十进制或者十六进制</span><br><span class="line">-o ：类似--radix&#x3D;o</span><br><span class="line">-T --target&#x3D; ：指定二进制文件格式</span><br><span class="line">-e --encoding&#x3D;&#123;s,S,b,l,B,L&#125; ：选择字符大小和排列顺序:s &#x3D; 7-bit, S &#x3D; 8-bit, &#123;b,l&#125; &#x3D; 16-bit, &#123;B,L&#125; &#x3D; 32-bit</span><br><span class="line">@ ：读取中选项</span><br></pre></td></tr></table></figure>
+
+<h2 id="exiftool"><a href="#exiftool" class="headerlink" title="exiftool"></a><strong>exiftool</strong></h2><p>查看信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ exiftool photo.jpg  #默认显示所有的信息 exiftool+图片路径&#x2F;图片名.jpg</span><br></pre></td></tr></table></figure>
+
+<p>exiftool的支持文件类型和文件元信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">File Types</span><br><span class="line">----------------------+----------------------+---------------------</span><br><span class="line">3G2   r&#x2F;w   | DVB   r&#x2F;w   | JPEG  r&#x2F;w   | ODT   r     | RIFF  r</span><br><span class="line">....</span><br><span class="line">Meta Information</span><br><span class="line">----------------------+----------------------+---------------------</span><br><span class="line">EXIF           r&#x2F;w&#x2F;c  |  CIFF           r&#x2F;w  |  Ricoh RMETA    r</span><br><span class="line">GPS            r&#x2F;w&#x2F;c  |  AFCP           r&#x2F;w  |  Picture Info   r</span><br><span class="line">IPTC           r&#x2F;w&#x2F;c  |  Kodak Meta     r&#x2F;w  |  Adobe APP14    r</span><br><span class="line">XMP            r&#x2F;w&#x2F;c  |  FotoStation    r&#x2F;w  |  MPF            r</span><br><span class="line">MakerNotes     r&#x2F;w&#x2F;c  |  PhotoMechanic  r&#x2F;w  |  Stim           r</span><br><span class="line">Photoshop IRB  r&#x2F;w&#x2F;c  |  JPEG 2000      r    |  DPX            r</span><br><span class="line">ICC Profile    r&#x2F;w&#x2F;c  |  DICOM          r    |  APE            r</span><br><span class="line">MIE            r&#x2F;w&#x2F;c  |  Flash          r    |  Vorbis         r</span><br><span class="line">JFIF           r&#x2F;w&#x2F;c  |  FlashPix       r    |  SPIFF          r</span><br><span class="line">Ducky APP12    r&#x2F;w&#x2F;c  |  QuickTime      r    |  DjVu           r</span><br><span class="line">PDF            r&#x2F;w&#x2F;c  |  Matroska       r    |  M2TS           r</span><br><span class="line">PNG            r&#x2F;w&#x2F;c  |  MXF            r    |  PE&#x2F;COFF        r</span><br><span class="line">Canon VRD      r&#x2F;w&#x2F;c  |  PrintIM        r    |  AVCHD          r</span><br><span class="line">Nikon Capture  r&#x2F;w&#x2F;c  |  FLAC           r    |  ZIP            r</span><br><span class="line">GeoTIFF        r&#x2F;w&#x2F;c  |  ID3            r    |  (and more)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="ntfsstreamseditor"><a href="#ntfsstreamseditor" class="headerlink" title="ntfsstreamseditor"></a><strong>ntfsstreamseditor</strong></h2><p>NtfsStreamsEditor可以实现对NTFS数据流的扫描、删除、附加、导入、导出、备份和还原等完整处理手段，是Ntfs数据流处理的强大工具。<br>NTFS数据流一旦被黑客利用，有一个很恐怖的特征，因为它在系统中是完全隐形的。在“资源管理器”中是根本不可能发现它的存在的，<br>即使是其他一些专业的文件管理软件也无法找到其蛛丝马迹。因此，NTFS数据流木马将是最具杀伤力的黑客攻击手段之一。<br>参考 ： <a target="_blank" rel="noopener" href="http://www.mamicode.com/info-detail-1340194.html">http://www.mamicode.com/info-detail-1340194.html</a></p>
+<h1 id="音频"><a href="#音频" class="headerlink" title="音频"></a><strong>音频</strong></h1><h2 id="Audacity"><a href="#Audacity" class="headerlink" title="Audacity"></a><strong>Audacity</strong></h2><p>音频隐写中最常用的工具</p>
+<h2 id="Kinovea"><a href="#Kinovea" class="headerlink" title="Kinovea"></a><strong>Kinovea</strong></h2><p>可以逐帧查看图片或视频的工具<br>可以藏二维码，编码，或其他密码等</p>
+<h2 id="dtmf2num"><a href="#dtmf2num" class="headerlink" title="dtmf2num"></a><strong>dtmf2num</strong></h2><p>将电话码转成数字，<br>一般要在将数字转手机键盘密码，转成字母</p>
+<h2 id="mp3stego"><a href="#mp3stego" class="headerlink" title="mp3stego"></a><strong>mp3stego</strong></h2><p>使用命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">加密： encode -E hidden_text.txt -P pass svega.wav svega_stego.mp3</span><br><span class="line">解密： decode -X -P pass svega_stego.mp3</span><br></pre></td></tr></table></figure>
+
+
+<p>先看加密的过程：encode -E （里面放要加密的txt信息）  -P（密码） （需要将密码放入的wav文件） （生产的mp3文件）</p>
+<p>解密过程：decode -X -P （密码） （要解密的文件）</p>
+<h2 id="MuseScore"><a href="#MuseScore" class="headerlink" title="MuseScore"></a><strong>MuseScore</strong></h2><p>tune转五线谱</p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h1><h2 id="stegdetect"><a href="#stegdetect" class="headerlink" title="stegdetect"></a><strong>stegdetect</strong></h2><p>详情</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">q – 仅显示可能包含隐藏内容的图像</span><br><span class="line"></span><br><span class="line">n – 启用检查JPEG文件头功能，以降低误报率。如果启用，所有带有批注区域的文件将被视为没有被嵌入信息。如果JPEG文件的JFIF标识符中的版本号不是1.1，则禁用OutGuess检测。</span><br><span class="line"></span><br><span class="line">s – 修改检测算法的敏感度，该值的默认值为1。检测结果的匹配度与检测算法的敏感度成正比，算法敏感度的值越大，检测出的可疑文件包含敏感信息的可能性越大。</span><br><span class="line"></span><br><span class="line">d – 打印带行号的调试信息。</span><br><span class="line"></span><br><span class="line">t – 设置要检测哪些隐写工具（默认检测jopi），可设置的选项如下：</span><br><span class="line"></span><br><span class="line">j – 检测图像中的信息是否是用jsteg嵌入的。</span><br><span class="line"></span><br><span class="line">o – 检测图像中的信息是否是用outguess嵌入的。</span><br><span class="line"></span><br><span class="line">p – 检测图像中的信息是否是用jphide嵌入的。</span><br><span class="line"></span><br><span class="line">i – 检测图像中的信息是否是用invisible secrets嵌入的。</span><br></pre></td></tr></table></figure>
+<p>检测该图片用的是哪种加密方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stegdetect.exe -tjopi -s 10.0 hide.jpg</span><br></pre></td></tr></table></figure>
+<p>stegdetect下的stegbreak字典破解，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stegbreak.exe -r rules.ini -f password.txt -r p hide.jpg</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="F5"><a href="#F5" class="headerlink" title="F5"></a><strong>F5</strong></h2><p>图片格式： jpg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解密： java Extract 图片的绝对路径&#x2F;123456.jpg -p 123456</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="outguess"><a href="#outguess" class="headerlink" title="outguess"></a><strong>outguess</strong></h2><p>图片规格： jpg<br>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">加密：  outguess -k &quot;my secret key&quot; -d hidden.txt demo.jpg out.jpg</span><br><span class="line">解密：  outguess -k &quot;my secret key&quot; -r out.jpg hidden.txt</span><br></pre></td></tr></table></figure>
+
+<p> 加密:demo.jpg会覆盖out.jpg, hidden.txt中的内容是要隐藏的东西<br> 解密:解密内容放在hidden.txt中</p>
+<h2 id="steghide"><a href="#steghide" class="headerlink" title="steghide"></a><strong>steghide</strong></h2><p>图片格式： jpg<br>用法： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">将secret.txt文件隐藏到text.jpg中：</span><br><span class="line"># steghide embed -cf test.jpg -ef secret.txt -p 123456</span><br><span class="line"></span><br><span class="line">从text.jpg解出secret.txt:</span><br><span class="line">#steghide extract -sf test.jpg -p 123456</span><br></pre></td></tr></table></figure>
+<p>Steghide爆破密码1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#bruteStegHide.sh </span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">for line in &#96;cat $2&#96;;do</span><br><span class="line">    steghide extract -sf $1 -p $line &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1</span><br><span class="line">    if [[ $? -eq 0 ]];then</span><br><span class="line">        echo &#39;password is: &#39;$line</span><br><span class="line">        exit</span><br><span class="line">    fi  </span><br><span class="line">done </span><br></pre></td></tr></table></figure>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;bruteStegHide.sh test.jpg passwd.txt </span><br></pre></td></tr></table></figure>
+<p>Steghide爆破密码2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf8 -*-</span><br><span class="line">#author:pcat</span><br><span class="line">#http:&#x2F;&#x2F;pcat.cnblogs.com</span><br><span class="line">from subprocess import *</span><br><span class="line"></span><br><span class="line">def foo():</span><br><span class="line">    stegoFile&#x3D;&#39;rose.jpg&#39;</span><br><span class="line">    extractFile&#x3D;&#39;hide.txt&#39;</span><br><span class="line">    passFile&#x3D;&#39;english.dic&#39;</span><br><span class="line"></span><br><span class="line">    errors&#x3D;[&#39;could not extract&#39;,&#39;steghide --help&#39;,&#39;Syntax error&#39;]</span><br><span class="line">    cmdFormat&#x3D;&#39;steghide extract -sf &quot;%s&quot; -xf &quot;%s&quot; -p &quot;%s&quot;&#39;</span><br><span class="line">    f&#x3D;open(passFile,&#39;r&#39;)</span><br><span class="line"></span><br><span class="line">    for line in f.readlines():</span><br><span class="line">        cmd&#x3D;cmdFormat %(stegoFile,extractFile,line.strip())</span><br><span class="line">        p&#x3D;Popen(cmd,shell&#x3D;True,stdout&#x3D;PIPE,stderr&#x3D;STDOUT)</span><br><span class="line">        content&#x3D;unicode(p.stdout.read(),&#39;gbk&#39;)</span><br><span class="line">        for err in errors:</span><br><span class="line">            if err in content:</span><br><span class="line">                break</span><br><span class="line">        else:</span><br><span class="line">            print content,</span><br><span class="line">            print &#39;the passphrase is %s&#39; %(line.strip())</span><br><span class="line">            f.close()</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    foo()</span><br><span class="line">    print &#39;ok&#39;</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h2 id="jphide"><a href="#jphide" class="headerlink" title="jphide"></a><strong>jphide</strong></h2><p>图片格式： jpg<br>需要密码</p>
+<h2 id="zsteg"><a href="#zsteg" class="headerlink" title="zsteg"></a><strong>zsteg</strong></h2><p>1.查看lsb数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zsteg xxx.bmp</span><br><span class="line">zsteg xxx.png</span><br><span class="line">zsteg -a (文件名)    #查看各个通道的lsb</span><br></pre></td></tr></table></figure>
+
+<p>2.检测zlib</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#-b的位数是从1开始的</span><br><span class="line">zsteg zlib.bmp -b 1 -o xy -v</span><br></pre></td></tr></table></figure>
+
+<p>3.提取该通道图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsteg -e b8,a,lsb,xy 文件.png -&gt; out.png</span><br></pre></td></tr></table></figure>
+
+<h2 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a><strong>LSB</strong></h2><p>LSB隐写(只有文件类型为PNG和BMP的无损压缩文件才可以用LSB隐写)</p>
+<p>需要用到stegsolve工具和jave的运行环境。</p>
+<p>而LSB隐写就是修改RGB颜色分量的最低二进制位也就是最低有效位（LSB），而人类的眼睛不会注意到这前后的变化，（人类的眼睛只能识别一部分颜色的变化）</p>
+<p>分析是否有可能是LSB隐写，我们开始点击下面的按钮，切换到不同通道，我们逐渐对比不同通道我们所看到的图片是怎么样子的。<br><img src="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/1.png"><br><img src="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/2.png"><br>我们发现在Red plane0和Greee plane 0以及B略 plane 0出现了相同的异常情况，我们这里基本可以断定就是LSB隐写了<br>这里有两种方法</p>
+<ol>
+<li>利用Stegsolve的Data Extract功能提取出最小位的RGB</li>
+<li>利用python脚本来提取最小位的RGB<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line"></span><br><span class="line">im &#x3D; Image.open(&quot;extracted.bmp&quot;)</span><br><span class="line">pix &#x3D; im.load()</span><br><span class="line">width, height &#x3D; im.size</span><br><span class="line"></span><br><span class="line">extracted_bits &#x3D; []</span><br><span class="line">for y in range(height):</span><br><span class="line">    for x in range(width):</span><br><span class="line">        r, g, b &#x3D; pix[(x,y)]</span><br><span class="line">        extracted_bits.append(r &amp; 1)</span><br><span class="line">        extracted_bits.append(g &amp; 1)</span><br><span class="line">        extracted_bits.append(b &amp; 1)</span><br><span class="line"></span><br><span class="line">extracted_byte_bits &#x3D; [extracted_bits[i:i+8] for i in range(0, len(extracted_bits), 8)]</span><br><span class="line">with open(&quot;extracted2.bmp&quot;, &quot;wb&quot;) as out:</span><br><span class="line">    for byte_bits in extracted_byte_bits:</span><br><span class="line">        byte_str &#x3D; &#39;&#39;.join(str(x) for x in byte_bits)</span><br><span class="line">        byte &#x3D; chr(int(byte_str, 2))</span><br><span class="line">        out.write(byte)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+<h2 id="Stegsolve"><a href="#Stegsolve" class="headerlink" title="Stegsolve"></a><strong>Stegsolve</strong></h2><p>常用图片隐写lsb工具</p>
+<h2 id="wbStego4open"><a href="#wbStego4open" class="headerlink" title="wbStego4open"></a><strong>wbStego4open</strong></h2><p>可以需要密码</p>
+<h2 id="pngcheck"><a href="#pngcheck" class="headerlink" title="pngcheck"></a><strong>pngcheck</strong></h2><p>pngcheck可以验证PNG图片的完整性（通过检查内部CRC-32校验和&bra;比特&ket;)和解压缩图像数据；<br>它能够转储几乎所有任选的块级别信息在该图像中的可读数据。<br>我们使用pngcheck -v hidden.png 如此的命令对图片进行检测 使用pngcheck对图片进行检测</p>
+<h2 id="identify"><a href="#identify" class="headerlink" title="identify"></a><strong>identify</strong></h2><p>identify命令主要用于获取一个或多个图像文件的格式和特性。<br>基本的命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">identify [options] input-file</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">identify:命令名称</span><br><span class="line">options:参数</span><br><span class="line">input-file:文件名</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@server1 download]# identify vim.jpg </span><br><span class="line">vim.jpg JPEG 1306x1909 1306x1909+0+0 8-bit DirectClass 454KB 0.000u 0:00.000</span><br><span class="line"> </span><br><span class="line">[root@server1 download]# identify -verbose vim.jpg </span><br><span class="line">Image: vim.jpg</span><br><span class="line">  Format: JPEG (Joint Photographic Experts Group JFIF format)</span><br><span class="line">  Class: DirectClass</span><br><span class="line">  Geometry: 1306x1909+0+0</span><br><span class="line">  Resolution: 72x72</span><br><span class="line">  Print size: 18.1389x26.5139</span><br><span class="line">  Units: PixelsPerInch</span><br><span class="line">  Type: TrueColor</span><br><span class="line">  Endianess: Undefined</span><br><span class="line">  Colorspace: sRGB</span><br><span class="line">  Depth: 8-bit</span><br><span class="line"> </span><br><span class="line">#-verbose是显示图片文件的详细内容，更多的参数，可以通过man identify来获取。</span><br></pre></td></tr></table></figure>
+
+<h2 id="free-file-camouflage"><a href="#free-file-camouflage" class="headerlink" title="free_file_camouflage"></a><strong>free_file_camouflage</strong></h2><p>可以需要密码</p>
+<h2 id="oursecret"><a href="#oursecret" class="headerlink" title="oursecret"></a><strong>oursecret</strong></h2><p>需要密码</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-misc总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/10/31/misc%E6%80%BB%E7%BB%93/" class="article-date">
+      <time datetime="2020-10-31T09:28:56.000Z" itemprop="datePublished">2020-10-31</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/31/misc%E6%80%BB%E7%BB%93/">misc总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="套路总结"><a href="#套路总结" class="headerlink" title="套路总结"></a><strong>套路总结</strong></h1><blockquote>
+<p><strong>图片隐写</strong>,<strong>音频隐写</strong>,<strong>压缩包破解</strong>,<strong>补齐文件头尾</strong>,<strong>各种编码</strong>,</p>
+</blockquote>
+<h1 id="工具总结"><a href="#工具总结" class="headerlink" title="工具总结"></a><strong>工具总结</strong></h1><blockquote>
+<p><strong>foremost</strong>, <strong>binwalk</strong>, <strong>steghide</strong>, <strong>strings</strong>, <strong>steghide</strong>, <strong>outguess</strong>, <strong>tree</strong>, <strong>F5</strong>,</p>
+</blockquote>
+<blockquote>
+<p><strong>ziperello</strong>, <strong>stegsolve</strong>, <strong>winhex</strong>, <strong>ARCHPR</strong>, <strong>wireshark</strong>, <strong>audacity</strong>, <strong>jd-gui</strong>, <strong>museScore</strong>, <strong>sileneye</strong>, </p>
+</blockquote>
+<h1 id="信息隐藏方法"><a href="#信息隐藏方法" class="headerlink" title="信息隐藏方法"></a><strong>信息隐藏方法</strong></h1><blockquote>
+<p>   <strong>十六进制中</strong>, <strong>图片隐写</strong>, <strong>strings</strong>, </p>
+</blockquote>
+<h1 id="文件头文件尾总结"><a href="#文件头文件尾总结" class="headerlink" title="文件头文件尾总结"></a><strong>文件头文件尾总结</strong></h1><table>
+<thead>
+<tr>
+<th>文件</th>
+<th align="center">文件头</th>
+<th align="right">文件尾</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JPEG (jpg)</td>
+<td align="center">文件头：FFD8FF</td>
+<td align="right">文件尾：FF D9</td>
+</tr>
+<tr>
+<td>PNG (png)</td>
+<td align="center">文件头：89504E47</td>
+<td align="right">文件尾：AE 42 60 82</td>
+</tr>
+<tr>
+<td>GIF (gif)</td>
+<td align="center">文件头：47494638</td>
+<td align="right">文件尾：00 3B</td>
+</tr>
+<tr>
+<td>ZIP Archive (zip)</td>
+<td align="center">文件头：504B0304</td>
+<td align="right">文件尾：50 4B</td>
+</tr>
+<tr>
+<td>TIFF (tif)</td>
+<td align="center">文件头：49492A00</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Windows Bitmap (bmp)</td>
+<td align="center">文件头：424D</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>CAD (dwg)</td>
+<td align="center">文件头：41433130</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Adobe Photoshop (psd)</td>
+<td align="center">文件头：38425053</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Rich Text Format (rtf)</td>
+<td align="center">文件头：7B5C727466</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>XML (xml)</td>
+<td align="center">文件头：3C3F786D6C</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>HTML (html)</td>
+<td align="center">文件头：68746D6C3E</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Email [thorough only] (eml)</td>
+<td align="center">文件头：44656C69766572792D646174653A</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Outlook Express (dbx)</td>
+<td align="center">文件头：CFAD12FEC5FD746F</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Outlook (pst)</td>
+<td align="center">文件头：2142444E</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>MS Word/Excel (xls.or.doc)</td>
+<td align="center">文件头：D0CF11E0</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>MS Access (mdb)</td>
+<td align="center">文件头：5374616E64617264204A</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>WordPerfect (wpd)</td>
+<td align="center">文件头：FF575043</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Adobe Acrobat (pdf)</td>
+<td align="center">文件头：255044462D312E</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Quicken (qdf)</td>
+<td align="center">文件头：AC9EBD8F</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Windows Password (pwl)</td>
+<td align="center">文件头：E3828596</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>RAR Archive (rar)</td>
+<td align="center">文件头：52617221</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Wave (wav)</td>
+<td align="center">文件头：57415645</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>AVI (avi)</td>
+<td align="center">文件头：41564920</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Real Audio (ram)</td>
+<td align="center">文件头：2E7261FD</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Real Media (rm)</td>
+<td align="center">文件头：2E524D46</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>MPEG (mpg)</td>
+<td align="center">文件头：000001BA</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>MPEG (mpg)</td>
+<td align="center">文件头：000001B3</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Quicktime (mov)</td>
+<td align="center">文件头：6D6F6F76</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>Windows Media (asf)</td>
+<td align="center">文件头：3026B2758E66CF11</td>
+<td align="right">文件尾：</td>
+</tr>
+<tr>
+<td>MIDI (mid)</td>
+<td align="center">文件头：4D546864</td>
+<td align="right">文件尾：</td>
+</tr>
+</tbody></table>
+<h1 id="图片隐写"><a href="#图片隐写" class="headerlink" title="图片隐写"></a><strong>图片隐写</strong></h1><blockquote>
+<p>工具; <strong>winhex</strong>, <strong>stegsolve</strong>, <strong>foremost</strong>, <strong>binwalk</strong>, <strong>steghide</strong>, <strong>ps</strong>, <strong>zsteg</strong>, <strong>F5</strong>,<br>套路; <strong>藏于16进制</strong>, <strong>属性</strong>, <strong>修改大小</strong>, <strong>隐藏文件</strong>, <strong>动态藏于某帧</strong>, <strong>LSB隐写</strong>, </p>
+</blockquote>
+<h2 id="属性藏信息"><a href="#属性藏信息" class="headerlink" title="属性藏信息"></a>属性藏信息</h2><p>一般属性得到编码去解<br><img src="/2020/10/31/misc%E6%80%BB%E7%BB%93/010102.png" alt="图片"></p>
+<h2 id="zsteg的使用方法"><a href="#zsteg的使用方法" class="headerlink" title="zsteg的使用方法"></a><strong>zsteg的使用方法</strong></h2><p>查看帮助</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsteg -h</span><br></pre></td></tr></table></figure>
+<p>查看LSB信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsteg pcat.png</span><br></pre></td></tr></table></figure>
+<p>检测zlib</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># -b的位数是从1开始的</span><br><span class="line">zsteg zlib.bmp -b 1 -o xy -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="stegsolve"><a href="#stegsolve" class="headerlink" title="stegsolve"></a><strong>stegsolve</strong></h2><p>File Format: 文件格式，这个主要是查看图片的具体信息</p>
+<p>Data Extract: 数据抽取，图片中隐藏数据的抽取</p>
+<p>Frame Browser: 帧浏览器，主要是对GIF之类的动图进行分解，动图变成一张张图片，便于查看</p>
+<p>Image Combiner: 拼图，图片拼接<br>LSB隐写（也可能将文件用LSB隐藏）<br><img src="/2020/10/31/misc%E6%80%BB%E7%BB%93/010101.png" alt="图片"></p>
+<h2 id="steghide"><a href="#steghide" class="headerlink" title="steghide"></a><strong>steghide</strong></h2><p> <strong>加密</strong>  </p>
+<p>将flag.txt文件隐藏到ctf.jpg中<br>steghide embed -cf out.jpg -ef flag.txt [-p 123456] </p>
+<blockquote>
+<p>-p 接密码，可无<br> <strong>解密</strong><br>查看文件中嵌入的信息</p>
+</blockquote>
+<p>steghide info out.jpg<br>提取含有密码的隐藏内容   </p>
+<p>steghide extract -sf out.jpg -p 123456<br>提取不含有密码的隐藏内容<br>steghide extract -sf out.jpg</p>
+<h2 id="Binwalk"><a href="#Binwalk" class="headerlink" title="Binwalk"></a><strong>Binwalk</strong></h2><p> <strong>获取帮助</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -h</span><br><span class="line">$ binwalk -help</span><br></pre></td></tr></table></figure>
+<p> <strong>固件扫描</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk firmware.bin </span><br></pre></td></tr></table></figure>
+<p> <strong>提取文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 使用默认的预定义配置文件</span><br><span class="line">$ binwalk -e firmware,bin</span><br><span class="line"></span><br><span class="line"> 使用指定自定义的配置文件my_extract.conf</span><br><span class="line">$ binwalk --extract&#x3D;.&#x2F;my.extract.conf firmware.bin</span><br></pre></td></tr></table></figure>
+
+
+<p> <strong>过滤选项</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -y filesystem firmware,bin </span><br><span class="line">$ binwalk -x &#96;mach-o&#96; -x &#96;^hp&#96; firmware.bin </span><br></pre></td></tr></table></figure>
+<p> <strong>显示完整的扫描结果</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -I firmware.bin</span><br></pre></td></tr></table></figure>
+<p> <strong>文件比较</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -w firmware.bin firmware2.bin firmware3.bin</span><br><span class="line">$ binwalk -w --block&#x3D;8 --length&#x3D;64 firmware.bin firmware2,bin</span><br></pre></td></tr></table></figure>
+<p> <strong>日志记录</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -f binwalk.log -q firmware.bin</span><br><span class="line">$ binwalk -f binwalk.log --csv firmware.bin</span><br></pre></td></tr></table></figure>
+<p> <strong>指令系统分析</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -A firmware.bin</span><br></pre></td></tr></table></figure>
+<p> <strong>熵分析</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -E firmware.bin</span><br></pre></td></tr></table></figure>
+<p> <strong>启动式分析</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -E firmware.bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="outguess"><a href="#outguess" class="headerlink" title="outguess"></a><strong>outguess</strong></h2><p> <strong>加密：</strong></p>
+<p> outguess -k “my secret key” -d hidden.txt demo.jpg out.jpg</p>
+<p> 加密之后，demo.jpg会覆盖out.jpg, </p>
+<p> hidden.txt中的内容是要隐藏的东西</p>
+<p> <strong>解密：</strong></p>
+<p> outguess -k “my secret key” -r out.jpg hidden.txt</p>
+<p> 解密之后，解密内容放在hidden.txt中</p>
+<h1 id="简单编码"><a href="#简单编码" class="headerlink" title="简单编码"></a><strong>简单编码</strong></h1><h1 id="emoji总结"><a href="#emoji总结" class="headerlink" title="emoji总结"></a><strong>emoji总结</strong></h1><h1 id="音频隐写总结"><a href="#音频隐写总结" class="headerlink" title="音频隐写总结"></a><strong>音频隐写总结</strong></h1><h1 id="压缩包加密"><a href="#压缩包加密" class="headerlink" title="压缩包加密"></a><strong>压缩包加密</strong></h1><blockquote>
+<p>工具; <strong>winhex</strong>, <strong>ziperello</strong>, <strong>ARCHPR</strong>,<br>套路; <strong>暴力破解</strong>, <strong>CRC碰撞</strong>, <strong>密码藏于别处</strong>, <strong>伪加密</strong>, <strong>补齐文件</strong>, <strong>明文攻击</strong>，</p>
+</blockquote>
+<h1 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a><strong>流量分析</strong></h1><blockquote>
+<p>工具; <strong>wireshark</strong>,<br>方法; <strong>追踪流</strong>, <strong>搜线索</strong>, </p>
+</blockquote>
 
       
     </div>
