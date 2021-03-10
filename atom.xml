@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-09T05:08:30.604Z</updated>
+  <updated>2021-03-10T05:09:27.092Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>BUU14</title>
+    <link href="http://example.com/2021/03/10/BUU14/"/>
+    <id>http://example.com/2021/03/10/BUU14/</id>
+    <published>2021-03-10T00:39:09.000Z</published>
+    <updated>2021-03-10T05:09:27.092Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="GWCTF2019-huyao"><a href="#GWCTF2019-huyao" class="headerlink" title="[GWCTF2019]huyao"></a><strong>[GWCTF2019]huyao</strong></h1><p>下载得到两个肉眼看着一样的图片 盲猜盲水印<br>用github上那个最常见的脚本和stegsolve没用<br>用1的脚本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python decode.py --original huyao.png --image stillhuyao.png --result res.png</span><br></pre></td></tr></table></figure><p><img src="/2021/03/10/BUU14/1.png"></p><h1 id="GUET-CTF2019-soul-sipse"><a href="#GUET-CTF2019-soul-sipse" class="headerlink" title="[GUET-CTF2019]soul sipse"></a><strong>[GUET-CTF2019]soul sipse</strong></h1><p>这里是音频隐写，用steghide解密<br><img src="/2021/03/10/BUU14/2.png"><br>修改下载得到的png文件头，使其可以打开<br><img src="/2021/03/10/BUU14/3.png"><br>Unicode编码<br><img src="/2021/03/10/BUU14/4.png"><br>解出来两个数字<br><img src="/2021/03/10/BUU14/5.png"><br>相加即为flag<br><img src="/2021/03/10/BUU14/6.png"></p><hr><hr><hr><h1 id="UTCTF2020-sstv"><a href="#UTCTF2020-sstv" class="headerlink" title="[UTCTF2020]sstv"></a><strong>[UTCTF2020]sstv</strong></h1><p><strong>慢扫描电视（SSTV）</strong></p><p>慢扫描电视（Slow-scan television）是业余无线电爱好者的一种主要图片传输方法，慢扫描电视通过无线电传输和接收单色或彩色静态图片。<br><img src="/2021/03/10/BUU14/8.png"><br>使用QSSTV将慢速扫描电视传输(SSTV)音频文件转换(解码)为图像<br><img src="/2021/03/10/BUU14/7.png"></p><hr><hr><hr><h1 id="UTCTF2020-spectogram"><a href="#UTCTF2020-spectogram" class="headerlink" title="[UTCTF2020]spectogram"></a><strong>[UTCTF2020]spectogram</strong></h1><p>用Audacity打开wav，看频谱图。<br><img src="/2021/03/10/BUU14/9.png"></p><hr><hr><hr><h1 id="UTCTF2020-File-Carving"><a href="#UTCTF2020-File-Carving" class="headerlink" title="[UTCTF2020]File Carving"></a><strong>[UTCTF2020]File Carving</strong></h1><p>foremost分离后得到一个压缩包<br>运行压缩包中hidden_binary得到flag</p><p><img src="/2021/03/10/BUU14/10.png"><br>（strings命令也可得到）</p><hr><hr><hr><h1 id="python-我爱Linux"><a href="#python-我爱Linux" class="headerlink" title="python 我爱Linux"></a><strong>python 我爱Linux</strong></h1><p>Python Picke序列化内容<br>然后打印坐标</p><hr><hr><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;GWCTF2019-huyao&quot;&gt;&lt;a href=&quot;#GWCTF2019-huyao&quot; class=&quot;headerlink&quot; title=&quot;[GWCTF2019]huyao&quot;&gt;&lt;/a&gt;&lt;strong&gt;[GWCTF2019]huyao&lt;/strong&gt;&lt;/h1&gt;&lt;p</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>BUU13</title>
     <link href="http://example.com/2021/03/09/BUU13/"/>
     <id>http://example.com/2021/03/09/BUU13/</id>
     <published>2021-03-09T03:33:45.000Z</published>
-    <updated>2021-03-09T05:08:30.604Z</updated>
+    <updated>2021-03-10T00:38:24.861Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="wireshark-voip"><a href="#wireshark-voip" class="headerlink" title="wireshark voip"></a><strong>wireshark voip</strong></h1><hr><hr><hr><h1 id="UTCTF2020-zero"><a href="#UTCTF2020-zero" class="headerlink" title="[UTCTF2020]zero"></a><strong>[UTCTF2020]zero</strong></h1><p>一个文本文件 刚开始以为类似凯撒之类的 ，用自己写的脚本跑出来奇奇怪怪的结果<br>放cyberchef 贴进去就可以看到很多点 猜测零宽字节<br><img src="/2021/03/09/BUU13/2.png"><br>应该是零字节解密： <a href="http://330k.github.io/misc_tools/unicode_steganography.html">http://330k.github.io/misc_tools/unicode_steganography.html</a><br><img src="/2021/03/09/BUU13/3.png"><br>得到flag</p><hr><hr><hr><h1 id="QCTF2018-X-man-A-face"><a href="#QCTF2018-X-man-A-face" class="headerlink" title="[QCTF2018]X-man-A face"></a><strong>[QCTF2018]X-man-A face</strong></h1><p>补全二维码得到一串base32字符<br><img src="/2021/03/09/BUU13/3.png"><br>解码得到flag<br><img src="/2021/03/09/BUU13/4.png"></p><hr><hr><hr><h1 id="Business-Planning-Group"><a href="#Business-Planning-Group" class="headerlink" title="Business Planning Group"></a><strong>Business Planning Group</strong></h1><p>winhex打开在结尾找到bpg图片<br><img src="/2021/03/09/BUU13/5.png"><br>在网上搜了一下，这种bpg图片可以用Honeyview打开<br><img src="/2021/03/09/BUU13/6.png"><br>解码base64得到flag</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;BPG_i5_b3tt3r_7h4n_JPG&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="ACTF新生赛2020-剑龙"><a href="#ACTF新生赛2020-剑龙" class="headerlink" title="[ACTF新生赛2020]剑龙"></a><strong>[ACTF新生赛2020]剑龙</strong></h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="wireshark-voip"><a href="#wireshark-voip" class="headerlink" title="wireshark voip"></a><strong>wireshark voip</strong></h1><hr><hr><hr><h1 id="UTCTF2020-zero"><a href="#UTCTF2020-zero" class="headerlink" title="[UTCTF2020]zero"></a><strong>[UTCTF2020]zero</strong></h1><p>一个文本文件 刚开始以为类似凯撒之类的 ，用自己写的脚本跑出来奇奇怪怪的结果<br>放cyberchef 贴进去就可以看到很多点 猜测零宽字节<br><img src="/2021/03/09/BUU13/2.png"><br>应该是零字节解密： <a href="http://330k.github.io/misc_tools/unicode_steganography.html">http://330k.github.io/misc_tools/unicode_steganography.html</a><br><img src="/2021/03/09/BUU13/3.png"><br>得到flag</p><hr><hr><hr><h1 id="QCTF2018-X-man-A-face"><a href="#QCTF2018-X-man-A-face" class="headerlink" title="[QCTF2018]X-man-A face"></a><strong>[QCTF2018]X-man-A face</strong></h1><p>补全二维码得到一串base32字符<br><img src="/2021/03/09/BUU13/3.png"><br>解码得到flag<br><img src="/2021/03/09/BUU13/4.png"></p><hr><hr><hr><h1 id="Business-Planning-Group"><a href="#Business-Planning-Group" class="headerlink" title="Business Planning Group"></a><strong>Business Planning Group</strong></h1><p>winhex打开在结尾找到bpg图片<br><img src="/2021/03/09/BUU13/5.png"><br>在网上搜了一下，这种bpg图片可以用Honeyview打开<br><img src="/2021/03/09/BUU13/6.png"><br>解码base64得到flag</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;BPG_i5_b3tt3r_7h4n_JPG&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="ACTF新生赛2020-剑龙"><a href="#ACTF新生赛2020-剑龙" class="headerlink" title="[ACTF新生赛2020]剑龙"></a><strong>[ACTF新生赛2020]剑龙</strong></h1><p>打开后发现有一个hint<br><img src="/2021/03/09/BUU13/7.png"><br>先将pwd解密<br><img src="/2021/03/09/BUU13/8.png"><br>steghide将图片解密<br><img src="/2021/03/09/BUU13/9.png"><br>des加密，密钥藏在属性里<br><img src="/2021/03/09/BUU13/10.png"><br>揭秘得到要用stegsaurus<br><img src="/2021/03/09/BUU13/11.png"><br>这里搞不出来了<br><img src="/2021/03/09/BUU13/12.png"></p>]]></content>
     
     
       
@@ -373,26 +393,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;hit-the-core&quot;&gt;&lt;a href=&quot;#hit-the-core&quot; class=&quot;headerlink&quot; title=&quot;hit-the-core&quot;&gt;&lt;/a&gt;&lt;strong&gt;hit-the-core&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;strings查看字符串，</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>西南石油大学[智仁杯]MISC</title>
-    <link href="http://example.com/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/"/>
-    <id>http://example.com/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/</id>
-    <published>2020-12-06T05:22:13.000Z</published>
-    <updated>2020-12-07T11:52:26.600Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a><strong>misc</strong></h1><h2 id="耗子尾汁"><a href="#耗子尾汁" class="headerlink" title="耗子尾汁"></a><strong>耗子尾汁</strong></h2><p>题目<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010101.png" alt="图片"><br>使用foremost分解得到一个压缩包，里面有一个mp4<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010102.png" alt="图片"><br>mp4中，藏了可疑字符，<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010103.png" alt="图片"><br>再次foremost分解mp4，的要一个加密压缩包，此字符base64解码后，为该压缩包密码<br>打开压缩包的txt，发现一串字符和最后一步的提示。<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010104.png" alt="图片"><br>由于题目已经把单词长度给出，先把能猜的猜出来，大概就是这样<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010106.jpg" alt="图片"><br>用在线工具把剩余的解出来<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010105.png" alt="图片"></p><h2 id="套娃"><a href="#套娃" class="headerlink" title="套娃"></a><strong>套娃</strong></h2><p>此文件持续在xinhex中打开，全是zip文件，开到最后的密钥txt需要密码，另外一个zip的winhex中有一段password，<br>用password拿到密钥<br>大致过程如下<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010201.png" alt="图片"><br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010202.png" alt="图片"><br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010203.png" alt="图片"><br>在线RC4得到flag<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010204.png" alt="图片"></p><h2 id="找找吧"><a href="#找找吧" class="headerlink" title="找找吧"></a><strong>找找吧</strong></h2><p>找找吧</p><ol><li>下载得到压缩包 find.rar</li><li>在压缩包的末尾找到内容，key is PPPaAaS</li><li>解压压缩包得到文件 findme.mp3 和 secret.rar 文件</li><li>修改 findme.mp3 文件名为 findme.zip，解压得到采茶纪.mp3 和哈哈哈.png 文件</li><li>发现采茶纪.mp3 末尾有一段莫斯密码，听取并记录</li><li>得到：-.. ….- …– —-. -…. …– . —-. ..— -… —– .—- ..— .- .- -…</li><li>解密得到：D43963E92B012AAB</li><li>在 <a href="https://www.somd5.com/">https://www.somd5.com/</a> 上搜索得到解密结果：n1ce_try</li><li>解压压缩包得到 hint.png 和 is_this_the_flag.gif 文件</li><li>提取 gif 文件中的每一帧，发现有一帧中有内容：bFyd_W1l3_Cah</li><li>修改 hint.png 的长度，发现提示 Veni,Vidi,Vici，百度搜索得到此内容意思为凯撒。</li><li>对 bFyd_W1l3_Cah 依次进行移位，解密得到：sWpu_N1c3_Try</li><li>flag{sWpu_N1c3_Try}</li></ol><h2 id="来猜迷了"><a href="#来猜迷了" class="headerlink" title="来猜迷了"></a><strong>来猜迷了</strong></h2><p>开局一张图problem.png</p><p>考虑lsb隐写</p><p>stegsolve提取</p><p><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/2012071.png" alt="图片"></p><p>保存成zip文件</p><p>得到mi.jpg和一个uuu.pcap</p><p>uuu.pcap键盘流量解密下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;CAP&gt;ag&lt;SPACE&gt;dx&lt;SPACE&gt;ag&lt;SPACE&gt;dx&lt;SPACE&gt;ag&lt;SPACE&gt;dx</span><br></pre></td></tr></table></figure><p>这里卡了有点久，只有AGDX四个字母</p><blockquote><p>ADFGX解密<br><a href="https://xz.aliyun.com/t/3603">https://xz.aliyun.com/t/3603</a></p></blockquote><p><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/2012072.png" alt="图片"></p><blockquote><p>AGDXAGDXAGDX-&gt;gogogo<br>直接对着表解密</p></blockquote><p>看题面来猜谜了有点outguess的意思</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outguess -k gogogo -r mi.jpg 1.txt</span><br></pre></td></tr></table></figure><p>flag{Out9uEsS_1s_V4rY_e4sy}</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;misc&quot;&gt;&lt;a href=&quot;#misc&quot; class=&quot;headerlink&quot; title=&quot;misc&quot;&gt;&lt;/a&gt;&lt;strong&gt;misc&lt;/strong&gt;&lt;/h1&gt;&lt;h2 id=&quot;耗子尾汁&quot;&gt;&lt;a href=&quot;#耗子尾汁&quot; class=&quot;headerlink&quot;</summary>
       
     
     

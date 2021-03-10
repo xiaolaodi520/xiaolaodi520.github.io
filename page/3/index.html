@@ -265,6 +265,99 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="2020/12-西南石油大学-智仁杯-MISC" class="article article-type-2020/12" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/" class="article-date">
+      <time datetime="2020-12-06T05:22:13.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/">西南石油大学[智仁杯]MISC</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a><strong>misc</strong></h1><h2 id="耗子尾汁"><a href="#耗子尾汁" class="headerlink" title="耗子尾汁"></a><strong>耗子尾汁</strong></h2><p>题目<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010101.png" alt="图片"><br>使用foremost分解得到一个压缩包，里面有一个mp4<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010102.png" alt="图片"><br>mp4中，藏了可疑字符，<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010103.png" alt="图片"><br>再次foremost分解mp4，的要一个加密压缩包，此字符base64解码后，为该压缩包密码<br>打开压缩包的txt，发现一串字符和最后一步的提示。<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010104.png" alt="图片"><br>由于题目已经把单词长度给出，先把能猜的猜出来，大概就是这样<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010106.jpg" alt="图片"><br>用在线工具把剩余的解出来<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010105.png" alt="图片"></p>
+<h2 id="套娃"><a href="#套娃" class="headerlink" title="套娃"></a><strong>套娃</strong></h2><p>此文件持续在xinhex中打开，全是zip文件，开到最后的密钥txt需要密码，另外一个zip的winhex中有一段password，<br>用password拿到密钥<br>大致过程如下<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010201.png" alt="图片"><br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010202.png" alt="图片"><br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010203.png" alt="图片"><br>在线RC4得到flag<br><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/010204.png" alt="图片"></p>
+<h2 id="找找吧"><a href="#找找吧" class="headerlink" title="找找吧"></a><strong>找找吧</strong></h2><p>找找吧</p>
+<ol>
+<li>下载得到压缩包 find.rar</li>
+<li>在压缩包的末尾找到内容，key is PPPaAaS</li>
+<li>解压压缩包得到文件 findme.mp3 和 secret.rar 文件</li>
+<li>修改 findme.mp3 文件名为 findme.zip，解压得到采茶纪.mp3 和哈哈哈.png 文件</li>
+<li>发现采茶纪.mp3 末尾有一段莫斯密码，听取并记录</li>
+<li>得到：-.. ….- …– —-. -…. …– . —-. ..— -… —– .—- ..— .- .- -…</li>
+<li>解密得到：D43963E92B012AAB</li>
+<li>在 <a target="_blank" rel="noopener" href="https://www.somd5.com/">https://www.somd5.com/</a> 上搜索得到解密结果：n1ce_try</li>
+<li>解压压缩包得到 hint.png 和 is_this_the_flag.gif 文件</li>
+<li>提取 gif 文件中的每一帧，发现有一帧中有内容：bFyd_W1l3_Cah</li>
+<li>修改 hint.png 的长度，发现提示 Veni,Vidi,Vici，百度搜索得到此内容意思为凯撒。</li>
+<li>对 bFyd_W1l3_Cah 依次进行移位，解密得到：sWpu_N1c3_Try</li>
+<li>flag{sWpu_N1c3_Try}</li>
+</ol>
+<h2 id="来猜迷了"><a href="#来猜迷了" class="headerlink" title="来猜迷了"></a><strong>来猜迷了</strong></h2><p>开局一张图problem.png</p>
+<p>考虑lsb隐写</p>
+<p>stegsolve提取</p>
+<p><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/2012071.png" alt="图片"></p>
+<p>保存成zip文件</p>
+<p>得到mi.jpg和一个uuu.pcap</p>
+<p>uuu.pcap键盘流量解密下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;CAP&gt;ag&lt;SPACE&gt;dx&lt;SPACE&gt;ag&lt;SPACE&gt;dx&lt;SPACE&gt;ag&lt;SPACE&gt;dx</span><br></pre></td></tr></table></figure>
+
+<p>这里卡了有点久，只有AGDX四个字母</p>
+<blockquote>
+<p>ADFGX解密<br><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/3603">https://xz.aliyun.com/t/3603</a></p>
+</blockquote>
+<p><img src="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/2012072.png" alt="图片"></p>
+<blockquote>
+<p>AGDXAGDXAGDX-&gt;gogogo<br>直接对着表解密</p>
+</blockquote>
+<p>看题面来猜谜了有点outguess的意思</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outguess -k gogogo -r mi.jpg 1.txt</span><br></pre></td></tr></table></figure>
+<p>flag{Out9uEsS_1s_V4rY_e4sy}</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -946,7 +1039,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">加密：  outguess -k &quot;my secret key&quot; -d hidden.txt demo.jpg out.jpg</span><br><span class="line">解密：  outguess -k &quot;my secret key&quot; -r out.jpg hidden.txt</span><br></pre></td></tr></table></figure>
 
 <p> 加密:demo.jpg会覆盖out.jpg, hidden.txt中的内容是要隐藏的东西<br> 解密:解密内容放在hidden.txt中</p>
-<h2 id="steghide"><a href="#steghide" class="headerlink" title="steghide"></a><strong>steghide</strong></h2><p>图片格式： jpg<br>用法： </p>
+<h2 id="steghide"><a href="#steghide" class="headerlink" title="steghide"></a><strong>steghide</strong></h2><p>图片格式： jpg  wav<br>用法： </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">将secret.txt文件隐藏到text.jpg中：</span><br><span class="line"># steghide embed -cf test.jpg -ef secret.txt -p 123456</span><br><span class="line"></span><br><span class="line">从text.jpg解出secret.txt:</span><br><span class="line">#steghide extract -sf test.jpg -p 123456</span><br></pre></td></tr></table></figure>
 <p>Steghide爆破密码1：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#bruteStegHide.sh </span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">for line in &#96;cat $2&#96;;do</span><br><span class="line">    steghide extract -sf $1 -p $line &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1</span><br><span class="line">    if [[ $? -eq 0 ]];then</span><br><span class="line">        echo &#39;password is: &#39;$line</span><br><span class="line">        exit</span><br><span class="line">    fi  </span><br><span class="line">done </span><br></pre></td></tr></table></figure>

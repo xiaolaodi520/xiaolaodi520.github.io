@@ -265,6 +265,86 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-BUU14" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/03/10/BUU14/" class="article-date">
+      <time datetime="2021-03-10T00:39:09.000Z" itemprop="datePublished">2021-03-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/10/BUU14/">BUU14</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="GWCTF2019-huyao"><a href="#GWCTF2019-huyao" class="headerlink" title="[GWCTF2019]huyao"></a><strong>[GWCTF2019]huyao</strong></h1><p>下载得到两个肉眼看着一样的图片 盲猜盲水印<br>用github上那个最常见的脚本和stegsolve没用<br>用1的脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python decode.py --original huyao.png --image stillhuyao.png --result res.png</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/10/BUU14/1.png"></p>
+<h1 id="GUET-CTF2019-soul-sipse"><a href="#GUET-CTF2019-soul-sipse" class="headerlink" title="[GUET-CTF2019]soul sipse"></a><strong>[GUET-CTF2019]soul sipse</strong></h1><p>这里是音频隐写，用steghide解密<br><img src="/2021/03/10/BUU14/2.png"><br>修改下载得到的png文件头，使其可以打开<br><img src="/2021/03/10/BUU14/3.png"><br>Unicode编码<br><img src="/2021/03/10/BUU14/4.png"><br>解出来两个数字<br><img src="/2021/03/10/BUU14/5.png"><br>相加即为flag<br><img src="/2021/03/10/BUU14/6.png"></p>
+<hr>
+<hr>
+<hr>
+<h1 id="UTCTF2020-sstv"><a href="#UTCTF2020-sstv" class="headerlink" title="[UTCTF2020]sstv"></a><strong>[UTCTF2020]sstv</strong></h1><p><strong>慢扫描电视（SSTV）</strong></p>
+<p>慢扫描电视（Slow-scan television）是业余无线电爱好者的一种主要图片传输方法，慢扫描电视通过无线电传输和接收单色或彩色静态图片。<br><img src="/2021/03/10/BUU14/8.png"><br>使用QSSTV将慢速扫描电视传输(SSTV)音频文件转换(解码)为图像<br><img src="/2021/03/10/BUU14/7.png"></p>
+<hr>
+<hr>
+<hr>
+<h1 id="UTCTF2020-spectogram"><a href="#UTCTF2020-spectogram" class="headerlink" title="[UTCTF2020]spectogram"></a><strong>[UTCTF2020]spectogram</strong></h1><p>用Audacity打开wav，看频谱图。<br><img src="/2021/03/10/BUU14/9.png"></p>
+<hr>
+<hr>
+<hr>
+<h1 id="UTCTF2020-File-Carving"><a href="#UTCTF2020-File-Carving" class="headerlink" title="[UTCTF2020]File Carving"></a><strong>[UTCTF2020]File Carving</strong></h1><p>foremost分离后得到一个压缩包<br>运行压缩包中hidden_binary得到flag</p>
+<p><img src="/2021/03/10/BUU14/10.png"><br>（strings命令也可得到）</p>
+<hr>
+<hr>
+<hr>
+<h1 id="python-我爱Linux"><a href="#python-我爱Linux" class="headerlink" title="python 我爱Linux"></a><strong>python 我爱Linux</strong></h1><p>Python Picke序列化内容<br>然后打印坐标</p>
+<hr>
+<hr>
+<hr>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-BUU13" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -310,7 +390,8 @@
 <hr>
 <hr>
 <hr>
-<h1 id="ACTF新生赛2020-剑龙"><a href="#ACTF新生赛2020-剑龙" class="headerlink" title="[ACTF新生赛2020]剑龙"></a><strong>[ACTF新生赛2020]剑龙</strong></h1>
+<h1 id="ACTF新生赛2020-剑龙"><a href="#ACTF新生赛2020-剑龙" class="headerlink" title="[ACTF新生赛2020]剑龙"></a><strong>[ACTF新生赛2020]剑龙</strong></h1><p>打开后发现有一个hint<br><img src="/2021/03/09/BUU13/7.png"><br>先将pwd解密<br><img src="/2021/03/09/BUU13/8.png"><br>steghide将图片解密<br><img src="/2021/03/09/BUU13/9.png"><br>des加密，密钥藏在属性里<br><img src="/2021/03/09/BUU13/10.png"><br>揭秘得到要用stegsaurus<br><img src="/2021/03/09/BUU13/11.png"><br>这里搞不出来了<br><img src="/2021/03/09/BUU13/12.png"></p>
+
       
     </div>
     
@@ -1127,112 +1208,6 @@
 <li>小易的U盘 ida</li>
 <li>掩码爆破</li>
 <li>头部是Salted，应该是AES或者3DES</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-BUU5" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/02/25/BUU5/" class="article-date">
-      <time datetime="2021-02-25T01:56:19.000Z" itemprop="datePublished">2021-02-25</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/25/BUU5/">BUU5</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="MRCTF2020-你能看懂音符吗"><a href="#MRCTF2020-你能看懂音符吗" class="headerlink" title="[MRCTF2020]你能看懂音符吗"></a><strong>[MRCTF2020]你能看懂音符吗</strong></h1><p>打开发现并没有什么内容，搞不出来卡了wp，是word隐藏文字<br><img src="/2021/02/25/BUU5/1.png"><br>还有一种方法是查看document.xml<br><img src="/2021/02/25/BUU5/2.png"><br>去解音符得到flag<br><img src="/2021/02/25/BUU5/3.png"></p>
-<hr>
-<hr>
-<hr>
-<h1 id="wireshark-john-in-the-middle"><a href="#wireshark-john-in-the-middle" class="headerlink" title="wireshark john-in-the-middle"></a><strong>wireshark john-in-the-middle</strong></h1><hr>
-<hr>
-<hr>
-<h1 id="GUET-CTF2019-KO"><a href="#GUET-CTF2019-KO" class="headerlink" title="[GUET-CTF2019]KO"></a><strong>[GUET-CTF2019]KO</strong></h1><p>ook编码，白给</p>
-<hr>
-<hr>
-<hr>
-<h1 id="HBNIS2018-caesar"><a href="#HBNIS2018-caesar" class="headerlink" title="[HBNIS2018]caesar"></a><strong>[HBNIS2018]caesar</strong></h1><p>凯撒白给</p>
-<hr>
-<hr>
-<hr>
-<h1 id="MRCTF2020-ezmisc"><a href="#MRCTF2020-ezmisc" class="headerlink" title="[MRCTF2020]ezmisc"></a><strong>[MRCTF2020]ezmisc</strong></h1><p>虚拟机中报错，修改大小得到flag<br><img src="/2021/02/25/BUU5/4.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;1ts_vEryyyyyy_ez!&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<hr>
-<hr>
-<h1 id="HBNIS2018-低个头"><a href="#HBNIS2018-低个头" class="headerlink" title="[HBNIS2018]低个头"></a><strong>[HBNIS2018]低个头</strong></h1><p>键盘密码CTF<br><img src="/2021/02/25/BUU5/5.png"></p>
-<hr>
-<hr>
-<hr>
-<h1 id="python-zip"><a href="#python-zip" class="headerlink" title="python zip"></a><strong>python zip</strong></h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45897326/article/details/104021695">大佬的wp</a></p>
-<hr>
-<hr>
-<hr>
-<h1 id="python-GXYCTF2019-SXMgdGhpcyBiYXNlPw"><a href="#python-GXYCTF2019-SXMgdGhpcyBiYXNlPw" class="headerlink" title="python[GXYCTF2019]SXMgdGhpcyBiYXNlPw=="></a><strong>python[GXYCTF2019]SXMgdGhpcyBiYXNlPw==</strong></h1><p><a target="_blank" rel="noopener" href="https://www.yuque.com/jxswcy/buuoj-wp/ltyguh">wp地址1</a><br><a target="_blank" rel="noopener" href="https://www.pythonf.cn/read/156745">wp地址2</a></p>
-<hr>
-<hr>
-<hr>
-<h1 id="ACTF新生赛2020-NTFS数据流"><a href="#ACTF新生赛2020-NTFS数据流" class="headerlink" title="[ACTF新生赛2020]NTFS数据流"></a><strong>[ACTF新生赛2020]NTFS数据流</strong></h1><p>放入ntfs扫描得到flag<br><img src="/2021/02/25/BUU5/6.png"></p>
-<hr>
-<hr>
-<hr>
-<h1 id="我吃三明治"><a href="#我吃三明治" class="headerlink" title="我吃三明治"></a><strong>我吃三明治</strong></h1><p>binwalk分析发现是两个jpg文件拼接而成，<br>两个图片中没有发现内容，在拼接处发现了base32<br><img src="/2021/02/25/BUU5/7.png"><br>解base32得到flag<br><img src="/2021/02/25/BUU5/8.png"><br>flag{6f1797d4080b29b64da5897780463e30}</p>
-<hr>
-<hr>
-<hr>
-<h1 id="RoarCTF2019-黄金6年"><a href="#RoarCTF2019-黄金6年" class="headerlink" title="[RoarCTF2019]黄金6年"></a><strong>[RoarCTF2019]黄金6年</strong></h1><p>这是个长见识的题，视频里有四个二维码，最后一个最难发现，要把屏幕亮度调到最大<br><img src="/2021/02/25/BUU5/9.png"><br>在视频十六进制尾端发现base64，<br><img src="/2021/02/25/BUU5/10.png"><br>转出来base64发现是一个rar压缩包，放入16进制编译器怎么保存都打不开，<br>看了wp，知道要转出来16进制<br><img src="/2021/02/25/BUU5/11.png"><br>四个二维码内容拼起来是rar压缩包的密码。<br><img src="/2021/02/25/BUU5/12.png"></p>
-<hr>
-<hr>
-<hr>
-<h1 id="间谍启示录"><a href="#间谍启示录" class="headerlink" title="间谍启示录"></a><strong>间谍启示录</strong></h1><p>foremost分离iso文件后得到一个rar压缩包<br>wine flag.exe运行压缩包中的flag.exe文件dedaoflag</p>
-<h1 id="本日小结"><a href="#本日小结" class="headerlink" title="本日小结"></a><strong>本日小结</strong></h1><ol>
-<li>word隐藏文字</li>
-<li>键盘密码</li>
-<li>NTFS数据流</li>
-<li>Kinovea</li>
 </ol>
 
       
