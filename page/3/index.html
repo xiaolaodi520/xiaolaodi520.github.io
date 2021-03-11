@@ -265,6 +265,191 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Bugku1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/01/20/Bugku1/" class="article-date">
+      <time datetime="2021-01-20T07:45:40.000Z" itemprop="datePublished">2021-01-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/20/Bugku1/">Bugku1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="社工-进阶收集"><a href="#社工-进阶收集" class="headerlink" title="社工-进阶收集"></a><strong>社工-进阶收集</strong></h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46230755/article/details/113863792">wp</a></p>
+<hr>
+<hr>
+<hr>
+<h1 id="这是一张单纯的图片"><a href="#这是一张单纯的图片" class="headerlink" title="这是一张单纯的图片"></a><strong>这是一张单纯的图片</strong></h1><p>binwalk分析、exiftool查看都无内容，<br>在十六进制尾端发现Unicode编码<br><img src="/2021/01/20/Bugku1/1.png"><br>解码得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">key&#123;you are right&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="隐写"><a href="#隐写" class="headerlink" title="隐写"></a><strong>隐写</strong></h1><p>放入虚拟机中无法打开，想到修改大小<br><img src="/2021/01/20/Bugku1/2.png"><br>得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BUGKU&#123;a1e5aSA&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="wireshark-telnet"><a href="#wireshark-telnet" class="headerlink" title="wireshark telnet"></a><strong>wireshark telnet</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="眼见非实"><a href="#眼见非实" class="headerlink" title="眼见非实"></a><strong>眼见非实</strong></h1><p>下载的docx文件无法正常打开<br>将后缀修改为zip,文件夹如图<br><img src="/2021/01/20/Bugku1/3.png"><br>按一般的套路，flag在document.xml中<br><img src="/2021/01/20/Bugku1/4.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;F1@g&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<hr>
+<h1 id="啊哒"><a href="#啊哒" class="headerlink" title="啊哒"></a><strong>啊哒</strong></h1><p>将图片binwalk分析发现有压缩包<br><img src="/2021/01/20/Bugku1/5.png"><br>此处为真加密，一边爆破，一边找提示<br><img src="/2021/01/20/Bugku1/6.png"><br>这里发现了一串数字<br><img src="/2021/01/20/Bugku1/7.png"><br>果然解出了密码<br><img src="/2021/01/20/Bugku1/8.png"><br>得到flag<br><img src="/2021/01/20/Bugku1/9.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;3XiF_iNf0rM@ti0n&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="wiresharkping"><a href="#wiresharkping" class="headerlink" title="wiresharkping"></a><strong>wiresharkping</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="赛博朋克"><a href="#赛博朋克" class="headerlink" title="赛博朋克"></a><strong>赛博朋克</strong></h1><p>放入虚拟机中一顿操作后为lsb隐写<br><img src="/2021/01/20/Bugku1/10.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Hel1o_Wor1e&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="贝斯手"><a href="#贝斯手" class="headerlink" title="贝斯手"></a><strong>贝斯手</strong></h1><p>题目内容如下<br><img src="/2021/01/20/Bugku1/11.png"><br>看到压缩包想边爆破边找线索，结果直接破开了<br>其实提示在 <code>介绍.txt</code> 里<br>flag.txt内容如下<br><img src="/2021/01/20/Bugku1/12.png"><br>此处为md5和base58的混合编码<br>前一段为md5，后部分为base58<br><img src="/2021/01/20/Bugku1/13.png"><br><img src="/2021/01/20/Bugku1/14.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;this_is_md5_and_base58&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="又一张图片，还单纯吗"><a href="#又一张图片，还单纯吗" class="headerlink" title="又一张图片，还单纯吗"></a><strong>又一张图片，还单纯吗</strong></h1><p>binwalk分析发现隐藏jpg<br><img src="/2021/01/20/Bugku1/15.png"><br>得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">falg&#123;NSCTF_e6532a34928a3d1dadd0b049d5a3cc57&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="猜"><a href="#猜" class="headerlink" title="猜"></a><strong>猜</strong></h1><p>百度识图<br><img src="/2021/01/20/Bugku1/16.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key&#123;liuyifei&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="宽带信息泄露"><a href="#宽带信息泄露" class="headerlink" title="宽带信息泄露"></a><strong>宽带信息泄露</strong></h1><p>用 <strong>routerpassview</strong> 打开<br>搜索username，得到flag<br><img src="/2021/01/20/Bugku1/17.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;053700357621&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<hr>
+<hr>
+<h1 id="隐写2"><a href="#隐写2" class="headerlink" title="隐写2"></a><strong>隐写2</strong></h1><p>先从图片中分离出压缩包<br><img src="/2021/01/20/Bugku1/18.png"><br>根据提示爆破压缩包里的压缩包<br><img src="/2021/01/20/Bugku1/19.png"><br>得到jpg文件<br><img src="/2021/01/20/Bugku1/20.png"><br>在十六进制尾端发现flag<br><img src="/2021/01/20/Bugku1/21.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f1@g&#123;y0u Are a h@cker!&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="今日小结"><a href="#今日小结" class="headerlink" title="今日小结"></a><strong>今日小结</strong></h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-不错的misc" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/" class="article-date">
+      <time datetime="2020-12-08T02:38:01.000Z" itemprop="datePublished">2020-12-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/">不错的misc</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="hit-the-core"><a href="#hit-the-core" class="headerlink" title="hit-the-core"></a><strong>hit-the-core</strong></h1><p>strings查看字符串，好像还真得到一个有用的串：<br><img src="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/2012081046.png" alt="图片"></p>
+<p> 这个串挺长的，{}的位置正确，凯撒、栅栏就别想了，能不能从串本身找到规律？</p>
+<p>仔细观察，发现前面部分的大写字母拼起来正好是ALEXCTF，而且每个字母之间隔了4个字母，写个脚本提取一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data &#x3D; &#39;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&#123;bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv&#125;&#39;</span><br><span class="line">flag &#x3D; &#39;&#39;</span><br><span class="line">for i in range(3, len(data), 5):</span><br><span class="line">    flag +&#x3D; data[i]</span><br><span class="line"> </span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<p>拿到flag：ALEXCTF{K33P_7H3_g00D_w0rk_up}</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="2020/12-西南石油大学-智仁杯-MISC" class="article article-type-2020/12" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1107,293 +1292,9 @@
 
 
   
-    <article id="post-misc总结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/10/31/misc%E6%80%BB%E7%BB%93/" class="article-date">
-      <time datetime="2020-10-31T09:28:56.000Z" itemprop="datePublished">2020-10-31</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/31/misc%E6%80%BB%E7%BB%93/">misc总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="套路总结"><a href="#套路总结" class="headerlink" title="套路总结"></a><strong>套路总结</strong></h1><blockquote>
-<p><strong>图片隐写</strong>,<strong>音频隐写</strong>,<strong>压缩包破解</strong>,<strong>补齐文件头尾</strong>,<strong>各种编码</strong>,</p>
-</blockquote>
-<h1 id="工具总结"><a href="#工具总结" class="headerlink" title="工具总结"></a><strong>工具总结</strong></h1><blockquote>
-<p><strong>foremost</strong>, <strong>binwalk</strong>, <strong>steghide</strong>, <strong>strings</strong>, <strong>steghide</strong>, <strong>outguess</strong>, <strong>tree</strong>, <strong>F5</strong>,</p>
-</blockquote>
-<blockquote>
-<p><strong>ziperello</strong>, <strong>stegsolve</strong>, <strong>winhex</strong>, <strong>ARCHPR</strong>, <strong>wireshark</strong>, <strong>audacity</strong>, <strong>jd-gui</strong>, <strong>museScore</strong>, <strong>sileneye</strong>, </p>
-</blockquote>
-<h1 id="信息隐藏方法"><a href="#信息隐藏方法" class="headerlink" title="信息隐藏方法"></a><strong>信息隐藏方法</strong></h1><blockquote>
-<p>   <strong>十六进制中</strong>, <strong>图片隐写</strong>, <strong>strings</strong>, </p>
-</blockquote>
-<h1 id="文件头文件尾总结"><a href="#文件头文件尾总结" class="headerlink" title="文件头文件尾总结"></a><strong>文件头文件尾总结</strong></h1><table>
-<thead>
-<tr>
-<th>文件</th>
-<th align="center">文件头</th>
-<th align="right">文件尾</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>JPEG (jpg)</td>
-<td align="center">文件头：FFD8FF</td>
-<td align="right">文件尾：FF D9</td>
-</tr>
-<tr>
-<td>PNG (png)</td>
-<td align="center">文件头：89504E47</td>
-<td align="right">文件尾：AE 42 60 82</td>
-</tr>
-<tr>
-<td>GIF (gif)</td>
-<td align="center">文件头：47494638</td>
-<td align="right">文件尾：00 3B</td>
-</tr>
-<tr>
-<td>ZIP Archive (zip)</td>
-<td align="center">文件头：504B0304</td>
-<td align="right">文件尾：50 4B</td>
-</tr>
-<tr>
-<td>TIFF (tif)</td>
-<td align="center">文件头：49492A00</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Windows Bitmap (bmp)</td>
-<td align="center">文件头：424D</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>CAD (dwg)</td>
-<td align="center">文件头：41433130</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Adobe Photoshop (psd)</td>
-<td align="center">文件头：38425053</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Rich Text Format (rtf)</td>
-<td align="center">文件头：7B5C727466</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>XML (xml)</td>
-<td align="center">文件头：3C3F786D6C</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>HTML (html)</td>
-<td align="center">文件头：68746D6C3E</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Email [thorough only] (eml)</td>
-<td align="center">文件头：44656C69766572792D646174653A</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Outlook Express (dbx)</td>
-<td align="center">文件头：CFAD12FEC5FD746F</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Outlook (pst)</td>
-<td align="center">文件头：2142444E</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>MS Word/Excel (xls.or.doc)</td>
-<td align="center">文件头：D0CF11E0</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>MS Access (mdb)</td>
-<td align="center">文件头：5374616E64617264204A</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>WordPerfect (wpd)</td>
-<td align="center">文件头：FF575043</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Adobe Acrobat (pdf)</td>
-<td align="center">文件头：255044462D312E</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Quicken (qdf)</td>
-<td align="center">文件头：AC9EBD8F</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Windows Password (pwl)</td>
-<td align="center">文件头：E3828596</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>RAR Archive (rar)</td>
-<td align="center">文件头：52617221</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Wave (wav)</td>
-<td align="center">文件头：57415645</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>AVI (avi)</td>
-<td align="center">文件头：41564920</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Real Audio (ram)</td>
-<td align="center">文件头：2E7261FD</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Real Media (rm)</td>
-<td align="center">文件头：2E524D46</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>MPEG (mpg)</td>
-<td align="center">文件头：000001BA</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>MPEG (mpg)</td>
-<td align="center">文件头：000001B3</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Quicktime (mov)</td>
-<td align="center">文件头：6D6F6F76</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>Windows Media (asf)</td>
-<td align="center">文件头：3026B2758E66CF11</td>
-<td align="right">文件尾：</td>
-</tr>
-<tr>
-<td>MIDI (mid)</td>
-<td align="center">文件头：4D546864</td>
-<td align="right">文件尾：</td>
-</tr>
-</tbody></table>
-<h1 id="图片隐写"><a href="#图片隐写" class="headerlink" title="图片隐写"></a><strong>图片隐写</strong></h1><blockquote>
-<p>工具; <strong>winhex</strong>, <strong>stegsolve</strong>, <strong>foremost</strong>, <strong>binwalk</strong>, <strong>steghide</strong>, <strong>ps</strong>, <strong>zsteg</strong>, <strong>F5</strong>,<br>套路; <strong>藏于16进制</strong>, <strong>属性</strong>, <strong>修改大小</strong>, <strong>隐藏文件</strong>, <strong>动态藏于某帧</strong>, <strong>LSB隐写</strong>, </p>
-</blockquote>
-<h2 id="属性藏信息"><a href="#属性藏信息" class="headerlink" title="属性藏信息"></a>属性藏信息</h2><p>一般属性得到编码去解<br><img src="/2020/10/31/misc%E6%80%BB%E7%BB%93/010102.png" alt="图片"></p>
-<h2 id="zsteg的使用方法"><a href="#zsteg的使用方法" class="headerlink" title="zsteg的使用方法"></a><strong>zsteg的使用方法</strong></h2><p>查看帮助</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsteg -h</span><br></pre></td></tr></table></figure>
-<p>查看LSB信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsteg pcat.png</span><br></pre></td></tr></table></figure>
-<p>检测zlib</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># -b的位数是从1开始的</span><br><span class="line">zsteg zlib.bmp -b 1 -o xy -v</span><br></pre></td></tr></table></figure>
-
-<h2 id="stegsolve"><a href="#stegsolve" class="headerlink" title="stegsolve"></a><strong>stegsolve</strong></h2><p>File Format: 文件格式，这个主要是查看图片的具体信息</p>
-<p>Data Extract: 数据抽取，图片中隐藏数据的抽取</p>
-<p>Frame Browser: 帧浏览器，主要是对GIF之类的动图进行分解，动图变成一张张图片，便于查看</p>
-<p>Image Combiner: 拼图，图片拼接<br>LSB隐写（也可能将文件用LSB隐藏）<br><img src="/2020/10/31/misc%E6%80%BB%E7%BB%93/010101.png" alt="图片"></p>
-<h2 id="steghide"><a href="#steghide" class="headerlink" title="steghide"></a><strong>steghide</strong></h2><p> <strong>加密</strong>  </p>
-<p>将flag.txt文件隐藏到ctf.jpg中<br>steghide embed -cf out.jpg -ef flag.txt [-p 123456] </p>
-<blockquote>
-<p>-p 接密码，可无<br> <strong>解密</strong><br>查看文件中嵌入的信息</p>
-</blockquote>
-<p>steghide info out.jpg<br>提取含有密码的隐藏内容   </p>
-<p>steghide extract -sf out.jpg -p 123456<br>提取不含有密码的隐藏内容<br>steghide extract -sf out.jpg</p>
-<h2 id="Binwalk"><a href="#Binwalk" class="headerlink" title="Binwalk"></a><strong>Binwalk</strong></h2><p> <strong>获取帮助</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -h</span><br><span class="line">$ binwalk -help</span><br></pre></td></tr></table></figure>
-<p> <strong>固件扫描</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk firmware.bin </span><br></pre></td></tr></table></figure>
-<p> <strong>提取文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 使用默认的预定义配置文件</span><br><span class="line">$ binwalk -e firmware,bin</span><br><span class="line"></span><br><span class="line"> 使用指定自定义的配置文件my_extract.conf</span><br><span class="line">$ binwalk --extract&#x3D;.&#x2F;my.extract.conf firmware.bin</span><br></pre></td></tr></table></figure>
-
-
-<p> <strong>过滤选项</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -y filesystem firmware,bin </span><br><span class="line">$ binwalk -x &#96;mach-o&#96; -x &#96;^hp&#96; firmware.bin </span><br></pre></td></tr></table></figure>
-<p> <strong>显示完整的扫描结果</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -I firmware.bin</span><br></pre></td></tr></table></figure>
-<p> <strong>文件比较</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -w firmware.bin firmware2.bin firmware3.bin</span><br><span class="line">$ binwalk -w --block&#x3D;8 --length&#x3D;64 firmware.bin firmware2,bin</span><br></pre></td></tr></table></figure>
-<p> <strong>日志记录</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -f binwalk.log -q firmware.bin</span><br><span class="line">$ binwalk -f binwalk.log --csv firmware.bin</span><br></pre></td></tr></table></figure>
-<p> <strong>指令系统分析</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -A firmware.bin</span><br></pre></td></tr></table></figure>
-<p> <strong>熵分析</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -E firmware.bin</span><br></pre></td></tr></table></figure>
-<p> <strong>启动式分析</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -E firmware.bin</span><br></pre></td></tr></table></figure>
-
-<h2 id="outguess"><a href="#outguess" class="headerlink" title="outguess"></a><strong>outguess</strong></h2><p> <strong>加密：</strong></p>
-<p> outguess -k “my secret key” -d hidden.txt demo.jpg out.jpg</p>
-<p> 加密之后，demo.jpg会覆盖out.jpg, </p>
-<p> hidden.txt中的内容是要隐藏的东西</p>
-<p> <strong>解密：</strong></p>
-<p> outguess -k “my secret key” -r out.jpg hidden.txt</p>
-<p> 解密之后，解密内容放在hidden.txt中</p>
-<h1 id="简单编码"><a href="#简单编码" class="headerlink" title="简单编码"></a><strong>简单编码</strong></h1><h1 id="emoji总结"><a href="#emoji总结" class="headerlink" title="emoji总结"></a><strong>emoji总结</strong></h1><h1 id="音频隐写总结"><a href="#音频隐写总结" class="headerlink" title="音频隐写总结"></a><strong>音频隐写总结</strong></h1><h1 id="压缩包加密"><a href="#压缩包加密" class="headerlink" title="压缩包加密"></a><strong>压缩包加密</strong></h1><blockquote>
-<p>工具; <strong>winhex</strong>, <strong>ziperello</strong>, <strong>ARCHPR</strong>,<br>套路; <strong>暴力破解</strong>, <strong>CRC碰撞</strong>, <strong>密码藏于别处</strong>, <strong>伪加密</strong>, <strong>补齐文件</strong>, <strong>明文攻击</strong>，</p>
-</blockquote>
-<h1 id="流量分析"><a href="#流量分析" class="headerlink" title="流量分析"></a><strong>流量分析</strong></h1><blockquote>
-<p>工具; <strong>wireshark</strong>,<br>方法; <strong>追踪流</strong>, <strong>搜线索</strong>, </p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 </div>

@@ -265,6 +265,240 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-BUU7" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/02/28/BUU7/" class="article-date">
+      <time datetime="2021-02-28T01:57:58.000Z" itemprop="datePublished">2021-02-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/28/BUU7/">BUU7</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="BSidesSF2019-diskimage"><a href="#BSidesSF2019-diskimage" class="headerlink" title="[BSidesSF2019]diskimage"></a><strong>[BSidesSF2019]diskimage</strong></h1><p>下载得到如下图片<br><img src="/2021/02/28/BUU7/1.png"><br>kali中file binwalk zsteg 一套，发现有磁盘数据<br><img src="/2021/02/28/BUU7/2.png"><br>导出磁盘数据，恢复删除文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ zsteg -e b8,rgb,lsb,xy 1.png&gt;disk.dat</span><br><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ file disk.dat</span><br><span class="line">disk.dat: DOS&#x2F;MBR boot sector, code offset 0x3c+2, OEM-ID &quot;~mitsumi&quot;, root entries 224, sectors 2880 (volumes &lt;&#x3D;32 MB), sectors&#x2F;FAT 9, sectors&#x2F;track 18, serial number 0x7e572f0f, unlabeled, FAT (12 bit), followed by FAT</span><br><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ testdisk &#x2F;home&#x2F;kali1&#x2F;桌面&#x2F;CTF&#x2F;disk.dat</span><br><span class="line">TestDisk 7.1, Data Recovery Utility, July 2019</span><br><span class="line">Christophe GRENIER &lt;grenier@cgsecurity.org&gt;</span><br><span class="line">https:&#x2F;&#x2F;www.cgsecurity.org</span><br></pre></td></tr></table></figure>
+
+<p>得到flag<br><img src="/2021/02/28/BUU7/3.png"><br>这里有两个大佬的wp<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/mochu7777777/article/details/110079540">wp2</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zippo1234/article/details/109238587">wp1</a></p>
+<hr>
+<hr>
+<hr>
+<h1 id="WUSTCTF2020-爬"><a href="#WUSTCTF2020-爬" class="headerlink" title="[WUSTCTF2020]爬"></a><strong>[WUSTCTF2020]爬</strong></h1><p>下载附件</p>
+<p>得到一个文件<br><img src="/2021/02/28/BUU7/4.png"><br>我们查看一下16进制，发现这是PDF的文件头</p>
+<p><img src="/2021/02/28/BUU7/5.png"><br>我们将文件改为pdf</p>
+<p><img src="/2021/02/28/BUU7/6.png"><br>我们发现里面给出提示说flag被图片盖住了，我们需要将图片移动开吗。</p>
+<p>因为PDF无法直接修改，我们这里将PDF转换为了word。<br>来回移动图片，图片分离<br><img src="/2021/02/28/BUU7/7.png"><br>得到一串十六进制代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x77637466323032307b746831735f31735f405f7064665f616e645f7930755f63616e5f7573655f70686f7430736830707d</span><br></pre></td></tr></table></figure>
+<p>将识别出来的代码复制出来，然后在在线工具进行16进制转字符串。</p>
+<p><img src="/2021/02/28/BUU7/8.png"><br>得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wctf2020&#123;th1s_1s_@_pdf_and_y0u_can_use_phot0sh0p&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<hr>
+<h1 id="WUSTCTF2020-girlfriend"><a href="#WUSTCTF2020-girlfriend" class="headerlink" title="[WUSTCTF2020]girlfriend"></a><strong>[WUSTCTF2020]girlfriend</strong></h1><p>听起来像是在打电话输入号码的声音，猜测DTMF拨号音识别，有个程序可以识别一下dtmf2num.exe</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">999*666*88*2*777*33*6*999*4*4444*777*555*333*777*444*33*66*3*7777</span><br></pre></td></tr></table></figure>
+<p>这个是手机键盘密码<br>解此段密码得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;youaremygirlfriends&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="MRCTF2020-CyberPunk"><a href="#MRCTF2020-CyberPunk" class="headerlink" title="[MRCTF2020]CyberPunk"></a><strong>[MRCTF2020]CyberPunk</strong></h1><p>把日期改到2020.9.17得到flag</p>
+<p><img src="/2021/02/28/BUU7/9.png"></p>
+<p>MRCTF{We1cOm3_70_cyber_security}</p>
+<hr>
+<hr>
+<hr>
+<h1 id="wireshark-USB"><a href="#wireshark-USB" class="headerlink" title="wireshark USB"></a><strong>wireshark USB</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="python-SWPU2019-Network"><a href="#python-SWPU2019-Network" class="headerlink" title="python [SWPU2019]Network"></a><strong>python [SWPU2019]Network</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="python-GUET-CTF2019-虚假的压缩包"><a href="#python-GUET-CTF2019-虚假的压缩包" class="headerlink" title="python  [GUET-CTF2019]虚假的压缩包"></a><strong>python  [GUET-CTF2019]虚假的压缩包</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="wireshark-蜘蛛侠呀"><a href="#wireshark-蜘蛛侠呀" class="headerlink" title="wireshark 蜘蛛侠呀"></a><strong>wireshark 蜘蛛侠呀</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="wireshark-SUCTF2018-followme"><a href="#wireshark-SUCTF2018-followme" class="headerlink" title="wireshark[SUCTF2018]followme"></a><strong>wireshark[SUCTF2018]followme</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="RCTF2019-draw"><a href="#RCTF2019-draw" class="headerlink" title="[RCTF2019]draw"></a><strong>[RCTF2019]draw</strong></h1><p>打开得到下列代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cs pu lt 90 fd 500 rt 90 pd fd 100 rt 90 repeat 18[fd 5 rt 10] lt 135 fd 50 lt 135 pu bk 100 pd setcolor pick [ red orange yellow green blue violet ] repeat 18[fd 5 rt 10] rt 90 fd 60 rt 90 bk 30 rt 90 fd 60 pu lt 90 fd 100 pd rt 90 fd 50 bk 50 setcolor pick [ red orange yellow green blue violet ] lt 90 fd 50 rt 90 fd 50 pu fd 50 pd fd 25 bk 50 fd 25 rt 90 fd 50 pu setcolor pick [ red orange yellow green blue violet ] fd 100 rt 90 fd 30 rt 45 pd fd 50 bk 50 rt 90 fd 50 bk 100 fd 50 rt 45 pu fd 50 lt 90 pd fd 50 bk 50 rt 90 setcolor pick [ red orange yellow green blue violet ] fd 50 pu lt 90 fd 100 pd fd 50 rt 90 fd 25 bk 25 lt 90 bk 25 rt 90 fd 25 setcolor pick [ red orange yellow green blue violet ] pu fd 25 lt 90 bk 30 pd rt 90 fd 25 pu fd 25 lt 90 pd fd 50 bk 25 rt 90 fd 25 lt 90 fd 25 bk 50 pu bk 100 lt 90 setcolor pick [ red orange yellow green blue violet ] fd 100 pd rt 90 arc 360 20 pu rt 90 fd 50 pd arc 360 15 pu fd 15 setcolor pick [ red orange yellow green blue violet ] lt 90 pd bk 50 lt 90 fd 25 pu home bk 100 lt 90 fd 100 pd arc 360 20 pu home</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.calormen.com/jslogo/">在线解logo码</a>得到flag<br><img src="/2021/02/28/BUU7/10.png"><br>flag{RCTF_HeyLogo}</p>
+<hr>
+<hr>
+<hr>
+<h1 id="XMAN2018排位赛-通行证"><a href="#XMAN2018排位赛-通行证" class="headerlink" title="[XMAN2018排位赛]通行证"></a><strong>[XMAN2018排位赛]通行证</strong></h1><p>打开先base64解码<br><img src="/2021/02/28/BUU7/11.png"><br>这里卡了好久，怎么解不出来<br><img src="/2021/02/28/BUU7/12.png"><br>看了大佬们说解栅栏，每组七个，<br>找了好久发现是用栅栏给它加密<br>菜到解不出签到题<br><img src="/2021/02/28/BUU7/13.png"><br>最后得到flag<br><img src="/2021/02/28/BUU7/14.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xman&#123;oyay_now_you_get_it&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="今日小结"><a href="#今日小结" class="headerlink" title="今日小结"></a><strong>今日小结</strong></h1><ol>
+<li>磁盘数据，恢复删除文件</li>
+<li>PDF转换为了word</li>
+<li>dtmf2num.exe</li>
+<li>手机键盘密码</li>
+<li>在线解logo码 </li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-BUU6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/02/27/BUU6/" class="article-date">
+      <time datetime="2021-02-27T04:37:03.000Z" itemprop="datePublished">2021-02-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/27/BUU6/">BUU6</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="SUCTF2018-single-dog"><a href="#SUCTF2018-single-dog" class="headerlink" title="[SUCTF2018]single dog"></a><strong>[SUCTF2018]single dog</strong></h1><p>binwalk分析发现隐藏文件，分离后得到txt文件<br><img src="/2021/02/27/BUU6/1.png"><br>aaencode解密得到flag<br><img src="/2021/02/27/BUU6/2.png"><br>flag{happy double eleven}</p>
+<hr>
+<hr>
+<hr>
+<h1 id="wireshark-V-amp-N2020-公开赛-拉胯的三条命令"><a href="#wireshark-V-amp-N2020-公开赛-拉胯的三条命令" class="headerlink" title="wireshark[V&amp;N2020 公开赛]拉胯的三条命令"></a><strong>wireshark[V&amp;N2020 公开赛]拉胯的三条命令</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="python-安洵杯-2019-吹着贝斯扫二维码"><a href="#python-安洵杯-2019-吹着贝斯扫二维码" class="headerlink" title="python[安洵杯 2019]吹着贝斯扫二维码"></a><strong>python[安洵杯 2019]吹着贝斯扫二维码</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="从娃娃抓起"><a href="#从娃娃抓起" class="headerlink" title="从娃娃抓起"></a><strong>从娃娃抓起</strong></h1><p>第一行为中文电码，第二行为五笔输入法<br><img src="/2021/02/27/BUU6/3.png"><br>解码得到<br><img src="/2021/02/27/BUU6/4.png"><br><img src="/2021/02/27/BUU6/5.png"><br>人工智能也要从娃娃抓起<br><img src="/2021/02/27/BUU6/6.png"><br>得到flag{3b4b5dccd2c008fe7e2664bd1bc19292}</p>
+<hr>
+<hr>
+<hr>
+<h1 id="小易的U盘"><a href="#小易的U盘" class="headerlink" title="小易的U盘"></a><strong>小易的U盘</strong></h1><p>打开压缩包发现这里有线索<br><img src="/2021/02/27/BUU6/7.png"><br><img src="/2021/02/27/BUU6/8.png"><br>这里不知道该怎么搞了，看了wp，要放入ida查看<br><img src="/2021/02/27/BUU6/9.png"></p>
+<hr>
+<hr>
+<hr>
+<h1 id="pythn-DDCTF2018"><a href="#pythn-DDCTF2018" class="headerlink" title="pythn[DDCTF2018]"></a><strong>pythn[DDCTF2018]</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="wireshark-ACTF新生赛2020-swp"><a href="#wireshark-ACTF新生赛2020-swp" class="headerlink" title="wireshark[ACTF新生赛2020]swp"></a><strong>wireshark[ACTF新生赛2020]swp</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="wireshark百里挑一"><a href="#wireshark百里挑一" class="headerlink" title="wireshark百里挑一"></a><strong>wireshark百里挑一</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="WUSTCTF2020-alison-likes-jojo"><a href="#WUSTCTF2020-alison-likes-jojo" class="headerlink" title="[WUSTCTF2020]alison_likes_jojo"></a><strong>[WUSTCTF2020]alison_likes_jojo</strong></h1><p>binwalk分析第一张图片发现有隐藏压缩包<br>使用命令提取出来<br><img src="/2021/02/27/BUU6/10.png"><br>用数字爆破得到密码888866，<br><img src="/2021/02/27/BUU6/11.png"><br>多次解base64，得到密码 <code>killerqueen</code><br>outguess得到flag<br><img src="/2021/02/27/BUU6/12.png"><br>wctf2020{pretty_girl_alison_likes_jojo}</p>
+<hr>
+<hr>
+<hr>
+<h1 id="GUET-CTF2019-zips"><a href="#GUET-CTF2019-zips" class="headerlink" title="[GUET-CTF2019]zips"></a><strong>[GUET-CTF2019]zips</strong></h1><p>打开压缩包需要输入密码，使用ARCHPR爆破，密码为：723456<br><img src="/2021/02/27/BUU6/13.png"><br>发现111.zip伪加密,利用winhex修改数据<br><img src="/2021/02/27/BUU6/14.png"><br> 查看setup.sh<br><img src="/2021/02/27/BUU6/15.png"><br> flag.zip为掩码爆破，因为时间戳和出题当时不太一样所以往前推，利用ARCHPR设置掩码15???.?? 掩码符号为**?**<br><img src="/2021/02/27/BUU6/16.png"><br>得到flag<br><img src="/2021/02/27/BUU6/17.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;fkjabPqnLawhvuikfhgzyffj&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<hr>
+<h1 id="wireshark-安洵杯-2019-Attack"><a href="#wireshark-安洵杯-2019-Attack" class="headerlink" title="wireshark[安洵杯 2019]Attack"></a><strong>wireshark[安洵杯 2019]Attack</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="SUCTF-2019-Game"><a href="#SUCTF-2019-Game" class="headerlink" title="[SUCTF 2019]Game"></a><strong>[SUCTF 2019]Game</strong></h1><p> index.html中发现一串base32<br><img src="/2021/02/27/BUU6/18.png"><br><img src="/2021/02/27/BUU6/19.png"><br>并不是真的flag，但是这个后面有用，看到另外一张图，LSB发现一串base64<br><img src="/2021/02/27/BUU6/20.png"><br>看了wp，这串base64解码后头部是Salted，应该是AES或者3DES<br><img src="/2021/02/27/BUU6/21.png"><br>suctf{U_F0und_1t}</p>
+<hr>
+<hr>
+<hr>
+<h1 id="python-MRCTF2020-千层套路"><a href="#python-MRCTF2020-千层套路" class="headerlink" title="python[MRCTF2020]千层套路"></a><strong>python[MRCTF2020]千层套路</strong></h1><hr>
+<hr>
+<hr>
+<h1 id="BJDCTF-2nd-开场曲"><a href="#BJDCTF-2nd-开场曲" class="headerlink" title="BJDCTF 2nd- -开场曲"></a><strong>BJDCTF 2nd- -开场曲</strong></h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42016346/article/details/105039640">大佬的wp</a></p>
+<hr>
+<hr>
+<hr>
+<h1 id="NPUCTF2020-签到"><a href="#NPUCTF2020-签到" class="headerlink" title="[NPUCTF2020]签到"></a><strong>[NPUCTF2020]签到</strong></h1><h1 id="本日小结"><a href="#本日小结" class="headerlink" title="本日小结"></a><strong>本日小结</strong></h1><ol>
+<li>中文电码</li>
+<li>五笔输入法</li>
+<li>小易的U盘 ida</li>
+<li>掩码爆破</li>
+<li>头部是Salted，应该是AES或者3DES</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-BUU5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1093,194 +1327,9 @@
 
 
   
-    <article id="post-Bugku1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/01/20/Bugku1/" class="article-date">
-      <time datetime="2021-01-20T07:45:40.000Z" itemprop="datePublished">2021-01-20</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/20/Bugku1/">Bugku1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="社工-进阶收集"><a href="#社工-进阶收集" class="headerlink" title="社工-进阶收集"></a><strong>社工-进阶收集</strong></h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46230755/article/details/113863792">wp</a></p>
-<hr>
-<hr>
-<hr>
-<h1 id="这是一张单纯的图片"><a href="#这是一张单纯的图片" class="headerlink" title="这是一张单纯的图片"></a><strong>这是一张单纯的图片</strong></h1><p>binwalk分析、exiftool查看都无内容，<br>在十六进制尾端发现Unicode编码<br><img src="/2021/01/20/Bugku1/1.png"><br>解码得到flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">key&#123;you are right&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="隐写"><a href="#隐写" class="headerlink" title="隐写"></a><strong>隐写</strong></h1><p>放入虚拟机中无法打开，想到修改大小<br><img src="/2021/01/20/Bugku1/2.png"><br>得到flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BUGKU&#123;a1e5aSA&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="wireshark-telnet"><a href="#wireshark-telnet" class="headerlink" title="wireshark telnet"></a><strong>wireshark telnet</strong></h1><hr>
-<hr>
-<hr>
-<h1 id="眼见非实"><a href="#眼见非实" class="headerlink" title="眼见非实"></a><strong>眼见非实</strong></h1><p>下载的docx文件无法正常打开<br>将后缀修改为zip,文件夹如图<br><img src="/2021/01/20/Bugku1/3.png"><br>按一般的套路，flag在document.xml中<br><img src="/2021/01/20/Bugku1/4.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;F1@g&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<hr>
-<hr>
-<h1 id="啊哒"><a href="#啊哒" class="headerlink" title="啊哒"></a><strong>啊哒</strong></h1><p>将图片binwalk分析发现有压缩包<br><img src="/2021/01/20/Bugku1/5.png"><br>此处为真加密，一边爆破，一边找提示<br><img src="/2021/01/20/Bugku1/6.png"><br>这里发现了一串数字<br><img src="/2021/01/20/Bugku1/7.png"><br>果然解出了密码<br><img src="/2021/01/20/Bugku1/8.png"><br>得到flag<br><img src="/2021/01/20/Bugku1/9.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;3XiF_iNf0rM@ti0n&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="wiresharkping"><a href="#wiresharkping" class="headerlink" title="wiresharkping"></a><strong>wiresharkping</strong></h1><hr>
-<hr>
-<hr>
-<h1 id="赛博朋克"><a href="#赛博朋克" class="headerlink" title="赛博朋克"></a><strong>赛博朋克</strong></h1><p>放入虚拟机中一顿操作后为lsb隐写<br><img src="/2021/01/20/Bugku1/10.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Hel1o_Wor1e&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="贝斯手"><a href="#贝斯手" class="headerlink" title="贝斯手"></a><strong>贝斯手</strong></h1><p>题目内容如下<br><img src="/2021/01/20/Bugku1/11.png"><br>看到压缩包想边爆破边找线索，结果直接破开了<br>其实提示在 <code>介绍.txt</code> 里<br>flag.txt内容如下<br><img src="/2021/01/20/Bugku1/12.png"><br>此处为md5和base58的混合编码<br>前一段为md5，后部分为base58<br><img src="/2021/01/20/Bugku1/13.png"><br><img src="/2021/01/20/Bugku1/14.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;this_is_md5_and_base58&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="又一张图片，还单纯吗"><a href="#又一张图片，还单纯吗" class="headerlink" title="又一张图片，还单纯吗"></a><strong>又一张图片，还单纯吗</strong></h1><p>binwalk分析发现隐藏jpg<br><img src="/2021/01/20/Bugku1/15.png"><br>得到flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">falg&#123;NSCTF_e6532a34928a3d1dadd0b049d5a3cc57&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="猜"><a href="#猜" class="headerlink" title="猜"></a><strong>猜</strong></h1><p>百度识图<br><img src="/2021/01/20/Bugku1/16.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key&#123;liuyifei&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="宽带信息泄露"><a href="#宽带信息泄露" class="headerlink" title="宽带信息泄露"></a><strong>宽带信息泄露</strong></h1><p>用 <strong>routerpassview</strong> 打开<br>搜索username，得到flag<br><img src="/2021/01/20/Bugku1/17.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;053700357621&#125;</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<hr>
-<hr>
-<h1 id="隐写2"><a href="#隐写2" class="headerlink" title="隐写2"></a><strong>隐写2</strong></h1><p>先从图片中分离出压缩包<br><img src="/2021/01/20/Bugku1/18.png"><br>根据提示爆破压缩包里的压缩包<br><img src="/2021/01/20/Bugku1/19.png"><br>得到jpg文件<br><img src="/2021/01/20/Bugku1/20.png"><br>在十六进制尾端发现flag<br><img src="/2021/01/20/Bugku1/21.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f1@g&#123;y0u Are a h@cker!&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="今日小结"><a href="#今日小结" class="headerlink" title="今日小结"></a><strong>今日小结</strong></h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-不错的misc" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/" class="article-date">
-      <time datetime="2020-12-08T02:38:01.000Z" itemprop="datePublished">2020-12-08</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/">不错的misc</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="hit-the-core"><a href="#hit-the-core" class="headerlink" title="hit-the-core"></a><strong>hit-the-core</strong></h1><p>strings查看字符串，好像还真得到一个有用的串：<br><img src="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/2012081046.png" alt="图片"></p>
-<p> 这个串挺长的，{}的位置正确，凯撒、栅栏就别想了，能不能从串本身找到规律？</p>
-<p>仔细观察，发现前面部分的大写字母拼起来正好是ALEXCTF，而且每个字母之间隔了4个字母，写个脚本提取一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data &#x3D; &#39;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&#123;bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv&#125;&#39;</span><br><span class="line">flag &#x3D; &#39;&#39;</span><br><span class="line">for i in range(3, len(data), 5):</span><br><span class="line">    flag +&#x3D; data[i]</span><br><span class="line"> </span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
-<p>拿到flag：ALEXCTF{K33P_7H3_g00D_w0rk_up}</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 </div>

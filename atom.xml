@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-10T05:09:27.092Z</updated>
+  <updated>2021-03-11T08:39:53.255Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BUU15</title>
+    <link href="http://example.com/2021/03/11/BUU15/"/>
+    <id>http://example.com/2021/03/11/BUU15/</id>
+    <published>2021-03-11T05:45:05.000Z</published>
+    <updated>2021-03-11T08:39:53.255Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="RCTF2019-disk"><a href="#RCTF2019-disk" class="headerlink" title="[RCTF2019]disk"></a><strong>[RCTF2019]disk</strong></h1><p>题目设定：</p><blockquote><p>  An otaku used VeraCrypt to encrypt his favorites.<br>    Password: rctf<br>    Flag format: rctf{a-zA-Z0-9_}<br>首先下载题目附件，得到rctf-disk.zip，解压得到encrypt.vmdk。<br>因为无法确定vmdk是VeraCrypt加密完的虚拟硬盘文件随便改了个格式，<br>还是存储了VeraCrypt加密后虚拟磁盘文件的虚拟磁盘，因此先尝试使用7zip打开该文件。<br><img src="/2021/03/11/BUU15/1.png"><br>说明外层的vmdk只是容器，并没有加密。将0.fat解压出来，再次尝试用7zip打开，报错，说明vmdk中包含的这个FAT32分区被加密了。使用WinHex载入这个文件可以看到：<br><img src="/2021/03/11/BUU15/2.png"><br>这样我们就得到了前半段Flag，为： <code>rctf&#123;unseCure_quick_form4t_vo1ume</code><br>使用题目中所给的VeraCrypt密码对0.fat文件进行解密并加载，发现加载成功，为常规卷，加密类型为AES。<br><img src="/2021/03/11/BUU15/6.png"><br>注意左侧文件的文件名70056639_useless_file_for_ctf_just_ignore_it.jpg，说明其不包含解题的有效信息。于是打开password.txt，文件内容为：</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Password 2: RCTF2019</span><br><span class="line">You&#39;re late... So sad</span><br></pre></td></tr></table></figure><p><img src="/2021/03/11/BUU15/3.png"><br>将此加密盘卸载，使用得到的第二个密码再次加载，加载成功。加密方式是AES，但是注意该分区是隐藏分区。<br><img src="/2021/03/11/BUU15/4.png"><br>由于是隐藏分区所以无法直接访问。因此使用WinHex载入磁盘，提示无法自动检测分区格式后选择“分区无格式”，并查看该分区扇区数据（DiskGenius查看磁盘扇区数据也可以）。<br><img src="/2021/03/11/BUU15/5.png"><br>得到后半段Flag：<code>_and_corrupted__1nner_v0lume&#125;</code><br>拼接后得到完整的Flag：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rctf&#123;unseCure_quick_form4t_vo1ume_and_corrupted_1nner_v0lume&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="watevrCTF-2019-Evil-Cuteness"><a href="#watevrCTF-2019-Evil-Cuteness" class="headerlink" title="[watevrCTF 2019]Evil Cuteness"></a><strong>[watevrCTF 2019]Evil Cuteness</strong></h1><p>binwalk分离打开出来的abc<br>得到flag<br><img src="/2021/03/11/BUU15/7.png"></p><hr><hr><hr><h1 id="取证-HDCTF2019-你能发现什么蛛丝马迹吗"><a href="#取证-HDCTF2019-你能发现什么蛛丝马迹吗" class="headerlink" title="取证 [HDCTF2019]你能发现什么蛛丝马迹吗"></a><strong>取证 [HDCTF2019]你能发现什么蛛丝马迹吗</strong></h1><p>打开文件<br>flag白给</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Challenge description:</span><br><span class="line"></span><br><span class="line">I really hope you are INSAne, but if that&#39;s not the case and that you don&#39;t want to validate the &quot;INSAnity&quot; challenge then maybe you would like to validate this one? Here is your flag, you disapointing and boring fellow: INSA&#123;Youre_sane_Good_for_you&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Youre_sane_Good_for_you&#125;</span><br></pre></td></tr></table></figure><h1 id="很好的色彩呃？"><a href="#很好的色彩呃？" class="headerlink" title="很好的色彩呃？"></a><strong>很好的色彩呃？</strong></h1><p>根据题目和图片，图片的颜色十六进制号可能是flag的十六进制编码，<br>有两种办法:<br>1.用 <code>qq截屏</code> 时，按住<code>ctrl</code>和<code>c</code><br><img src="/2021/03/11/BUU15/8.png"><br>2.用ps<br><img src="/2021/03/11/BUU15/9.png"><br>得到十六进制字符</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6161706a6573</span><br></pre></td></tr></table></figure><p>解ascii码得到flag</p><hr><hr><hr><h1 id="GUET-CTF2019-520的暗示"><a href="#GUET-CTF2019-520的暗示" class="headerlink" title="[GUET-CTF2019]520的暗示"></a><strong>[GUET-CTF2019]520的暗示</strong></h1><p>十六进制打开dat文件<br>看起来像33异或运算<br><img src="/2021/03/11/BUU15/10.png"><br>得到一张图片<br><img src="/2021/03/11/BUU15/11.png"><br>不会搞了<br><img src="/2021/03/11/BUU15/12.png"><br> 后面其实是根据LTE定位基站地址，最后定位到桂林电子科技大学花江校区，也就是flag为flag{桂林电子科技大学花江校区}。<br>地址： <a href="https://www.opengps.cn/Data/Cell/Search.aspx">https://www.opengps.cn/Data/Cell/Search.aspx</a></p><hr><hr><hr><h1 id="key不在这里"><a href="#key不在这里" class="headerlink" title="key不在这里"></a><strong>key不在这里</strong></h1><p>扫二维码是个链接<br>有一大坨数字<br><img src="/2021/03/11/BUU15/13.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10210897103375566531005253102975053545155505050521025256555254995410298561015151985150375568</span><br></pre></td></tr></table></figure><p> 直接ascii码转</p><p><img src="/2021/03/11/BUU15/14.png"><br>转url得到flag<br><img src="/2021/03/11/BUU15/15.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;RCTF2019-disk&quot;&gt;&lt;a href=&quot;#RCTF2019-disk&quot; class=&quot;headerlink&quot; title=&quot;[RCTF2019]disk&quot;&gt;&lt;/a&gt;&lt;strong&gt;[RCTF2019]disk&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;题目设定：&lt;/</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>BUU流量分析1</title>
+    <link href="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/"/>
+    <id>http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/</id>
+    <published>2021-03-10T06:00:50.000Z</published>
+    <updated>2021-03-10T06:14:26.101Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="菜刀666"><a href="#菜刀666" class="headerlink" title="菜刀666"></a><strong>菜刀666</strong></h1><p>菜刀一般都是POST上传</p><p>所以我们直接过滤出POST数据包</p><p>http.request.method==POST</p><p>在tcp.stream eq 7中发现了大量数据<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/1.png"><br> FF D8开头FF D9结尾，判断为jpg图片，将这些十六进制复制出来，以原始文件流写入文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#Author: MoChu7</span><br><span class="line">import struct</span><br><span class="line"></span><br><span class="line">a &#x3D; open(&quot;str.txt&quot;,&quot;r&quot;)#十六进制数据文件</span><br><span class="line">lines &#x3D; a.read()</span><br><span class="line">res &#x3D; [lines[i:i+2] for i in range(0,len(lines),2)]</span><br><span class="line"></span><br><span class="line">with open(&quot;res.jpg&quot;,&quot;wb&quot;) as f:</span><br><span class="line">for i in res:</span><br><span class="line">s &#x3D; struct.pack(&#39;B&#39;,int(i,16))</span><br><span class="line">f.write(s)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>脚本2</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s&#x3D;&#39;填写16进制数据&#39;</span><br><span class="line">import binascii</span><br><span class="line">out&#x3D;open(&#39;2.jpg&#39;,&#39;wb&#39;)</span><br><span class="line">out.write(binascii.unhexlify(s))</span><br><span class="line">out.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/2.png"><br>在这个流中还发现了传输了一个hello.zip<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/3.png"></p><p> foremost分离流量包，得到一个zip，输入上面图片上的密码<br>解压得到flag</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;3OpWdJ-JP6FzK-koCMAK-VkfWBq-75Un2z&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="被偷走的文件"><a href="#被偷走的文件" class="headerlink" title="被偷走的文件"></a><strong>被偷走的文件</strong></h1><p> 传输文件看到了ftp协议，过滤，追踪，</p><p><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/4.png"><br>看到了压缩包，foremost分离</p><p><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/5.png"></p><p>数字暴力破解得到flag<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/6.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;6fe99a5d03fb01f833ec3caa80358fa3&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;菜刀666&quot;&gt;&lt;a href=&quot;#菜刀666&quot; class=&quot;headerlink&quot; title=&quot;菜刀666&quot;&gt;&lt;/a&gt;&lt;strong&gt;菜刀666&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;菜刀一般都是POST上传&lt;/p&gt;
+&lt;p&gt;所以我们直接过滤出POST数据包&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>BUU14</title>
@@ -354,46 +396,6 @@
     <published>2021-02-12T01:06:29.000Z</published>
     <updated>2021-02-21T02:40:58.259Z</updated>
     
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Bugku1</title>
-    <link href="http://example.com/2021/01/20/Bugku1/"/>
-    <id>http://example.com/2021/01/20/Bugku1/</id>
-    <published>2021-01-20T07:45:40.000Z</published>
-    <updated>2021-03-01T02:21:59.971Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="社工-进阶收集"><a href="#社工-进阶收集" class="headerlink" title="社工-进阶收集"></a><strong>社工-进阶收集</strong></h1><p><a href="https://blog.csdn.net/qq_46230755/article/details/113863792">wp</a></p><hr><hr><hr><h1 id="这是一张单纯的图片"><a href="#这是一张单纯的图片" class="headerlink" title="这是一张单纯的图片"></a><strong>这是一张单纯的图片</strong></h1><p>binwalk分析、exiftool查看都无内容，<br>在十六进制尾端发现Unicode编码<br><img src="/2021/01/20/Bugku1/1.png"><br>解码得到flag</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">key&#123;you are right&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="隐写"><a href="#隐写" class="headerlink" title="隐写"></a><strong>隐写</strong></h1><p>放入虚拟机中无法打开，想到修改大小<br><img src="/2021/01/20/Bugku1/2.png"><br>得到flag</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BUGKU&#123;a1e5aSA&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="wireshark-telnet"><a href="#wireshark-telnet" class="headerlink" title="wireshark telnet"></a><strong>wireshark telnet</strong></h1><hr><hr><hr><h1 id="眼见非实"><a href="#眼见非实" class="headerlink" title="眼见非实"></a><strong>眼见非实</strong></h1><p>下载的docx文件无法正常打开<br>将后缀修改为zip,文件夹如图<br><img src="/2021/01/20/Bugku1/3.png"><br>按一般的套路，flag在document.xml中<br><img src="/2021/01/20/Bugku1/4.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;F1@g&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="啊哒"><a href="#啊哒" class="headerlink" title="啊哒"></a><strong>啊哒</strong></h1><p>将图片binwalk分析发现有压缩包<br><img src="/2021/01/20/Bugku1/5.png"><br>此处为真加密，一边爆破，一边找提示<br><img src="/2021/01/20/Bugku1/6.png"><br>这里发现了一串数字<br><img src="/2021/01/20/Bugku1/7.png"><br>果然解出了密码<br><img src="/2021/01/20/Bugku1/8.png"><br>得到flag<br><img src="/2021/01/20/Bugku1/9.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;3XiF_iNf0rM@ti0n&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="wiresharkping"><a href="#wiresharkping" class="headerlink" title="wiresharkping"></a><strong>wiresharkping</strong></h1><hr><hr><hr><h1 id="赛博朋克"><a href="#赛博朋克" class="headerlink" title="赛博朋克"></a><strong>赛博朋克</strong></h1><p>放入虚拟机中一顿操作后为lsb隐写<br><img src="/2021/01/20/Bugku1/10.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Hel1o_Wor1e&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="贝斯手"><a href="#贝斯手" class="headerlink" title="贝斯手"></a><strong>贝斯手</strong></h1><p>题目内容如下<br><img src="/2021/01/20/Bugku1/11.png"><br>看到压缩包想边爆破边找线索，结果直接破开了<br>其实提示在 <code>介绍.txt</code> 里<br>flag.txt内容如下<br><img src="/2021/01/20/Bugku1/12.png"><br>此处为md5和base58的混合编码<br>前一段为md5，后部分为base58<br><img src="/2021/01/20/Bugku1/13.png"><br><img src="/2021/01/20/Bugku1/14.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;this_is_md5_and_base58&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="又一张图片，还单纯吗"><a href="#又一张图片，还单纯吗" class="headerlink" title="又一张图片，还单纯吗"></a><strong>又一张图片，还单纯吗</strong></h1><p>binwalk分析发现隐藏jpg<br><img src="/2021/01/20/Bugku1/15.png"><br>得到flag</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">falg&#123;NSCTF_e6532a34928a3d1dadd0b049d5a3cc57&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="猜"><a href="#猜" class="headerlink" title="猜"></a><strong>猜</strong></h1><p>百度识图<br><img src="/2021/01/20/Bugku1/16.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key&#123;liuyifei&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="宽带信息泄露"><a href="#宽带信息泄露" class="headerlink" title="宽带信息泄露"></a><strong>宽带信息泄露</strong></h1><p>用 <strong>routerpassview</strong> 打开<br>搜索username，得到flag<br><img src="/2021/01/20/Bugku1/17.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;053700357621&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="隐写2"><a href="#隐写2" class="headerlink" title="隐写2"></a><strong>隐写2</strong></h1><p>先从图片中分离出压缩包<br><img src="/2021/01/20/Bugku1/18.png"><br>根据提示爆破压缩包里的压缩包<br><img src="/2021/01/20/Bugku1/19.png"><br>得到jpg文件<br><img src="/2021/01/20/Bugku1/20.png"><br>在十六进制尾端发现flag<br><img src="/2021/01/20/Bugku1/21.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f1@g&#123;y0u Are a h@cker!&#125;</span><br></pre></td></tr></table></figure><hr><hr><hr><h1 id="今日小结"><a href="#今日小结" class="headerlink" title="今日小结"></a><strong>今日小结</strong></h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;社工-进阶收集&quot;&gt;&lt;a href=&quot;#社工-进阶收集&quot; class=&quot;headerlink&quot; title=&quot;社工-进阶收集&quot;&gt;&lt;/a&gt;&lt;strong&gt;社工-进阶收集&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>不错的misc</title>
-    <link href="http://example.com/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/"/>
-    <id>http://example.com/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/</id>
-    <published>2020-12-08T02:38:01.000Z</published>
-    <updated>2020-12-08T02:50:24.200Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="hit-the-core"><a href="#hit-the-core" class="headerlink" title="hit-the-core"></a><strong>hit-the-core</strong></h1><p>strings查看字符串，好像还真得到一个有用的串：<br><img src="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/2012081046.png" alt="图片"></p><p> 这个串挺长的，{}的位置正确，凯撒、栅栏就别想了，能不能从串本身找到规律？</p><p>仔细观察，发现前面部分的大写字母拼起来正好是ALEXCTF，而且每个字母之间隔了4个字母，写个脚本提取一下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data &#x3D; &#39;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&#123;bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv&#125;&#39;</span><br><span class="line">flag &#x3D; &#39;&#39;</span><br><span class="line">for i in range(3, len(data), 5):</span><br><span class="line">    flag +&#x3D; data[i]</span><br><span class="line"> </span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure><p>拿到flag：ALEXCTF{K33P_7H3_g00D_w0rk_up}</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;hit-the-core&quot;&gt;&lt;a href=&quot;#hit-the-core&quot; class=&quot;headerlink&quot; title=&quot;hit-the-core&quot;&gt;&lt;/a&gt;&lt;strong&gt;hit-the-core&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;strings查看字符串，</summary>
-      
     
     
     
