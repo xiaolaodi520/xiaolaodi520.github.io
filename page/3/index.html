@@ -1090,7 +1090,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h1 id="Webshell上传"><a href="#Webshell上传" class="headerlink" title="Webshell上传"></a>Webshell上传</h1><ol>
+<li>usb流量包分析<pre><code> 键盘流量
+     Flag藏于usb流量中，通过USB协议数据中的键盘键码转换成键位
+ 鼠标流量
+     Flag藏于usb流量中，通过USB协议数据中的鼠标移动轨迹转换成Flag。</code></pre>
+20 其他流量包分析<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.request.method&#x3D;&#x3D;&quot;POST&quot; &amp;&amp; http contains &#x3D;&#x3D; &quot;关键字&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="sql盲注流量包分析"><a href="#sql盲注流量包分析" class="headerlink" title="sql盲注流量包分析"></a>sql盲注流量包分析</h1><p>首先需要导出所有的http对象放到一个文件夹中。</p>
+<p>利用ls -l data &gt; data.txt来把文件名等内容放到data.txt中</p>
+<p>然后利用脚本对文件的长度进行过滤筛选出成功注入的文件名。<br>传入图片流量分析</p>
+<p>对于传入图片的流量，如果图片的16进制组是以参数的方式传输的，那么我们可以通过如下方式来恢复图片。<br>找到传输图片的16进制组参数<br><img src="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/1.png"><br>将需要的值复制下来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FFD8..........................</span><br></pre></td></tr></table></figure>
+<p>创建一个新文件并存入值</p>
+<p><img src="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/2.png"><br>点击OK即可将16进制码传入。修改后缀即可查看原图片了<br><img src="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/3.png"><br>流量包中有zip提示<br><img src="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/4.png"><br>可以使用foremost 工具来还原zip<br><img src="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/5.png"><br>一种新的方法<br>导出分组字节流后存为zip格式即可打开。<br><img src="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/6.png"></p>
+
       
     </div>
     
