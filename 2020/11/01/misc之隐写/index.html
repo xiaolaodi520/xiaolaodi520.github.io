@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="xiaolaodi520" />
+
+
+
+<meta name="description" content="通用winhex  010Editor最常用的工具  藏于文件尾 附加其他文件 含其他文件 夹在两文件之间 修改文件 转编码 异或运算 图案  silenteye文件格式： png,jpg,jpeg,bmp,tiff,tif,wav可加密码 binwalk 获取帮助 12$ binwalk -h$ binwalk -help  固件扫描 1$ binwalk firmware.bin   提取文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="misc之隐写">
+<meta property="og:url" content="http://example.com/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/index.html">
+<meta property="og:site_name" content="小老弟">
+<meta property="og:description" content="通用winhex  010Editor最常用的工具  藏于文件尾 附加其他文件 含其他文件 夹在两文件之间 修改文件 转编码 异或运算 图案  silenteye文件格式： png,jpg,jpeg,bmp,tiff,tif,wav可加密码 binwalk 获取帮助 12$ binwalk -h$ binwalk -help  固件扫描 1$ binwalk firmware.bin   提取文件">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/1.png">
+<meta property="og:image" content="http://example.com/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/2.png">
+<meta property="article:published_time" content="2020-11-01T07:15:45.000Z">
+<meta property="article:modified_time" content="2021-03-10T01:02:51.488Z">
+<meta property="article:author" content="xiaolaodi520">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/1.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="小老弟" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/qq1.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>misc之隐写 | 小老弟</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/qq1.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/xiaolaodi520" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/qq1.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xiaolaodi520" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-misc之隐写" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/" class="article-date">
+      <time datetime="2020-11-01T07:15:45.000Z" itemprop="datePublished">2020-11-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      misc之隐写
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a><strong>通用</strong></h1><h2 id="winhex-010Editor"><a href="#winhex-010Editor" class="headerlink" title="winhex  010Editor"></a><strong>winhex  010Editor</strong></h2><p>最常用的工具</p>
+<ol>
+<li>藏于文件尾</li>
+<li>附加其他文件</li>
+<li>含其他文件</li>
+<li>夹在两文件之间</li>
+<li>修改文件</li>
+<li>转编码</li>
+<li>异或运算</li>
+<li>图案</li>
+</ol>
+<h2 id="silenteye"><a href="#silenteye" class="headerlink" title="silenteye"></a><strong>silenteye</strong></h2><p>文件格式： png,jpg,jpeg,bmp,tiff,tif,wav<br>可加密码</p>
+<h2 id="binwalk"><a href="#binwalk" class="headerlink" title="binwalk"></a><strong>binwalk</strong></h2><p> <strong>获取帮助</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -h</span><br><span class="line">$ binwalk -help</span><br></pre></td></tr></table></figure>
+<p> <strong>固件扫描</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk firmware.bin </span><br></pre></td></tr></table></figure>
+<p> <strong>提取文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 使用默认的预定义配置文件</span><br><span class="line">$ binwalk -e firmware,bin</span><br><span class="line"></span><br><span class="line"> 使用指定自定义的配置文件my_extract.conf</span><br><span class="line">$ binwalk --extract&#x3D;.&#x2F;my.extract.conf firmware.bin</span><br></pre></td></tr></table></figure>
+
+
+
+<p> <strong>显示完整的扫描结果</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ binwalk -I firmware.bin</span><br></pre></td></tr></table></figure>
+
+<h2 id="foremost"><a href="#foremost" class="headerlink" title="foremost"></a><strong>foremost</strong></h2><p>最常用命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foremost filename</span><br></pre></td></tr></table></figure>
+<p>命令详情：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">c:\&gt; foremost [-v|-V|-h|-T|-Q|-q|-a|-w-d] [-t &lt;type&gt;] [-s &lt;blocks&gt;] [-k &lt;size&gt;]</span><br><span class="line">    [-b &lt;size&gt;] [-c &lt;file&gt;] [-o &lt;dir&gt;] [-i &lt;file]</span><br><span class="line"></span><br><span class="line">-V  - 显示版权信息并退出</span><br><span class="line">-t  - 指定文件类型.  (-t jpeg,pdf ...)</span><br><span class="line">-d  - 打开间接块检测 (针对UNIX文件系统)</span><br><span class="line">-i  - 指定输入文件 (默认为标准输入)</span><br><span class="line">-a  - 写入所有的文件头部, 不执行错误检测(损坏文件)</span><br><span class="line">-w  - 向磁盘写入审计文件，不写入任何检测到的文件</span><br><span class="line">-o  - 设置输出目录 (默认为.&#x2F;output)</span><br><span class="line">-c  - 设置配置文件 (默认为foremost.conf)</span><br><span class="line">-q  - 启用快速模式. 在512字节边界执行搜索.</span><br><span class="line">-Q  - 启用安静模式. 禁用输出消息.</span><br><span class="line">-v  - 详细模式. 向屏幕上记录所有消息。</span><br></pre></td></tr></table></figure>
+<p>文件恢复</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">formost -t 需要恢复文件类型后缀(如jpg) -i 扫描的分区 -o 指定存放文件的目录</span><br><span class="line">formost -q -b numbe(4096) -t 需要恢复文件类型后缀(如jpg) -i 扫描的分区 -o 指定存放文件的目录</span><br></pre></td></tr></table></figure>
+<h2 id="strings"><a href="#strings" class="headerlink" title="strings"></a><strong>strings</strong></h2><p>语法： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings [ -a ] [ - ] [ -o ] [ -t Format ] [ -n Number ] [ -Number ] [ file ... ]</span><br></pre></td></tr></table></figure>
+
+<p> 实例<br> 列出ls中所有的ASCII文本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings &#x2F;bin&#x2F;ls</span><br></pre></td></tr></table></figure>
+
+<p> 列出ls中所有的ASCII文本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;bin&#x2F;ls strings</span><br></pre></td></tr></table></figure>
+<p> 查找ls中包含libc的字符串，不区分大小写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings &#x2F;bin&#x2F;ls | grep -i libc</span><br></pre></td></tr></table></figure>
+<p>要搜索至少有 12 个字符的字符串，请输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings -12 strings</span><br></pre></td></tr></table></figure>
+<p>要搜索至少有 20 个字符的字符串，并以十六进制来显示偏移量，请输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings -t x -n 20 strings</span><br></pre></td></tr></table></figure>
+
+<p>选项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-a --all：扫描整个文件而不是只扫描目标文件初始化和装载段</span><br><span class="line">-f –print-file-name：在显示字符串前先显示文件名</span><br><span class="line">-n –bytes&#x3D;[number]：找到并且输出所有NUL终止符序列</span><br><span class="line">- ：设置显示的最少的字符数，默认是4个字符</span><br><span class="line">-t --radix&#x3D;&#123;o,d,x&#125; ：输出字符的位置，基于八进制，十进制或者十六进制</span><br><span class="line">-o ：类似--radix&#x3D;o</span><br><span class="line">-T --target&#x3D; ：指定二进制文件格式</span><br><span class="line">-e --encoding&#x3D;&#123;s,S,b,l,B,L&#125; ：选择字符大小和排列顺序:s &#x3D; 7-bit, S &#x3D; 8-bit, &#123;b,l&#125; &#x3D; 16-bit, &#123;B,L&#125; &#x3D; 32-bit</span><br><span class="line">@ ：读取中选项</span><br></pre></td></tr></table></figure>
+
+<h2 id="exiftool"><a href="#exiftool" class="headerlink" title="exiftool"></a><strong>exiftool</strong></h2><p>查看信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ exiftool photo.jpg  #默认显示所有的信息 exiftool+图片路径&#x2F;图片名.jpg</span><br></pre></td></tr></table></figure>
+
+<p>exiftool的支持文件类型和文件元信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">File Types</span><br><span class="line">----------------------+----------------------+---------------------</span><br><span class="line">3G2   r&#x2F;w   | DVB   r&#x2F;w   | JPEG  r&#x2F;w   | ODT   r     | RIFF  r</span><br><span class="line">....</span><br><span class="line">Meta Information</span><br><span class="line">----------------------+----------------------+---------------------</span><br><span class="line">EXIF           r&#x2F;w&#x2F;c  |  CIFF           r&#x2F;w  |  Ricoh RMETA    r</span><br><span class="line">GPS            r&#x2F;w&#x2F;c  |  AFCP           r&#x2F;w  |  Picture Info   r</span><br><span class="line">IPTC           r&#x2F;w&#x2F;c  |  Kodak Meta     r&#x2F;w  |  Adobe APP14    r</span><br><span class="line">XMP            r&#x2F;w&#x2F;c  |  FotoStation    r&#x2F;w  |  MPF            r</span><br><span class="line">MakerNotes     r&#x2F;w&#x2F;c  |  PhotoMechanic  r&#x2F;w  |  Stim           r</span><br><span class="line">Photoshop IRB  r&#x2F;w&#x2F;c  |  JPEG 2000      r    |  DPX            r</span><br><span class="line">ICC Profile    r&#x2F;w&#x2F;c  |  DICOM          r    |  APE            r</span><br><span class="line">MIE            r&#x2F;w&#x2F;c  |  Flash          r    |  Vorbis         r</span><br><span class="line">JFIF           r&#x2F;w&#x2F;c  |  FlashPix       r    |  SPIFF          r</span><br><span class="line">Ducky APP12    r&#x2F;w&#x2F;c  |  QuickTime      r    |  DjVu           r</span><br><span class="line">PDF            r&#x2F;w&#x2F;c  |  Matroska       r    |  M2TS           r</span><br><span class="line">PNG            r&#x2F;w&#x2F;c  |  MXF            r    |  PE&#x2F;COFF        r</span><br><span class="line">Canon VRD      r&#x2F;w&#x2F;c  |  PrintIM        r    |  AVCHD          r</span><br><span class="line">Nikon Capture  r&#x2F;w&#x2F;c  |  FLAC           r    |  ZIP            r</span><br><span class="line">GeoTIFF        r&#x2F;w&#x2F;c  |  ID3            r    |  (and more)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="ntfsstreamseditor"><a href="#ntfsstreamseditor" class="headerlink" title="ntfsstreamseditor"></a><strong>ntfsstreamseditor</strong></h2><p>NtfsStreamsEditor可以实现对NTFS数据流的扫描、删除、附加、导入、导出、备份和还原等完整处理手段，是Ntfs数据流处理的强大工具。<br>NTFS数据流一旦被黑客利用，有一个很恐怖的特征，因为它在系统中是完全隐形的。在“资源管理器”中是根本不可能发现它的存在的，<br>即使是其他一些专业的文件管理软件也无法找到其蛛丝马迹。因此，NTFS数据流木马将是最具杀伤力的黑客攻击手段之一。<br>参考 ： <a target="_blank" rel="noopener" href="http://www.mamicode.com/info-detail-1340194.html">http://www.mamicode.com/info-detail-1340194.html</a></p>
+<h1 id="音频"><a href="#音频" class="headerlink" title="音频"></a><strong>音频</strong></h1><h2 id="Audacity"><a href="#Audacity" class="headerlink" title="Audacity"></a><strong>Audacity</strong></h2><p>音频隐写中最常用的工具</p>
+<h2 id="Kinovea"><a href="#Kinovea" class="headerlink" title="Kinovea"></a><strong>Kinovea</strong></h2><p>可以逐帧查看图片或视频的工具<br>可以藏二维码，编码，或其他密码等</p>
+<h2 id="dtmf2num"><a href="#dtmf2num" class="headerlink" title="dtmf2num"></a><strong>dtmf2num</strong></h2><p>将电话码转成数字，<br>一般要在将数字转手机键盘密码，转成字母</p>
+<h2 id="mp3stego"><a href="#mp3stego" class="headerlink" title="mp3stego"></a><strong>mp3stego</strong></h2><p>使用命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">加密： encode -E hidden_text.txt -P pass svega.wav svega_stego.mp3</span><br><span class="line">解密： decode -X -P pass svega_stego.mp3</span><br></pre></td></tr></table></figure>
+
+
+<p>先看加密的过程：encode -E （里面放要加密的txt信息）  -P（密码） （需要将密码放入的wav文件） （生产的mp3文件）</p>
+<p>解密过程：decode -X -P （密码） （要解密的文件）</p>
+<h2 id="MuseScore"><a href="#MuseScore" class="headerlink" title="MuseScore"></a><strong>MuseScore</strong></h2><p>tune转五线谱</p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h1><h2 id="stegdetect"><a href="#stegdetect" class="headerlink" title="stegdetect"></a><strong>stegdetect</strong></h2><p>详情</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">q – 仅显示可能包含隐藏内容的图像</span><br><span class="line"></span><br><span class="line">n – 启用检查JPEG文件头功能，以降低误报率。如果启用，所有带有批注区域的文件将被视为没有被嵌入信息。如果JPEG文件的JFIF标识符中的版本号不是1.1，则禁用OutGuess检测。</span><br><span class="line"></span><br><span class="line">s – 修改检测算法的敏感度，该值的默认值为1。检测结果的匹配度与检测算法的敏感度成正比，算法敏感度的值越大，检测出的可疑文件包含敏感信息的可能性越大。</span><br><span class="line"></span><br><span class="line">d – 打印带行号的调试信息。</span><br><span class="line"></span><br><span class="line">t – 设置要检测哪些隐写工具（默认检测jopi），可设置的选项如下：</span><br><span class="line"></span><br><span class="line">j – 检测图像中的信息是否是用jsteg嵌入的。</span><br><span class="line"></span><br><span class="line">o – 检测图像中的信息是否是用outguess嵌入的。</span><br><span class="line"></span><br><span class="line">p – 检测图像中的信息是否是用jphide嵌入的。</span><br><span class="line"></span><br><span class="line">i – 检测图像中的信息是否是用invisible secrets嵌入的。</span><br></pre></td></tr></table></figure>
+<p>检测该图片用的是哪种加密方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stegdetect.exe -tjopi -s 10.0 hide.jpg</span><br></pre></td></tr></table></figure>
+<p>stegdetect下的stegbreak字典破解，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stegbreak.exe -r rules.ini -f password.txt -r p hide.jpg</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="F5"><a href="#F5" class="headerlink" title="F5"></a><strong>F5</strong></h2><p>图片格式： jpg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解密： java Extract 图片的绝对路径&#x2F;123456.jpg -p 123456</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="outguess"><a href="#outguess" class="headerlink" title="outguess"></a><strong>outguess</strong></h2><p>图片规格： jpg<br>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">加密：  outguess -k &quot;my secret key&quot; -d hidden.txt demo.jpg out.jpg</span><br><span class="line">解密：  outguess -k &quot;my secret key&quot; -r out.jpg hidden.txt</span><br></pre></td></tr></table></figure>
+
+<p> 加密:demo.jpg会覆盖out.jpg, hidden.txt中的内容是要隐藏的东西<br> 解密:解密内容放在hidden.txt中</p>
+<h2 id="steghide"><a href="#steghide" class="headerlink" title="steghide"></a><strong>steghide</strong></h2><p>图片格式： jpg  wav<br>用法： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">将secret.txt文件隐藏到text.jpg中：</span><br><span class="line"># steghide embed -cf test.jpg -ef secret.txt -p 123456</span><br><span class="line"></span><br><span class="line">从text.jpg解出secret.txt:</span><br><span class="line">#steghide extract -sf test.jpg -p 123456</span><br></pre></td></tr></table></figure>
+<p>Steghide爆破密码1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#bruteStegHide.sh </span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">for line in &#96;cat $2&#96;;do</span><br><span class="line">    steghide extract -sf $1 -p $line &gt; &#x2F;dev&#x2F;null 2&gt;&amp;1</span><br><span class="line">    if [[ $? -eq 0 ]];then</span><br><span class="line">        echo &#39;password is: &#39;$line</span><br><span class="line">        exit</span><br><span class="line">    fi  </span><br><span class="line">done </span><br></pre></td></tr></table></figure>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;bruteStegHide.sh test.jpg passwd.txt </span><br></pre></td></tr></table></figure>
+<p>Steghide爆破密码2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf8 -*-</span><br><span class="line">#author:pcat</span><br><span class="line">#http:&#x2F;&#x2F;pcat.cnblogs.com</span><br><span class="line">from subprocess import *</span><br><span class="line"></span><br><span class="line">def foo():</span><br><span class="line">    stegoFile&#x3D;&#39;rose.jpg&#39;</span><br><span class="line">    extractFile&#x3D;&#39;hide.txt&#39;</span><br><span class="line">    passFile&#x3D;&#39;english.dic&#39;</span><br><span class="line"></span><br><span class="line">    errors&#x3D;[&#39;could not extract&#39;,&#39;steghide --help&#39;,&#39;Syntax error&#39;]</span><br><span class="line">    cmdFormat&#x3D;&#39;steghide extract -sf &quot;%s&quot; -xf &quot;%s&quot; -p &quot;%s&quot;&#39;</span><br><span class="line">    f&#x3D;open(passFile,&#39;r&#39;)</span><br><span class="line"></span><br><span class="line">    for line in f.readlines():</span><br><span class="line">        cmd&#x3D;cmdFormat %(stegoFile,extractFile,line.strip())</span><br><span class="line">        p&#x3D;Popen(cmd,shell&#x3D;True,stdout&#x3D;PIPE,stderr&#x3D;STDOUT)</span><br><span class="line">        content&#x3D;unicode(p.stdout.read(),&#39;gbk&#39;)</span><br><span class="line">        for err in errors:</span><br><span class="line">            if err in content:</span><br><span class="line">                break</span><br><span class="line">        else:</span><br><span class="line">            print content,</span><br><span class="line">            print &#39;the passphrase is %s&#39; %(line.strip())</span><br><span class="line">            f.close()</span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    foo()</span><br><span class="line">    print &#39;ok&#39;</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h2 id="jphide"><a href="#jphide" class="headerlink" title="jphide"></a><strong>jphide</strong></h2><p>图片格式： jpg<br>需要密码</p>
+<h2 id="zsteg"><a href="#zsteg" class="headerlink" title="zsteg"></a><strong>zsteg</strong></h2><p>1.查看lsb数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zsteg xxx.bmp</span><br><span class="line">zsteg xxx.png</span><br><span class="line">zsteg -a (文件名)    #查看各个通道的lsb</span><br></pre></td></tr></table></figure>
+
+<p>2.检测zlib</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#-b的位数是从1开始的</span><br><span class="line">zsteg zlib.bmp -b 1 -o xy -v</span><br></pre></td></tr></table></figure>
+
+<p>3.提取该通道图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zsteg -e b8,a,lsb,xy 文件.png -&gt; out.png</span><br></pre></td></tr></table></figure>
+
+<h2 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a><strong>LSB</strong></h2><p>LSB隐写(只有文件类型为PNG和BMP的无损压缩文件才可以用LSB隐写)</p>
+<p>需要用到stegsolve工具和jave的运行环境。</p>
+<p>而LSB隐写就是修改RGB颜色分量的最低二进制位也就是最低有效位（LSB），而人类的眼睛不会注意到这前后的变化，（人类的眼睛只能识别一部分颜色的变化）</p>
+<p>分析是否有可能是LSB隐写，我们开始点击下面的按钮，切换到不同通道，我们逐渐对比不同通道我们所看到的图片是怎么样子的。<br><img src="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/1.png"><br><img src="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/2.png"><br>我们发现在Red plane0和Greee plane 0以及B略 plane 0出现了相同的异常情况，我们这里基本可以断定就是LSB隐写了<br>这里有两种方法</p>
+<ol>
+<li>利用Stegsolve的Data Extract功能提取出最小位的RGB</li>
+<li>利用python脚本来提取最小位的RGB<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image</span><br><span class="line"></span><br><span class="line">im &#x3D; Image.open(&quot;extracted.bmp&quot;)</span><br><span class="line">pix &#x3D; im.load()</span><br><span class="line">width, height &#x3D; im.size</span><br><span class="line"></span><br><span class="line">extracted_bits &#x3D; []</span><br><span class="line">for y in range(height):</span><br><span class="line">    for x in range(width):</span><br><span class="line">        r, g, b &#x3D; pix[(x,y)]</span><br><span class="line">        extracted_bits.append(r &amp; 1)</span><br><span class="line">        extracted_bits.append(g &amp; 1)</span><br><span class="line">        extracted_bits.append(b &amp; 1)</span><br><span class="line"></span><br><span class="line">extracted_byte_bits &#x3D; [extracted_bits[i:i+8] for i in range(0, len(extracted_bits), 8)]</span><br><span class="line">with open(&quot;extracted2.bmp&quot;, &quot;wb&quot;) as out:</span><br><span class="line">    for byte_bits in extracted_byte_bits:</span><br><span class="line">        byte_str &#x3D; &#39;&#39;.join(str(x) for x in byte_bits)</span><br><span class="line">        byte &#x3D; chr(int(byte_str, 2))</span><br><span class="line">        out.write(byte)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+<h2 id="Stegsolve"><a href="#Stegsolve" class="headerlink" title="Stegsolve"></a><strong>Stegsolve</strong></h2><p>常用图片隐写lsb工具</p>
+<h2 id="wbStego4open"><a href="#wbStego4open" class="headerlink" title="wbStego4open"></a><strong>wbStego4open</strong></h2><p>可以需要密码</p>
+<h2 id="pngcheck"><a href="#pngcheck" class="headerlink" title="pngcheck"></a><strong>pngcheck</strong></h2><p>pngcheck可以验证PNG图片的完整性（通过检查内部CRC-32校验和&bra;比特&ket;)和解压缩图像数据；<br>它能够转储几乎所有任选的块级别信息在该图像中的可读数据。<br>我们使用pngcheck -v hidden.png 如此的命令对图片进行检测 使用pngcheck对图片进行检测</p>
+<h2 id="identify"><a href="#identify" class="headerlink" title="identify"></a><strong>identify</strong></h2><p>identify命令主要用于获取一个或多个图像文件的格式和特性。<br>基本的命令格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">identify [options] input-file</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">identify:命令名称</span><br><span class="line">options:参数</span><br><span class="line">input-file:文件名</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@server1 download]# identify vim.jpg </span><br><span class="line">vim.jpg JPEG 1306x1909 1306x1909+0+0 8-bit DirectClass 454KB 0.000u 0:00.000</span><br><span class="line"> </span><br><span class="line">[root@server1 download]# identify -verbose vim.jpg </span><br><span class="line">Image: vim.jpg</span><br><span class="line">  Format: JPEG (Joint Photographic Experts Group JFIF format)</span><br><span class="line">  Class: DirectClass</span><br><span class="line">  Geometry: 1306x1909+0+0</span><br><span class="line">  Resolution: 72x72</span><br><span class="line">  Print size: 18.1389x26.5139</span><br><span class="line">  Units: PixelsPerInch</span><br><span class="line">  Type: TrueColor</span><br><span class="line">  Endianess: Undefined</span><br><span class="line">  Colorspace: sRGB</span><br><span class="line">  Depth: 8-bit</span><br><span class="line"> </span><br><span class="line">#-verbose是显示图片文件的详细内容，更多的参数，可以通过man identify来获取。</span><br></pre></td></tr></table></figure>
+
+<h2 id="free-file-camouflage"><a href="#free-file-camouflage" class="headerlink" title="free_file_camouflage"></a><strong>free_file_camouflage</strong></h2><p>可以需要密码</p>
+<h2 id="oursecret"><a href="#oursecret" class="headerlink" title="oursecret"></a><strong>oursecret</strong></h2><p>需要密码</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/">misc之隐写</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2020-11-01, 15:15:45</p>
+        <p><span>最后更新:</span>2021-03-10, 09:02:51</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/" title="misc之隐写">http://example.com/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">
+                    misc之流量分析
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/10/31/misc%E6%80%BB%E7%BB%93/">
+                    misc总结
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">通用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#winhex-010Editor"><span class="toc-number">1.1.</span> <span class="toc-text">winhex  010Editor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#silenteye"><span class="toc-number">1.2.</span> <span class="toc-text">silenteye</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#binwalk"><span class="toc-number">1.3.</span> <span class="toc-text">binwalk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#foremost"><span class="toc-number">1.4.</span> <span class="toc-text">foremost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strings"><span class="toc-number">1.5.</span> <span class="toc-text">strings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exiftool"><span class="toc-number">1.6.</span> <span class="toc-text">exiftool</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ntfsstreamseditor"><span class="toc-number">1.7.</span> <span class="toc-text">ntfsstreamseditor</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91"><span class="toc-number">2.</span> <span class="toc-text">音频</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Audacity"><span class="toc-number">2.1.</span> <span class="toc-text">Audacity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kinovea"><span class="toc-number">2.2.</span> <span class="toc-text">Kinovea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dtmf2num"><span class="toc-number">2.3.</span> <span class="toc-text">dtmf2num</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mp3stego"><span class="toc-number">2.4.</span> <span class="toc-text">mp3stego</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MuseScore"><span class="toc-number">2.5.</span> <span class="toc-text">MuseScore</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-number">3.</span> <span class="toc-text">图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#stegdetect"><span class="toc-number">3.1.</span> <span class="toc-text">stegdetect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F5"><span class="toc-number">3.2.</span> <span class="toc-text">F5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#outguess"><span class="toc-number">3.3.</span> <span class="toc-text">outguess</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#steghide"><span class="toc-number">3.4.</span> <span class="toc-text">steghide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jphide"><span class="toc-number">3.5.</span> <span class="toc-text">jphide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zsteg"><span class="toc-number">3.6.</span> <span class="toc-text">zsteg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LSB"><span class="toc-number">3.7.</span> <span class="toc-text">LSB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stegsolve"><span class="toc-number">3.8.</span> <span class="toc-text">Stegsolve</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wbStego4open"><span class="toc-number">3.9.</span> <span class="toc-text">wbStego4open</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pngcheck"><span class="toc-number">3.10.</span> <span class="toc-text">pngcheck</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#identify"><span class="toc-number">3.11.</span> <span class="toc-text">identify</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#free-file-camouflage"><span class="toc-number">3.12.</span> <span class="toc-text">free_file_camouflage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oursecret"><span class="toc-number">3.13.</span> <span class="toc-text">oursecret</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"misc之隐写　| 小老弟　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://example.com/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/';
+            this.page.identifier = '2020/11/01/misc之隐写/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//xiaolaodi.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" title="上一篇: misc之流量分析">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2020/10/31/misc%E6%80%BB%E7%BB%93/" title="下一篇: misc总结">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/10/06/hexo%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">hexo一些基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/11/%E5%8A%A9%E6%89%8B%E5%87%BD%E6%95%B0/">助手函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/11/BUU15/">BUU15</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/">BUU流量分析1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/10/BUU14/">BUU14</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/09/BUU13/">BUU13</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/">2020上海大学生网络安全赛MISC可乐加冰</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/06/BUU12/">BUU12</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/05/BUU11/">BUU11</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/04/BUU10/">BUU10</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/03/BUU9/">BUU9</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/01/BUU8/">BUU8</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/28/BUU7/">BUU7</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/27/BUU6/">BUU6</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/25/BUU5/">BUU5</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/24/BUU4/">BUU4</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/23/NEWSCTF/">NEWSCTF</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/22/BUU3/">BUU3</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/22/ACTF-Junior-2021/">ACTF-Junior-2021</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/21/BUU2/">BUU2</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/">攻防世界2</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/12/BUU1/">BUU1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/20/Bugku1/">Bugku1</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/">不错的misc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/">西南石油大学[智仁杯]MISC</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/30/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/">攻防世界misc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/27/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/04/misc%E4%B9%8B%E7%BC%96%E7%A0%81%E4%B8%8E%E5%8A%A0%E8%A7%A3%E5%AF%86/">编码与加解密</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/03/misc%E4%B9%8B%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/">misc之内存取证</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">misc之流量分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/">misc之隐写</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/31/misc%E6%80%BB%E7%BB%93/">misc总结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2021 xiaolaodi520
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

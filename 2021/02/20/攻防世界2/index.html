@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="xiaolaodi520" />
+
+
+
+<meta name="description" content="MISCall 原理及工具  原理：git信息泄露 git官网资料：https:&#x2F;&#x2F;www.git-scm.com&#x2F;book&#x2F;zh&#x2F;v2 工具：kali、python    解题过程  查看文件类型 123root@kali:~&#x2F;Desktop&#x2F;CTF# file miscall miscall: bzip2 compressed data, block size &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="攻防世界2">
+<meta property="og:url" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/index.html">
+<meta property="og:site_name" content="小老弟">
+<meta property="og:description" content="MISCall 原理及工具  原理：git信息泄露 git官网资料：https:&#x2F;&#x2F;www.git-scm.com&#x2F;book&#x2F;zh&#x2F;v2 工具：kali、python    解题过程  查看文件类型 123root@kali:~&#x2F;Desktop&#x2F;CTF# file miscall miscall: bzip2 compressed data, block size &#x3D;">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/1.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/2.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/3.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/4.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/5.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/%E5%80%92%E7%AB%8B%E5%B1%8B.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/%E5%80%92%E7%AB%8B%E5%B1%8B2.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/glance.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/6.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/7.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/8.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/9.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/10.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/11.png">
+<meta property="og:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/12.png">
+<meta property="article:published_time" content="2021-02-20T05:38:35.000Z">
+<meta property="article:modified_time" content="2021-02-21T13:52:53.757Z">
+<meta property="article:author" content="xiaolaodi520">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/1.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="小老弟" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/qq1.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>攻防世界2 | 小老弟</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/qq1.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/xiaolaodi520" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/qq1.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xiaolaodi520" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-攻防世界2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/" class="article-date">
+      <time datetime="2021-02-20T05:38:35.000Z" itemprop="datePublished">2021-02-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      攻防世界2
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="MISCall"><a href="#MISCall" class="headerlink" title="MISCall"></a><strong>MISCall</strong></h1><blockquote>
+<p>原理及工具</p>
+</blockquote>
+<p><strong>原理</strong>：git信息泄露</p>
+<p><strong>git官网资料</strong>：<a target="_blank" rel="noopener" href="https://www.git-scm.com/book/zh/v2">https://www.git-scm.com/book/zh/v2</a></p>
+<p><strong>工具</strong>：kali、python</p>
+<hr>
+<hr>
+<blockquote>
+<p><strong>解题过程</strong></p>
+</blockquote>
+<p>查看文件类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# file miscall </span><br><span class="line">miscall: bzip2 compressed data, block size &#x3D; 900k</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>发现是bzip2压缩包，解压。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# bzip2 -d miscall </span><br><span class="line">bzip2: Can&#39;t guess original name for miscall -- using miscall.out </span><br><span class="line">#无法猜出miscall的原始名称--使用miscall.out</span><br><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# ls</span><br><span class="line">miscall.out</span><br></pre></td></tr></table></figure>
+<p>虽然报错，但是可以发现文件名发生了改变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# bzip2 -d miscall </span><br><span class="line">bzip2: Can&#39;t guess original name for miscall -- using miscall.out</span><br><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# ls</span><br><span class="line">miscall.out</span><br></pre></td></tr></table></figure>
+<p>二话不说再看看文件类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# file miscall.out </span><br><span class="line">miscall.out: POSIX tar archive (GNU)  #tar文件</span><br></pre></td></tr></table></figure>
+<p>继续解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# tar -xvf miscall.out </span><br><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# ls</span><br><span class="line">ctf  miscall.out</span><br></pre></td></tr></table></figure>
+<p>发现出现了一个新的目录ctf，进去看看，终于看到flag了，可是是个假的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF# cd ctf&#x2F;</span><br><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF&#x2F;ctf# ls</span><br><span class="line">flag.txt</span><br><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF&#x2F;ctf# cat flag.txt </span><br><span class="line">Nothing to see here, moving along...</span><br></pre></td></tr></table></figure>
+<p>什么都没有，怎么办？再仔细看看,发现了隐藏文件.git,是个啥，百度一波，找到了可用的命令，试试看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF&#x2F;ctf# ls -a</span><br><span class="line">.  ..  flag.txt  .git</span><br></pre></td></tr></table></figure>
+<p>使用命令查看git记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF&#x2F;ctf# git log</span><br><span class="line">commit bea99b953bef6cc2f98ab59b10822bc42afe5abc (HEAD -&gt; master)</span><br><span class="line">Author: Linus Torvalds &lt;torvalds@klaava.Helsinki.Fi&gt;</span><br><span class="line">Date:   Thu Jul 24 21:16:59 2014 +0200</span><br><span class="line"></span><br><span class="line">    Initial commit</span><br></pre></td></tr></table></figure>
+<p>使用git stash show校验列表中存储的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF&#x2F;ctf# git stash show</span><br><span class="line"> flag.txt | 25 ++++++++++++++++++++++++-</span><br><span class="line"> s.py     |  4 ++++</span><br><span class="line"> 2 files changed, 28 insertions(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+<p>使用git stash apply 重新进行存储，复原文件,可以发现出现一个s.py文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF&#x2F;ctf# git stash apply</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)</span><br><span class="line">        new file:   s.py</span><br><span class="line"></span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   flag.txt</span><br><span class="line"></span><br><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF&#x2F;ctf# ls</span><br><span class="line">flag.txt  s.py</span><br></pre></td></tr></table></figure>
+<p>运行s.py文件，得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~&#x2F;Desktop&#x2F;CTF&#x2F;ctf# python s.py </span><br><span class="line">NCN4dd992213ae6b76f27d7340f0dde1222888df4d3</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h1 id="Get-the-key-txt"><a href="#Get-the-key-txt" class="headerlink" title="Get-the-key.txt"></a><strong>Get-the-key.txt</strong></h1><p>在Linux中用file打开文件，发现是linux系统文件<br>将forensic100解压在该文件夹下，发现为同类压缩包<br>244个压缩包根本看不过来，所以根据题目提示 get-the-key.txt，使用<code>grep -r key,txt</code><br>接下来解压文件，这里有一点问题<br>用 gunzip 1无法识别文件后缀， tar -xzvf 1 没有反应，使用binwalk 1 也没有得到结果<br>最后使用 gunzip&lt;1 得到flag<br>SECCON{@]NL7n±s75FrET]vU=7Z}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ file &#39;&#x2F;home&#x2F;kali1&#x2F;桌面&#x2F;CTF&#x2F;forensic100&#39; </span><br><span class="line">&#x2F;home&#x2F;kali1&#x2F;桌面&#x2F;CTF&#x2F;forensic100: Linux rev 1.0 ext2 filesystem data, UUID&#x3D;0b92a753-7ec9-4b20-8c0b-79c1fa140869</span><br><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ binwalk -e &#39;&#x2F;home&#x2F;kali1&#x2F;桌面&#x2F;CTF&#x2F;forensic100&#39; </span><br><span class="line"></span><br><span class="line">DECIMAL       HEXADECIMAL     DESCRIPTION</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">0             0x0             Linux EXT filesystem, blocks count: 2048, image size: 2097152, rev 1.0, ext2 filesystem data, UUID&#x3D;0b92a753-7ec9-4b20-8c0b-79c1fa14fa14</span><br><span class="line"></span><br><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ grep -r key.txt</span><br><span class="line">匹配到二进制文件 forensic100</span><br><span class="line">匹配到二进制文件 _forensic100.extracted&#x2F;0.ext</span><br><span class="line">匹配到二进制文件 _forensic100.extracted&#x2F;ext-root&#x2F;1</span><br><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF$ cd _forensic100.extracted</span><br><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF&#x2F;_forensic100.extracted$ cd ext-root</span><br><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF&#x2F;_forensic100.extracted&#x2F;ext-root$ gunzip&lt;1</span><br><span class="line">SECCON&#123;@]NL7n+-s75FrET]vU&#x3D;7Z&#125;</span><br><span class="line">kali1@kali:~&#x2F;桌面&#x2F;CTF&#x2F;_forensic100.extracted&#x2F;ext-root$ </span><br></pre></td></tr></table></figure>
+<p>SECCON{@]NL7n±s75FrET]vU=7Z}</p>
+<hr>
+<hr>
+<h1 id="python-Reverse-it"><a href="#python-Reverse-it" class="headerlink" title="python Reverse-it"></a><strong>python Reverse-it</strong></h1><p>下载文件，放入winhex，入眼的是一坨乱码！！！<br>看了看文件头9DFF，好像jpeg图片的文件尾FFD9，在滑到最后看了一下，看见：<br>反过来好像就是jpeg图片的文件头！！！<br>直接copy16进制，逆序之后再winhex新建文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s &#x3D; &quot;9DFF700DB6DAFC937263282222BDD218B425D47B8C00A1AB609EE707BB0431567B5AD684BBD4B97E00A0AB6D36CD31C9A4D1012D5872A9B53ACFC1041B514700DD700814E9659377B431377696F81049A511CD308FD81C89C8C46B449415F88BBC00A1AB26BC992614022D81E50B0EB453D69E930827B6E670A0915ED7898B502BC3DCAAD5850781047B5347C1AF5D51AEC2597A7739B22FEC2E21308E6B6293833E57C8C8D61CEF2BF7A96D52600DE6DC1813E146A2C1081B6544A37D495DD01049E9009CBCF851D9914D71286E4DE3FC8CD6C8C1AED2692B40AE26D6C00ACDA94D35F45CE04441B1A6D5ADD3D7961C16005B65AF3C047C8348E424EA866B7D4A5ED460051D55EFAF02F42352606B7CA1DC197F4AAF697B3700DA654E5FE6388C6C5AB7B053956D6EA230827BAD13070F389BB41B82512EAD64A62BCC16005D6DBE00FF8FEFF90FCFF07BDFB8104DA510F7ED6BBC033FB4426D96BBD7A39104BA5378E87DFADDE22A0BF96A1B248A7C3591041475AF84EC576878A4C8956F74DDCAF6DCFC1041B59E11B7259C3913931601ABD2D66579676F8104FA59E3D7C2FC033F9E6189C174CDED3969719104DA59E300FF19F338C675AD83CE52AABA4A52540058D13CEE641A8010988C96AAACF37A23D17831DD56A85E8500A911A3681AEAC04296CC5C65C99ED28C551E67ECAEE80BBAFB0DFFF00A7F87E0A267B3320CB15787BCDDAD9D9A2E068552FABAC3E866BB7B153DA43082DF37E04DEEF2B2BCC868AD7AB634ED0F951EF856C5DDF217278B3EDE85B3539F5005C9703D1F6B0CAD48B6D8CCBD44DABDB1AE5FF7CEF108926210E69BE410866C14D30660194AF85467DAC36C8A26B3689F8BCD99069886A588B0AF28D0041FCDDCD54752051D5A2B174BD2517238A09BDD9BF4CA3A503AEDD3104DE14CEB289D81909D4B1D89573D0D730EAB4700FFD47E351962D26D127104374099E9233884E868A30F4DAF2C01CCA8AF80E9DBF458FA07D0C3963AE01A104DAFF320B741B9C27B2779A6215F47451723AA09F999B9CAACCEDA4DBB6A308AD7EF39194EE74240CCDF10FA95FB674575EA9A300C90E4E42126C68DBDB2A3082AE3B51B7CC99001A577CDDD5EC5BE979F04EA4621DE384B22FAEE300DCDE3FC59C8B6C236FC483579A7F939FD66E1814025439256DE8353E2630866AFC14D38C3391A29818A67F869A6AF532985BE1703EA297D59B7C136BB7B153D2900A9A7BBBBB80909EAF701D2CA5E6F2553939183E86763FC884B26EAE253082CF590C25244B2340B67737E55DDCA5F81830E642DCB91B141F45E57D4D600DAF0E1A7D3F40736967295B025D5BCB046EA8D00A04D1E62096A1BDE61C0B6C3D4BAF8510054D4700DC1F0CECE2B0A2646C9701468E1E1857D00FF78E927B585244CD0FC09B00A778BFE5EB1AC01E59229228FB7229ECA938E1B0A090EE00A4F4FBD9AC89AB967CB8C54857153A0750D104BE7EE000FC3E8945AD94945B97B6AB9B7BF9B66308ED3EE140FC4783436262AF291DE94E4D6CAED00A7F9F74E9EEFBC7303F09E4B961E9D1D4A7D00FFBD7F025E8510CA6DBEA2600540328C03A4D55957518B3070791AE36D84A846EE9D6AC7B4A104BE9E8170E9DC270AB3B86B7B45FE259BB9CA0AF4291500E4E4E294C83B12FEEA8E00F30011301120001030C000ADFF91004000DDFF7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7BC766C77BC49292C4D292D2D1D1B1103400BDFFFAFAFAFAFAFAFAFAFAFAC9C9C9C9C9686868686868F6F6F6F6F6F6F6F6C5C5C5C5C5C5F6C59494949494C5946363636394636262626362616162616161616161003400BDFFAF9F8F7F6F5F4F3F2FAE9E8E7E6E5E4E3E2EAD9D8D7D6D5D4D3D2DAC9C8C7C6C5C4C3C2CAB9B8B7B6B5B4B3B2BAA9A8A7A6A5A4A3A2AA99989796959493929A89888786858483828A797877767574737A696867666564636A595857565554535A494847464544434A39383736353A292827262A19181711F521E434261A01D2726510F253332901C1B1A19244180182322311716701514216013125040113020100077201000404050704030404020102000115B004CFFB0A0908070605040302010000000000000101010101010101010300010F1004CFFAF9F8F7F6F5F4F3F2F1FAE9E8E7E6E5E4E3E2E1EAD9D8D7D6D5D4D3D2DAC9C8C7C6C5C4C3C2CAB9B8B7B6B5B4B3B2BAA9A8A7A6A5A4A3A2AA99989796959493929A898887868584838A797877767574737A696867666564636A595857565554535A494847464544434A3938373635343A29282726252A191817161A09028272633420F1D25511C1B2432801A19182341172270161531601413122150114000302010D7100000404050503040203030102000015B004CFFB0A0908070605040302010000000000000000010101010101050100000F1004CFF101130101120002110308C00A1008011000CFFFFFFD6FFCDEFB4EFABDF92DF89CF70CF77BF7EAF75AF7C9F839F8A8F918FA87FBF6FD66FED5F055F2C4F434F7A3F913FC82FFF1F271F5E0F850FCCFE04FE4BEE82EEC9DE11DE68CEBFBE07BE5EAEB5AE0D9E649ECB8E238E9A7EF17E696ED06E485ECF4E374EBE3E363EBD2E352ECC1E441EDB0E630EFAFD92FD2AEDC1ED69DD01DDA8CD50CD08BDBFAD67AD1F9DC69D8E8D468D0E7DC57D8D6D556D1D5DE45DBC4D944D6C3D443D1C2DF32DEB1DC31DAB0D930D8BFC73FC6BEC63EC5BDC53DC5BCC53CC6BBC63BC7BAC83AC9B9CA39CCB8CD38CFB7C147C3C6C646C8C5CB45CEC4C154C4D3C853CBD2CF52C3E1C761CCE0C070C5FFBA7FBFFEB48EBA0EBF8DB51DBB9CB12CB7ABBE2BB5BABB3AB2C9BA49B1D8B958B0E7B867B0F6B976B106BA85B315BC94B524BEA3B833B2C2BB42B6D1B061BAE0B570B000BB8FA61FA1AEAD2EA8BDA44DA0DCAC5CA9EBA57BA20BAF8AAC1AA9A9A739A4C8A258A0E7AE67ADF6AB86AA16A9A5A835A7C4A654A6E3A673A603A692A622A6B1A741A8D0A960AAFF9B8F9D1F9EAE904E92DD946D97FC998C9C1C9FAB924B95DA986A9CF99099942998B89C4890E795779A079F96943699C59F5594F49A84902496B39D4393E29A72911298A19F3196D09E6096009E9F863F8ECE866E8FFD889D813D8ACC836C8CFB869B803B8ACA846A8EF9899983398EC8896884088F978B3787D682768E068BA5874583E480848D148AB3875384F2829280328DC18B618A0188A0874085EF748F732F72CE726E710E71AD714D71EC718C712C72CB736B740B75AA764A77E979897A297CC87E68711873B7765778F67B967E3671E5758578257CC47074741478B37D53710376A27B4270F175917A3170E076807B2071DF687F6E1F64CE6B6E621E69BD606D680D6FAC675C6FFB67AB6F4B67FA6F9A684A61F96A9963496CE866986F3869E763976D3768E662966D3667E562956D3569E4649460446BE36793634360F26C92694265F162A16F416CF06AA06750650063BF516F5F0F5DBE5C6E5A1E59CD587D572D56DC568C553C55EB559B554B55FA56AA565A570A58B959695A195BC85D785F2850E75297544757F659A65C565F0652C5557558255BD45F84524456F35AA35F53531357C25C72513256E15B91505156015BB0517057205DDF439F494F400F47BE4E6E452E4CDD439D4A4D420D4ABC427C4A2C42EB4A9B435B4C0B44CA4D7A473A40F949A943694D1947D841984B48450840C74B77453740F64BA6476642264ED54A95455542154EC44A844744430440C34D734A3347F245B2427240324EE14CA14A61492147E046A04460432042EF32AF316F312F30EE30AE306E302E30ED31AD316D322D33EC34AC356C372C38EB3AAB3B6B3D2B3FEA32BA347A363A39F93CB93F793249350938C83C883058341837D73C973067342739E63EA6327637363DF532C537853D45331538D43E9435643B2431F338B33F7336433D0334D23B9233623A2232F13AB132813A4132113BD034A03C6035303EFF27CF219F2A5F242F2EEE27BE228E2C4E261E21ED2BAD267D214D2C0D27DC22AC2E6C293C250C21DB2D9B296B263B220B2FCA2B9A286A253A220A20D92D992B692839260924D822A821782F382D082CD72BA72A772947281728E627B627862756272627F527C527952865283529052AD42BA42C742D442F1420F322C32493266328332A032DD22FA22282255227222BF12EC121A1257128412C1120F024C028902C60214025102AEF1FBF149F196F1E3F131F19EE1EBE149E1A6E104E161E1CED13CD199D107D174D1E1D15FC1CCC13AC1B7C125C1A2C120C1ADB12BB1A8B136B1B3B141B1CEA15CA1E9A177A115A1A2A140A1DD917B911991B69154910291AF815D81FA81A88156810481B1817F712D71EA71987156711471D171AF616D612B61F861C6619461626130610E51DB51B95187516551435121510F41EC41DA41B841A6419441724160415E315C314A31383136313431323130313E213C213A21482146215421622170218E119C11AA11C811D611F411131131115F017D019B01B901E7011601340162019001CEF0FCF03BF069F0A7F0E5F014F052F090F0EEE02DE06BE0B9E0F7E046E094E0E2E031E08FD0EDD03CD09AD0E8D047D0A5D004D062D0D0D03FC09DC00CC07AC0E8C057C0C5C034C0A2C021C09FB01EB08CB00BB089B008B096B015B093B022B0B0B03FA0CDA05CA0EAA089A018A0A6A045A0D3A072A011A0BF905E90FC90AB904A90F89097904690F490A39052900190BF807E802D80EB80AA8069802880E680A58064802380F180B0808F705E702D70FB70CA709970687047701670F470D370B270917070705F603E601D600C60FA60D960C860B760A6609560846073607260616060606F505E505D505C505B506A50695068507750765085509450A350B250C150D050EF400F401E403D404C406B408A40A940C840E7401740364055408440B340D2400240314060409F30CE300E303D307C30AB30EA302A306930A830E73027306630A530F43034308330D23012306130B03000305F20BE200E205D20BC201C206B20CA202A208920E8204820A72017207620D5204520B42014208320F2206220D1204120C0203020AF102F109E101E109D101D109C101C109B101B109A101A10A9102910B8103810C7105710E6107610061095102510C4105410E31083102310B2105210F11091103110D01070101010BF006F000F00BE005E000E00BD005D000D00BC006C001C00CB007B002B00EA009A004A00F900A90059000900B80068001800C70077002700D60086003600E50095004500F400A40054000400B30073002300D20082003200E10091004100F000A0005000000000400000000000006727573602452534000000000276963720000000F8200000000000000000000000000000000000001000000000000000371656D67EF17500000005006590C4000000000002A5958510000000E9C53000B0314000CCDE300041FC0100E2F54100EF4A31000000000077569667000000000000000000000000000000000000000000000000000013E223D2636393136334549402E69602E6F696479646E6F6340276E69677569665025636E6562756665625C2000000000000000000000013E223D2636393136334549402E69602E6F696479646E6F6340276E69677569665025636E6562756665625C20000000000000036375646000000000000000000000000000000000000000000002474253702D2025636160737022757F6C6F636022474250247C657166656440213E223D2636393136302345494E200000000000000000000002474253702D2025636160737022757F6C6F636022474250247C657166656440213E223D2636393136302345494E20000000000000036375646000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008636E2365696E2777777F2F2A307474786023454946100000000000000000000008636E2365696E2777777F2F2A30747478602345494610000000000000036375646FC6B000048F000000A4200000000000002A59585AD810000587B0000992600000000000002A59585093000005F8300002AF600000000000002A595850000000000000000000000000000000002A59585CC61100000001000153F00000000000002A59585000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000013E223D26363931363345494022474253721000000000000000000000013E223D263639313633454940224742537210000000000000036375646000097E61607D6F63402462716B6361605D2474756C67756840283939313029236820247867696279707F6340000000047875647C0800000C340000034254526C0800000C340000034254576C0800000C340000034254527C0000000034000008636564742000000C0400000371656D6410000008F30000096D657C6420000004D3000007756966768000000C430000046565767880000004C2000004646D646070000004520000046E6D6464100000004200000A595852641000000C2200000A59585764100000081200000A595852741000000402000004707B626410000000F10000047074777C6000000481000003637564633000000051000004727073611000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002020584D23D0000000010006D6F0000000000000000000000000000247425370234549400000000456435D40737361600001300600090002000EC7002A59585022474252747E6D600000120F6E696C484C0000010100054C49464F42505F534349485C02EFFE7248FCE8990089E402B00F89DC8D14D0100000000005240D49424830000000000004040D49424830003E2330207F68637F647F686058300DEFF00E3F3227722D346E656024756B636160787F3C3020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202E3164756D607D687A387F2C302E3644425A3664627F2C302E3F2229333A31313A38313452323D21313D24313032322D35647164497669646F6D4A307D687022233E2330227F64716D6C65687960522D3C6F6F64527F64716562734A307D6870222F203E213F2071687F2D6F636E25626F64616E237E6F2F2A30747478622D307D687A337E6C6D687022222D34757F62616A366462702E6F6964707962736375644A3664627C302E3223237E6D2871647E69737D2664627D22323F22303F293939313F27627F6E23377E2777777F2F2A30747478622D3664627A337E6C6D68702644425A3664627C302E32203E243E253025627F6340205D48522D3B64707D687A3870222F2164756D6A337E6A35626F6461622D387A337E6C6D68702164756D607D687A387C302E3F322469336B6A73645E4A7355627A7849686563407D403D4537522D346960222FBBBFE22D3E696765626024756B636160787F3C300F203E213F2071687F2D6F636E25626F64616E237E6F2F2A30747478609901EFF00000000A1000000100000004000300A8C000000100000004000200A00001000100000003000100A3000002303A31343A30313022323A30303A31303032364001446F62656020586F647F63786F6070254C656D656E6473710000000840000001000000084000000000000000A0000001000000040009678C80000004100000020002310270000009100000020001310000020001000000030008210A6000000100000005000B11026000000100000005000A110000010001000000030002110700080000000A200D4D40000669687542D001EFF00008400840010101000649464A401000EFF8DFF&quot;</span><br><span class="line"></span><br><span class="line">x &#x3D; s[::-1]</span><br><span class="line"></span><br><span class="line">print(x)</span><br><span class="line"></span><br><span class="line">x &#x3D; &quot;FFD8FFE000104A46494600010101004800480000FFE100D24578696600004D4D002A000000080007011200030000000100010000011A00050000000100000062011B0005000000010000006A01280003000000010002000001310002000000190000007201320002000000140000008C8769000400000001000000A0000000000000004800000001000000480000000173746E656D656C4520706F68736F746F68502065626F64410046323030313A30303A32322031303A34313A3032000003A00100030000000100010000A002000400000001000000C8A0030004000000010000001A00000000FFE10990687474703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F003C3F787061636B657420626567696E3D22EFBBBF222069643D2257354D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D706D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D22584D5020436F726520352E342E30223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D222220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F2220786D703A43726561746F72546F6F6C3D22506978656C6D61746F7220332E332220786D703A4D6F64696679446174653D22323031342D31312D32325431383A31313A3339222F3E203C2F7264663A5244463E203C2F783A786D706D6574613E2020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020203C3F787061636B657420656E643D2277223F3E00FFED003850686F746F73686F7020332E30003842494D04040000000000003842494D0425000000000010D41D8CD98F00B204E9800998ECF8427EFFE20C584943435F50524F46494C4500010100000C484C696E6F021000006D6E74725247422058595A2007CE00020009000600310000616373704D5346540000000049454320735247420000000000000000000000000000F6D6000100000000D32D4850202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001163707274000001500000003364657363000001840000006C77747074000001F000000014626B707400000204000000147258595A00000218000000146758595A0000022C000000146258595A0000024000000014646D6E640000025400000070646D6464000002C400000088767565640000034C0000008676696577000003D4000000246C756D69000003F8000000146D6561730000040C0000002474656368000004300000000C725452430000043C0000080C675452430000043C0000080C625452430000043C0000080C7465787400000000436F70797269676874202863292031393938204865776C6574742D5061636B61726420436F6D70616E790000646573630000000000000012735247422049454336313936362D322E31000000000000000000000012735247422049454336313936362D322E31000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000058595A20000000000000F35100010000000116CC58595A200000000000000000000000000000000058595A200000000000006FA2000038F50000039058595A2000000000000062990000B785000018DA58595A2000000000000024A000000F840000B6CF64657363000000000000001649454320687474703A2F2F7777772E6965632E636800000000000000000000001649454320687474703A2F2F7777772E6965632E63680000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000064657363000000000000002E4945432036313936362D322E312044656661756C742052474220636F6C6F7572207370616365202D207352474200000000000000000000002E4945432036313936362D322E312044656661756C742052474220636F6C6F7572207370616365202D20735247420000000000000000000000000000000000000000000064657363000000000000002C5265666572656E63652056696577696E6720436F6E646974696F6E20696E2049454336313936362D322E3100000000000000000000002C5265666572656E63652056696577696E6720436F6E646974696F6E20696E2049454336313936362D322E31000000000000000000000000000000000000000000000000000076696577000000000013A4FE00145F2E0010CF140003EDCC0004130B00035C9E0000000158595A2000000000004C09560050000000571FE76D6561730000000000000001000000000000000000000000000000000000028F0000000273696720000000004352542063757276000000000000040000000005000A000F00140019001E00230028002D00320037003B00400045004A004F00540059005E00630068006D00720077007C00810086008B00900095009A009F00A400A900AE00B200B700BC00C100C600CB00D000D500DB00E000E500EB00F000F600FB01010107010D01130119011F0125012B01320138013E0145014C0152015901600167016E0175017C0183018B0192019A01A101A901B101B901C101C901D101D901E101E901F201FA0203020C0214021D0226022F02380241024B0254025D02670271027A0284028E029802A202AC02B602C102CB02D502E002EB02F50300030B03160321032D03380343034F035A03660372037E038A039603A203AE03BA03C703D303E003EC03F9040604130420042D043B0448045504630471047E048C049A04A804B604C404D304E104F004FE050D051C052B053A05490558056705770586059605A605B505C505D505E505F6060606160627063706480659066A067B068C069D06AF06C006D106E306F507070719072B073D074F076107740786079907AC07BF07D207E507F8080B081F08320846085A086E0882089608AA08BE08D208E708FB09100925093A094F09640979098F09A409BA09CF09E509FB0A110A270A3D0A540A6A0A810A980AAE0AC50ADC0AF30B0B0B220B390B510B690B800B980BB00BC80BE10BF90C120C2A0C430C5C0C750C8E0CA70CC00CD90CF30D0D0D260D400D5A0D740D8E0DA90DC30DDE0DF80E130E2E0E490E640E7F0E9B0EB60ED20EEE0F090F250F410F5E0F7A0F960FB30FCF0FEC1009102610431061107E109B10B910D710F511131131114F116D118C11AA11C911E81207122612451264128412A312C312E31303132313431363138313A413C513E5140614271449146A148B14AD14CE14F01512153415561578159B15BD15E0160316261649166C168F16B216D616FA171D17411765178917AE17D217F7181B18401865188A18AF18D518FA19201945196B199119B719DD1A041A2A1A511A771A9E1AC51AEC1B141B3B1B631B8A1BB21BDA1C021C2A1C521C7B1CA31CCC1CF51D1E1D471D701D991DC31DEC1E161E401E6A1E941EBE1EE91F131F3E1F691F941FBF1FEA20152041206C209820C420F0211C2148217521A121CE21FB22272255228222AF22DD230A23382366239423C223F0241F244D247C24AB24DA250925382568259725C725F726272657268726B726E827182749277A27AB27DC280D283F287128A228D429062938296B299D29D02A022A352A682A9B2ACF2B022B362B692B9D2BD12C052C392C6E2CA22CD72D0C2D412D762DAB2DE12E162E4C2E822EB72EEE2F242F5A2F912FC72FFE3035306C30A430DB3112314A318231BA31F2322A3263329B32D4330D3346337F33B833F1342B3465349E34D83513354D358735C235FD3637367236AE36E937243760379C37D738143850388C38C839053942397F39BC39F93A363A743AB23AEF3B2D3B6B3BAA3BE83C273C653CA43CE33D223D613DA13DE03E203E603EA03EE03F213F613FA23FE24023406440A640E74129416A41AC41EE4230427242B542F7433A437D43C044034447448A44CE45124555459A45DE4622466746AB46F04735477B47C04805484B489148D7491D496349A949F04A374A7D4AC44B0C4B534B9A4BE24C2A4C724CBA4D024D4A4D934DDC4E254E6E4EB74F004F494F934FDD5027507150BB51065150519B51E65231527C52C75313535F53AA53F65442548F54DB5528557555C2560F565C56A956F75744579257E0582F587D58CB591A596959B85A075A565AA65AF55B455B955BE55C355C865CD65D275D785DC95E1A5E6C5EBD5F0F5F615FB36005605760AA60FC614F61A261F56249629C62F06343639763EB6440649464E9653D659265E7663D669266E8673D679367E9683F689668EC6943699A69F16A486A9F6AF76B4F6BA76BFF6C576CAF6D086D606DB96E126E6B6EC46F1E6F786FD1702B708670E0713A719571F0724B72A67301735D73B87414747074CC7528758575E1763E769B76F8775677B37811786E78CC792A798979E77A467AA57B047B637BC27C217C817CE17D417DA17E017E627EC27F237F847FE5804780A8810A816B81CD8230829282F4835783BA841D848084E3854785AB860E867286D7873B879F8804886988CE8933899989FE8A648ACA8B308B968BFC8C638CCA8D318D988DFF8E668ECE8F368F9E9006906E90D6913F91A89211927A92E3934D93B69420948A94F4955F95C99634969F970A977597E0984C98B89924999099FC9A689AD59B429BAF9C1C9C899CF79D649DD29E409EAE9F1D9F8B9FFAA069A0D8A147A1B6A226A296A306A376A3E6A456A4C7A538A5A9A61AA68BA6FDA76EA7E0A852A8C4A937A9A9AA1CAA8FAB02AB75ABE9AC5CACD0AD44ADB8AE2DAEA1AF16AF8BB000B075B0EAB160B1D6B24BB2C2B338B3AEB425B49CB513B58AB601B679B6F0B768B7E0B859B8D1B94AB9C2BA3BBAB5BB2EBBA7BC21BC9BBD15BD8FBE0ABE84BEFFBF7ABFF5C070C0ECC167C1E3C25FC2DBC358C3D4C451C4CEC54BC5C8C646C6C3C741C7BFC83DC8BCC93AC9B9CA38CAB7CB36CBB6CC35CCB5CD35CDB5CE36CEB6CF37CFB8D039D0BAD13CD1BED23FD2C1D344D3C6D449D4CBD54ED5D1D655D6D8D75CD7E0D864D8E8D96CD9F1DA76DAFBDB80DC05DC8ADD10DD96DE1CDEA2DF29DFAFE036E0BDE144E1CCE253E2DBE363E3EBE473E4FCE584E60DE696E71FE7A9E832E8BCE946E9D0EA5BEAE5EB70EBFBEC86ED11ED9CEE28EEB4EF40EFCCF058F0E5F172F1FFF28CF319F3A7F434F4C2F550F5DEF66DF6FBF78AF819F8A8F938F9C7FA57FAE7FB77FC07FC98FD29FDBAFE4BFEDCFF6DFFFFFFC0001108001A00C803011200021101031101FFC4001F0000010501010101010100000000000000000102030405060708090A0BFFC400B5100002010303020403050504040000017D01020300041105122131410613516107227114328191A1082342B1C11552D1F02433627282090A161718191A25262728292A3435363738393A434445464748494A535455565758595A636465666768696A737475767778797A838485868788898A92939495969798999AA2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8F9FAFFC4001F0100030101010101010101010000000000000102030405060708090A0BFFC400B51100020102040403040705040400010277000102031104052131061241510761711322328108144291A1B1C109233352F0156272D10A162434E125F11718191A262728292A35363738393A434445464748494A535455565758595A636465666768696A737475767778797A82838485868788898A92939495969798999AA2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2D3D4D5D6D7D8D9DAE2E3E4E5E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDB0043001616161616162616162636262626364936363636495C49494949495C6F5C5C5C5C5C5C6F6F6F6F6F6F6F6F8686868686869C9C9C9C9CAFAFAFAFAFAFAFAFAFAFFFDB0043011B1D1D2D292D4C29294CB77C667CB7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7B7FFDD00040019FFDA000C03010002110311003F00E8AEEF21B38C492E4E4E0051924FA0AC9BB952EF54B7B68B3BA072CD9E0718E9EB401A4B7CA6D9EE648A48D63EA1970703B81575955D4A30C8230450062AEBD6AC0158E520F7DBFF00D7A4D1D9E169B4E90F3037CBFEE9E47F9F7A00DEAC6D4E49ED192FA2626343874CF041EE3DE80366B9FB7B9BA6B79B54949DA5498E3CF000EE7EB401D0570A35175845C8BC769BA98CA9DBF4F4A00EE090A0B1E839ACE9227BF82292295E10CA1BE5EFB877A00B90CF0DC442585B729E87FF00D7581E1E8641079C6462A0B2ECEC0F1CD0074D4500158FAB4D3C6B0C16EDB1A69026E1D40A00D8AE640BCB5D520B59276963704F3D7A1E0FAD006D4D75E54F141B19BCD246E03818F5ACDD55E73776B0432B44252C095FC280352EAE62B488CF36768E3819393552F6E5AC2D107FAE90908BBBBB7A9A0092D351B7BB631C7B95D792AE3071EB589235FA6A968F76A81892A1933C83D41CFA6680362E3538ED6529345204181E66DF939F7A975384CF632C6B8C95CF3EDCD003EEAF22B483ED1264AE40F979EB5CE5DDDC775A10099CC7B15B3EA2803A2BDBD86C62124E4E09C003A9AE575476BF59AF01FDCC04247EE49193FE7DA803A6BBD4ADECCAAC9B999F90AA32715474F5126A9772B72C9B147B023FFAD401A10EA3693C0D70AF854FBD9E08FA8ACC10C2FAD4F03A868E4883329E990473401721D62D269153E74DFF0074BAE037D0D37598D1B4D90918D982BEC41ED4013DDEA305A3AC4FB9DDB90A8327152DB471B2A5D15025745DCDDCF1400D82FA0B885A68896099DCB8F9863B62A8C63CAD76458FA49106603D41C668014EB96E012629801FEC7FF5EA1BDBAD44DBCC8D6B84DAC0B6F1D3079C5005F9353B58EDE3B872712FDD5C658FE159F0DE436BA7DA868CCB2B2FEED40E73FD28034AD351B7BB668E3CABAF255860E2A9D9DADDCB78751BC0233B762A0E78F7A00FFFD0BFABB08EEACE76E155C82DE99C56C5CC69240CAEA1863A119A0058E58A65DD13871D32A73FCAAA69C8890108A146EEC31D85004525A4ABAA25EC38DA576C833F91FF003E95AD4019179693DEDC471C9816E9F330CF2C7D3E95AF4018F67697566D2DBA1061393193C9527B11E95B1401CFCD6FACDD47F6598C4A878675CE48FA5741401953C7A842B1A69FB0A22EDDAFD78E8735AB40193A7DBB69D6244BF330CBB6DE7F015AD4018BFDB70FFCF09FFEF8FF00EBD6D50061CCB26A46DAE21528B14BB983F07031DAB728032AE6D659350B7BA5C6C8836EF5E456AD0073B796FAA4F791CD1AC7B60625324F20FAFE55D150064DE5A4D7B668AE424E8438C740C3FA56B50061C1697D3DDA5D6A1B14440EC54F53D49ADCA00C6D62EA04B2962DEA1C8C6DC8CF3ED4E68217D4199D158FCBC9009E94010DD594D73A4456B1801C2A641E3181CD6ED00625D69A7FB2FEC16D8C8C75E3383926B6E80312E2CEF22B9377A7952CEA15D5FA1C7435B7401870585DAACD3CB205B8987DE5190A076E6B728039E96D354BE0B05E18D220416299CB62BA1A00CBB88F514944B64C8C98C18DF803DC115A94018F696773134B7739569E418007DD007415B1401CFCA35B9A2785D2101D4A9C13DC63D6BA0A00E79B4DBB486DA5B7651340BB707EE906BA1A00C8B74D524B812DDB222282362739CFAD6BD007FFD9&quot;</span><br><span class="line"></span><br><span class="line">#flag : SECCON&#123;6in_tex7&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h1 id="打野"><a href="#打野" class="headerlink" title="打野"></a><strong>打野</strong></h1><p>放入winhex没有发现异常<br>再利用zsteg检测下图片里是否存有隐写数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">root@kali:&#x2F;home&#x2F;kali1# zsteg &#39;&#x2F;home&#x2F;kali1&#x2F;瞅啥.bmp&#39; </span><br><span class="line">[?] 2 bytes of extra data after image end (IEND), offset &#x3D; 0x269b0e</span><br><span class="line">extradata:0         .. [&quot;\x00&quot; repeated 2 times]</span><br><span class="line">imagedata           .. text: [&quot;\r&quot; repeated 18 times]</span><br><span class="line">b1,lsb,bY           .. &lt;wbStego size&#x3D;120, ext&#x3D;&quot;\x00\x8E\xEE&quot;, data&#x3D;&quot;\x1Ef\xDE\x9E\xF6\xAE\xFA\xCE\x86\x9E&quot;..., even&#x3D;false&gt;</span><br><span class="line">b1,msb,bY           .. text: &quot;qwxf&#123;you_say_chick_beautiful?&#125;&quot;</span><br><span class="line">b2,msb,bY           .. text: &quot;i2,C8&amp;k0.&quot;</span><br><span class="line">b2,r,lsb,xY         .. text: &quot;UUUUUU9VUUUUUUUUUUUUUUUUUUUUUU&quot;</span><br><span class="line">b2,g,msb,xY         .. text: [&quot;U&quot; repeated 22 times]</span><br><span class="line">b2,b,lsb,xY         .. text: [&quot;U&quot; repeated 10 times]</span><br><span class="line">b3,g,msb,xY         .. text: &quot;V9XDR\\d@&quot;</span><br><span class="line">b4,r,lsb,xY         .. file: TIM image, Pixel at (4353,4112) Size&#x3D;12850x8754</span><br><span class="line">b4,g,lsb,xY         .. text: &quot;3\&quot;\&quot;\&quot;\&quot;\&quot;3###33##3#UDUEEEEEDDUETEDEDDUEEDTEEEUT#!&quot;</span><br><span class="line">b4,g,msb,xY         .. text: &quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;\&quot;DDDDDDDDDDDD\&quot;\&quot;\&quot;\&quot;DDDDDDDDDDDD*LD&quot;</span><br><span class="line">b4,b,lsb,xY         .. text: &quot;gfffffvwgwfgwwfw&quot;</span><br></pre></td></tr></table></figure>
+<p>成功出现flag：qwxf{you_say_chick_beautiful?}</p>
+<hr>
+<hr>
+<h1 id="我们的秘密是绿色的"><a href="#我们的秘密是绿色的" class="headerlink" title="我们的秘密是绿色的"></a><strong>我们的秘密是绿色的</strong></h1><p>下载文件，发现是一张图片，看名字绿色，我还是以为是啥lsb隐写啥的，结果啥都没发现<br>仔细看题目我们的秘密，刚好有一款工具就叫做Our secret：<br>用工具打开，发现要密码，，，各种尝试，green，GREEN啊，，，，<br>最后发现图片上的日历有些数字颜色是绿色的.<br>输入密码：0405111218192526<br>经过解密后得到一个try.zip压缩包：<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/1.png"><br>用WinRAR打开，发现有段注释：<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/2.png"><br>众所周知生日一般都是八位数的纯数字，暴力得到密码，解压得到两个文件：<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/3.png"><br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/4.png"><br>很明显是明文攻击（明文攻击要用winrar压缩明文）<br>将再次得到的压缩包破解伪加密，得到字符串<br>经栅栏再经凯撒得到flag<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/5.png"><br>flag:flag{ssctf_@seclover%coffee_*}</p>
+<hr>
+<hr>
+<h1 id="倒立屋"><a href="#倒立屋" class="headerlink" title="倒立屋"></a><strong>倒立屋</strong></h1><p><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/%E5%80%92%E7%AB%8B%E5%B1%8B.png"><br>解压得到png图片，为lsb隐写，<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/%E5%80%92%E7%AB%8B%E5%B1%8B2.png"><br>将IsCc_2019倒过来就是flag：flag{9102_cCsI}</p>
+<hr>
+<hr>
+<h1 id="小小的PDF"><a href="#小小的PDF" class="headerlink" title="小小的PDF"></a><strong>小小的PDF</strong></h1><p>下载得到pdf文件<br>binwalk分析发现有隐藏文件<br>foremost分解得到jpd，即得到flag</p>
+<hr>
+<hr>
+<h1 id="glance-50"><a href="#glance-50" class="headerlink" title="glance-50"></a><strong>glance-50</strong></h1><p><strong>原理</strong>：convert分离gif、montage图片拼接<br>拿到一个gif图片，很窄(宽2px)，无语。</p>
+<p>我们可以先把gif分解开，kali的convert命令可以，也可以用其他的工具：convert glance.gif flag.png<br>总共分离出来200个图片。</p>
+<p>这么窄的图，难道要横着拼起来？</p>
+<p> 于是又用到一个工具：montage，这个工具用法很多，也很强大</p>
+<p>用命令：montage flag*.png -tile x1 -geometry +0+0 flag.png</p>
+<p>-tile是拼接时每行和每列的图片数，这里用x1，就是只一行</p>
+<p>-geometry是首选每个图和边框尺寸，我们边框为0，图照原始尺寸即可<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/glance.png"></p>
+<p>所以flag：TWCTF{Bliss by Charles O’Rear}</p>
+<hr>
+<hr>
+<h1 id="misc-pic-again"><a href="#misc-pic-again" class="headerlink" title="misc_pic_again"></a><strong>misc_pic_again</strong></h1><p>观察发现为lsb隐写，提取出zip压缩包<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/6.png"><br>放入winhex搜索hctf，得到flag<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/7.png"></p>
+<hr>
+<hr>
+<h1 id="适合作为桌面"><a href="#适合作为桌面" class="headerlink" title="适合作为桌面"></a><strong>适合作为桌面</strong></h1><p>下载图片到Stegsolve打开、发现二维码<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/8.png"><br>扫描后得到十六进制文件，放入winhex<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/9.png"><br>发现为pyc文件，将此晚间保存为pyc文件进行反编译得到脚本<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/10.png"><br>跑一下脚本得到flag<br>flag{38a57032085441e7}</p>
+<h1 id="心仪的公司"><a href="#心仪的公司" class="headerlink" title="心仪的公司"></a><strong>心仪的公司</strong></h1><hr>
+<hr>
+<h1 id="Miscellaneous-200"><a href="#Miscellaneous-200" class="headerlink" title="Miscellaneous-200"></a><strong>Miscellaneous-200</strong></h1><hr>
+<hr>
+<h1 id="Recover-Deleted-File"><a href="#Recover-Deleted-File" class="headerlink" title="Recover-Deleted-File"></a><strong>Recover-Deleted-File</strong></h1><p>下载得到一个无后缀文件，binwalk查看<br>用extundelete恢复误删文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extundelete disk-image --restore-all</span><br></pre></td></tr></table></figure>
+<p>生成文件夹<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/11.png"><br>运行文件夹中的flag，得到flag<br><img src="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/12.png"></p>
+<blockquote>
+<p>de6838252f95d3b9e803b28df33b4baa<br>.<br>.</p>
+</blockquote>
+<blockquote>
+<p>scalpel<br>  扫描整个镜像文件，根据配置文件寻找相关文件类型的文件头和文件尾，正常找到后将这段内容雕刻出来；当找到了文件的头部，但是在它附近没有找到文件尾标志的时候，scalpel提供两种处理方式，一是放弃对该文件的雕刻，二是根据自定义的各类文件的最大长度进行雕刻。</p>
+</blockquote>
+<hr>
+<hr>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h1><ol>
+<li>file查看文件类型</li>
+<li>bzip2 -d miscall解压</li>
+<li>tar -xvf miscall.out解压</li>
+<li>cat命令</li>
+<li>git lot 命令查看git记录</li>
+<li>git stash show校验列表中存储的文件</li>
+<li>git stash apply 重新进行存储，复原文件</li>
+<li>python s.py 运行s.py</li>
+<li>grep -r key,txt 查找文件位置</li>
+<li>用 gunzip 1无法识别文件后缀， tar -xzvf 1 没有反应，使用binwalk 1 也没有得到结果，最后使用 gunzip&lt;1 得到flag</li>
+<li>zsteg使用</li>
+<li>Our secret工具</li>
+<li>明文攻击要用winrar压缩明文</li>
+<li>convert分离gif、montage图片拼接</li>
+<li>pyc文件</li>
+<li>extundelete恢复误删文件</li>
+<li>scalpel未懂</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/">攻防世界2</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2021-02-20, 13:38:35</p>
+        <p><span>最后更新:</span>2021-02-21, 21:52:53</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/" title="攻防世界2">http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2021/02/21/BUU2/">
+                    BUU2
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2021/02/12/BUU1/">
+                    BUU1
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MISCall"><span class="toc-number">1.</span> <span class="toc-text">MISCall</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Get-the-key-txt"><span class="toc-number">2.</span> <span class="toc-text">Get-the-key.txt</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python-Reverse-it"><span class="toc-number">3.</span> <span class="toc-text">python Reverse-it</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%93%E9%87%8E"><span class="toc-number">4.</span> <span class="toc-text">打野</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E7%9A%84%E7%A7%98%E5%AF%86%E6%98%AF%E7%BB%BF%E8%89%B2%E7%9A%84"><span class="toc-number">5.</span> <span class="toc-text">我们的秘密是绿色的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%80%92%E7%AB%8B%E5%B1%8B"><span class="toc-number">6.</span> <span class="toc-text">倒立屋</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E5%B0%8F%E7%9A%84PDF"><span class="toc-number">7.</span> <span class="toc-text">小小的PDF</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#glance-50"><span class="toc-number">8.</span> <span class="toc-text">glance-50</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#misc-pic-again"><span class="toc-number">9.</span> <span class="toc-text">misc_pic_again</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%82%E5%90%88%E4%BD%9C%E4%B8%BA%E6%A1%8C%E9%9D%A2"><span class="toc-number">10.</span> <span class="toc-text">适合作为桌面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%83%E4%BB%AA%E7%9A%84%E5%85%AC%E5%8F%B8"><span class="toc-number">11.</span> <span class="toc-text">心仪的公司</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Miscellaneous-200"><span class="toc-number">12.</span> <span class="toc-text">Miscellaneous-200</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Recover-Deleted-File"><span class="toc-number">13.</span> <span class="toc-text">Recover-Deleted-File</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">14.</span> <span class="toc-text">小结</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"攻防世界2　| 小老弟　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://example.com/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/';
+            this.page.identifier = '2021/02/20/攻防世界2/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//xiaolaodi.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2021/02/21/BUU2/" title="上一篇: BUU2">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2021/02/12/BUU1/" title="下一篇: BUU1">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/10/06/hexo%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">hexo一些基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/11/%E5%8A%A9%E6%89%8B%E5%87%BD%E6%95%B0/">助手函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/11/BUU15/">BUU15</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/">BUU流量分析1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/10/BUU14/">BUU14</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/09/BUU13/">BUU13</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/">2020上海大学生网络安全赛MISC可乐加冰</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/06/BUU12/">BUU12</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/05/BUU11/">BUU11</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/04/BUU10/">BUU10</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/03/BUU9/">BUU9</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/01/BUU8/">BUU8</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/28/BUU7/">BUU7</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/27/BUU6/">BUU6</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/25/BUU5/">BUU5</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/24/BUU4/">BUU4</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/23/NEWSCTF/">NEWSCTF</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/22/BUU3/">BUU3</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/22/ACTF-Junior-2021/">ACTF-Junior-2021</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/21/BUU2/">BUU2</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/">攻防世界2</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/12/BUU1/">BUU1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/20/Bugku1/">Bugku1</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/">不错的misc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/">西南石油大学[智仁杯]MISC</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/30/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/">攻防世界misc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/27/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/04/misc%E4%B9%8B%E7%BC%96%E7%A0%81%E4%B8%8E%E5%8A%A0%E8%A7%A3%E5%AF%86/">编码与加解密</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/03/misc%E4%B9%8B%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/">misc之内存取证</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">misc之流量分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/">misc之隐写</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/31/misc%E6%80%BB%E7%BB%93/">misc总结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2021 xiaolaodi520
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

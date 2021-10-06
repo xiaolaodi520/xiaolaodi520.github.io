@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="xiaolaodi520" />
+
+
+
+<meta name="description" content="新手miscthis is flag直接复制粘贴即可   pdf题目如下：在线转换word形式 如来13掌打开文件看到佛曰编码先去解码     得到一串字符，看到题目联想到rot13，去解一次rot13    base64得到flag give you flag下载附件，打开gif图会看到小龙人数完钞票会展示二维码，使用stegsolve等工具查看帧数得到二维码。 二维码缺少三个小方块，而这些小方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="攻防世界misc">
+<meta property="og:url" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/index.html">
+<meta property="og:site_name" content="小老弟">
+<meta property="og:description" content="新手miscthis is flag直接复制粘贴即可   pdf题目如下：在线转换word形式 如来13掌打开文件看到佛曰编码先去解码     得到一串字符，看到题目联想到rot13，去解一次rot13    base64得到flag give you flag下载附件，打开gif图会看到小龙人数完钞票会展示二维码，使用stegsolve等工具查看帧数得到二维码。 二维码缺少三个小方块，而这些小方">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000101.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000201.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/pdf.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/rl1.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/rl2.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/rl3.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000401.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000402.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/gif.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/stegano1.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/stegano2.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/stegano3.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000801.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000802.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000803.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000804.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000805.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/60s.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/ext3.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0701.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0702.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0703.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0101.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0201.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0301.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/010201.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012072320.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012072330.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012072332.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012072333.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012081046.png">
+<meta property="og:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012081204.png">
+<meta property="article:published_time" content="2020-11-28T09:12:37.000Z">
+<meta property="article:modified_time" content="2020-12-08T04:04:48.475Z">
+<meta property="article:author" content="xiaolaodi520">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000101.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="小老弟" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/qq1.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>攻防世界misc | 小老弟</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/qq1.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/xiaolaodi520" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/qq1.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xiaolaodi520" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-攻防世界misc" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/" class="article-date">
+      <time datetime="2020-11-28T09:12:37.000Z" itemprop="datePublished">2020-11-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      攻防世界misc
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="新手misc"><a href="#新手misc" class="headerlink" title="新手misc"></a><strong>新手misc</strong></h1><h2 id="this-is-flag"><a href="#this-is-flag" class="headerlink" title="this is flag"></a>this is flag</h2><p>直接复制粘贴即可<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000101.png" alt="图片">  </p>
+<h2 id="pdf"><a href="#pdf" class="headerlink" title="pdf"></a>pdf</h2><p>题目如下：<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000201.png" alt="图片"><br>在线转换word形式<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/pdf.png" alt="图片"></p>
+<h2 id="如来13掌"><a href="#如来13掌" class="headerlink" title="如来13掌"></a>如来13掌</h2><pre><code>打开文件看到佛曰编码先去解码</code></pre>
+<p><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/rl1.png" alt="图片"><br>    得到一串字符，<strong>看到题目联想到rot13</strong>，去解一次rot13<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/rl2.png" alt="图片"><br>    base64得到flag<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/rl3.png" alt="图片"></p>
+<h2 id="give-you-flag"><a href="#give-you-flag" class="headerlink" title="give you flag"></a>give you flag</h2><p>下载附件，打开gif图会看到小龙人数完钞票会展示二维码，使用stegsolve等工具查看帧数得到二维码。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000401.png" alt="图片"></p>
+<p>二维码缺少三个小方块，而这些小方块被称为定位图案，用于标记二维码矩形的大小，用三个定位图案可以标识并确定一个二维码矩形的位置和方向。</p>
+<p>使用工具ps将二维码修复完全便可获得完整二维码，扫描获得flag。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000402.png" alt="图片"></p>
+<p>得到flag：flag{e7d478cf6b915f50ab1277f78502a2c5}</p>
+<h2 id="gif"><a href="#gif" class="headerlink" title="gif"></a>gif</h2><pre><code>一共103张黑白图片，优先考虑二进制</code></pre>
+<p> <img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/gif.png" alt="图片"></p>
+<h2 id="掀桌子"><a href="#掀桌子" class="headerlink" title="掀桌子"></a>掀桌子</h2><h2 id="stegano"><a href="#stegano" class="headerlink" title="stegano"></a>stegano</h2><pre><code>发现里面有别的内容</code></pre>
+<p><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/stegano1.png" alt="图片"><br>    复制出来有点不对<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/stegano2.png" alt="图片"><br>    复制全文试试<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/stegano3.png" alt="图片"><br>    转成莫斯得到flag<br>.<br>.</p>
+<h2 id="SimpleRAR"><a href="#SimpleRAR" class="headerlink" title="SimpleRAR"></a>SimpleRAR</h2><p>1、先将文件解压，发现里面只有一个flag.txt，但是用winHex打开发现应该有png文件。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000801.png" alt="图片"></p>
+<p>2、将A8 3C 7A 修改为 A8 3C 74 。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000802.png" alt="图片"></p>
+<p>3、保存后解压，再把sercet.png丢到winhex里发现文件头为gif图，将图片后缀名改为.gif。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000803.png" alt="图片"></p>
+<p>4、分离出来，然后用 Stegsolve 查看。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000804.png" alt="图片"></p>
+<p>把这个二维码拼起来，再把定位标志补上扫码得到 flag。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/000805.png" alt="图片"><br>得到flag：flag{yanji4n_bu_we1shi}</p>
+<h2 id="坚持60s"><a href="#坚持60s" class="headerlink" title="坚持60s"></a>坚持60s</h2><p>打开是一个没法完成的游戏，用java-gui打开搜索flag<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/60s.png" alt="图片"><br>解base64后得到flag<br>.<br>.</p>
+<h2 id="base64stego"><a href="#base64stego" class="headerlink" title="base64stego"></a>base64stego</h2><p>.<br>.</p>
+<h2 id="ext3"><a href="#ext3" class="headerlink" title="ext3"></a>ext3</h2><p>360压缩打开，发现好多文件，搜索flag<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/ext3.png" alt="图片"><br>经base64解密得到flag<br>！！！！！！！！！！！（补充linux）！！！！！！！！！<br>.<br>.</p>
+<h2 id="功夫再高也怕菜刀"><a href="#功夫再高也怕菜刀" class="headerlink" title="功夫再高也怕菜刀"></a>功夫再高也怕菜刀</h2><p>wireshark打开搜索falg内容过多，搜索flag.txt，发现1150之后都有一个666.jpg<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0701.png" alt="图片"><br>在linux中分解得到一个加密压缩包。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0702.png" alt="图片"><br>把666.jpg（010editor  winhex）转出来得到password<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0703.png" alt="图片"><br>打开压缩包得到flag<br>.<br>.</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1 id="进阶misc-1"><a href="#进阶misc-1" class="headerlink" title="进阶misc(1)"></a><strong>进阶misc(1)</strong></h1><h2 id="1-base64➗4"><a href="#1-base64➗4" class="headerlink" title="1.base64➗4"></a>1.base64➗4</h2><p>直接base16得到flag<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0101.png" alt="图片"></p>
+<h2 id="2-wireshark-1"><a href="#2-wireshark-1" class="headerlink" title="2.wireshark-1"></a>2.wireshark-1</h2><p>直接wireshark搜索password找到密码<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0201.png" alt="图片"></p>
+<h2 id="3-pure-color"><a href="#3-pure-color" class="headerlink" title="3.pure_color"></a>3.pure_color</h2><p>打开时一张空白图片，使用stegxolve得到flag<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/0301.png" alt="图片"></p>
+<h2 id="4-something-in-image"><a href="#4-something-in-image" class="headerlink" title="4.something in image"></a>4.something in image</h2><p>记事本打开搜索flag<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/010201.png" alt="图片"></p>
+<h2 id="a-good-idea"><a href="#a-good-idea" class="headerlink" title="a_good_idea"></a><strong>a_good_idea</strong></h2><p>1.下载附件</p>
+<p>2.用winhex打开该图片，发现有隐藏文件,查wp说要把压缩包后缀名改成.zip，再次解压发现多了两张图片和一个txt文件，</p>
+<p>3.查看txt文件，内容如下，</p>
+<p><code>try to find the secret of pixels</code><br>4.利用stegsolve将两张图combine，得到像素相减的图，（先打开to_do，否则得不到二维码）<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012072320.png" alt="图片"></p>
+<p>5.用stegsolve转换色道，得到二维码，扫描得到flag，</p>
+<h2 id="Aesop-secret"><a href="#Aesop-secret" class="headerlink" title="Aesop_secret"></a><strong>Aesop_secret</strong></h2><p>先下载附件，是一个压缩包，紧接着解压，发现一个gif文件，用Photoshop打开这个文件，显现每一帧图像。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012072330.png" alt="图片"><br>再看看题目，想到有一个加密方式叫AES加密，ISCC应该是密钥。这么一想，我们还需要找到加密后的字符串（尝试一下binwalk）</p>
+<p>然而binwalk并没啥用，说明这个gif文件中没有混着其他文件。我们还有一个办法，就是将其放入winhex中查看一下。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012072332.png" alt="图片"><br>功夫不负有心人，我们在gif文件的末尾找到了加密后的字符串。于是我们进行一下<a target="_blank" rel="noopener" href="https://www.sojson.com/encrypt_aes.html">ASE在线解密</a>。<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012072333.png" alt="图片"><br>连续解密两次后得到flag：DugUpADiamondADeepDarkMine。</p>
+<h2 id="simple-transfer"><a href="#simple-transfer" class="headerlink" title="simple_transfer"></a><strong>simple_transfer</strong></h2><p>binwalk分析发现有PDF文件<br>使用foremost分解得到PDF<br>打开即得到flag</p>
+<h2 id="Training-Stegano-1"><a href="#Training-Stegano-1" class="headerlink" title="Training-Stegano-1"></a><strong>Training-Stegano-1</strong></h2><p>使用winhex查看器查看，果然看到了passwd字段。</p>
+<p>至此flag为：stegancI</p>
+<h2 id="can-has-stdio"><a href="#can-has-stdio" class="headerlink" title="can_has_stdio?"></a><strong>can_has_stdio?</strong></h2><p>记事本打开misc50<br>发现brainfuck，<a target="_blank" rel="noopener" href="http://ctf.ssleye.com/brain.html">在线解密</a>得到flag</p>
+<h2 id="Janos-the-Ripper"><a href="#Janos-the-Ripper" class="headerlink" title="János-the-Ripper"></a><strong>János-the-Ripper</strong></h2><p>winhex打开后发现有zip，更改后缀名得到加密flag.txt<br>找不到任何密码提示，直接暴力破解得到密码fish</p>
+<h2 id="Test-flag-please-ignore"><a href="#Test-flag-please-ignore" class="headerlink" title="Test-flag-please-ignore"></a><strong>Test-flag-please-ignore</strong></h2><p>winhex打开发现十六进制，转为ascii得到flag</p>
+<h2 id="hit-the-core"><a href="#hit-the-core" class="headerlink" title="hit-the-core"></a><strong>hit-the-core</strong></h2><p>strings查看字符串，好像还真得到一个有用的串：<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012081046.png" alt="图片"></p>
+<p> 这个串挺长的，{}的位置正确，凯撒、栅栏就别想了，能不能从串本身找到规律？</p>
+<p>仔细观察，发现前面部分的大写字母拼起来正好是ALEXCTF，而且每个字母之间隔了4个字母，写个脚本提取一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data &#x3D; &#39;cvqAeqacLtqazEigwiXobxrCrtuiTzahfFreqc&#123;bnjrKwgk83kgd43j85ePgb_e_rwqr7fvbmHjklo3tews_hmkogooyf0vbnk0ii87Drfgh_n kiwutfb0ghk9ro987k5tfb_hjiouo087ptfcv&#125;&#39;</span><br><span class="line">flag &#x3D; &#39;&#39;</span><br><span class="line">for i in range(3, len(data), 5):</span><br><span class="line">    flag +&#x3D; data[i]</span><br><span class="line"> </span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<p>拿到flag：ALEXCTF{K33P_7H3_g00D_w0rk_up}</p>
+<h2 id="快乐游戏题"><a href="#快乐游戏题" class="headerlink" title="快乐游戏题"></a><strong>快乐游戏题</strong></h2><p>玩游戏得出flag</p>
+<h2 id="Banmabanma"><a href="#Banmabanma" class="headerlink" title="Banmabanma"></a><strong>Banmabanma</strong></h2><p><a target="_blank" rel="noopener" href="https://online-barcode-reader.inliteresearch.com/">在线扫描条形码</a></p>
+<h2 id="easycap"><a href="#easycap" class="headerlink" title="easycap"></a><strong>easycap</strong></h2><p>wireshark打开，追踪TCP流得到flag</p>
+<h2 id="reverseMe。"><a href="#reverseMe。" class="headerlink" title="reverseMe。"></a><strong>reverseMe</strong>。</h2><p>ps水平翻转提取文字，得到flag</p>
+<h2 id="stage1"><a href="#stage1" class="headerlink" title="stage1"></a><strong>stage1</strong></h2><p>下载附件后，stegsolve打开，转换色道</p>
+<p>得到一张二维码，保存后,QR research扫描二维码</p>
+<p>得到一连串hex编码，扔到winhex里<br><img src="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/2012081204.png"><br>观察后发现，文件头03F30D0A，这个是.pyc文件（反编译）</p>
+<p>再Easy Python Decompiler反编译，打开后，得到源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Embedded file name: test.py</span><br><span class="line">str &#x3D; [65,108, 112,104,97,76,97,98]</span><br><span class="line">flag &#x3D; &#39;&#39;</span><br><span class="line">for i in str:</span><br><span class="line">    flag +&#x3D; chr(i)</span><br><span class="line">print flag</span><br></pre></td></tr></table></figure>
+
+<p>运行一下，得到flag</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/">攻防世界misc</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2020-11-28, 17:12:37</p>
+        <p><span>最后更新:</span>2020-12-08, 12:04:48</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/" title="攻防世界misc">http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2020/11/30/markdown/">
+                    markdown
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/11/27/hello-world/">
+                    Hello World
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B0%E6%89%8Bmisc"><span class="toc-number">1.</span> <span class="toc-text">新手misc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#this-is-flag"><span class="toc-number">1.1.</span> <span class="toc-text">this is flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pdf"><span class="toc-number">1.2.</span> <span class="toc-text">pdf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9D%A513%E6%8E%8C"><span class="toc-number">1.3.</span> <span class="toc-text">如来13掌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#give-you-flag"><span class="toc-number">1.4.</span> <span class="toc-text">give you flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gif"><span class="toc-number">1.5.</span> <span class="toc-text">gif</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%80%E6%A1%8C%E5%AD%90"><span class="toc-number">1.6.</span> <span class="toc-text">掀桌子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stegano"><span class="toc-number">1.7.</span> <span class="toc-text">stegano</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SimpleRAR"><span class="toc-number">1.8.</span> <span class="toc-text">SimpleRAR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%9A%E6%8C%8160s"><span class="toc-number">1.9.</span> <span class="toc-text">坚持60s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#base64stego"><span class="toc-number">1.10.</span> <span class="toc-text">base64stego</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ext3"><span class="toc-number">1.11.</span> <span class="toc-text">ext3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E5%A4%AB%E5%86%8D%E9%AB%98%E4%B9%9F%E6%80%95%E8%8F%9C%E5%88%80"><span class="toc-number">1.12.</span> <span class="toc-text">功夫再高也怕菜刀</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6misc-1"><span class="toc-number">2.</span> <span class="toc-text">进阶misc(1)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-base64%E2%9E%974"><span class="toc-number">2.1.</span> <span class="toc-text">1.base64➗4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-wireshark-1"><span class="toc-number">2.2.</span> <span class="toc-text">2.wireshark-1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-pure-color"><span class="toc-number">2.3.</span> <span class="toc-text">3.pure_color</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-something-in-image"><span class="toc-number">2.4.</span> <span class="toc-text">4.something in image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#a-good-idea"><span class="toc-number">2.5.</span> <span class="toc-text">a_good_idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aesop-secret"><span class="toc-number">2.6.</span> <span class="toc-text">Aesop_secret</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#simple-transfer"><span class="toc-number">2.7.</span> <span class="toc-text">simple_transfer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Training-Stegano-1"><span class="toc-number">2.8.</span> <span class="toc-text">Training-Stegano-1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#can-has-stdio"><span class="toc-number">2.9.</span> <span class="toc-text">can_has_stdio?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Janos-the-Ripper"><span class="toc-number">2.10.</span> <span class="toc-text">János-the-Ripper</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-flag-please-ignore"><span class="toc-number">2.11.</span> <span class="toc-text">Test-flag-please-ignore</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hit-the-core"><span class="toc-number">2.12.</span> <span class="toc-text">hit-the-core</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E4%B9%90%E6%B8%B8%E6%88%8F%E9%A2%98"><span class="toc-number">2.13.</span> <span class="toc-text">快乐游戏题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Banmabanma"><span class="toc-number">2.14.</span> <span class="toc-text">Banmabanma</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#easycap"><span class="toc-number">2.15.</span> <span class="toc-text">easycap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reverseMe%E3%80%82"><span class="toc-number">2.16.</span> <span class="toc-text">reverseMe。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stage1"><span class="toc-number">2.17.</span> <span class="toc-text">stage1</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"攻防世界misc　| 小老弟　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://example.com/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/';
+            this.page.identifier = '2020/11/28/攻防世界misc/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//xiaolaodi.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/11/30/markdown/" title="上一篇: markdown">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2020/11/27/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/10/06/hexo%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">hexo一些基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/11/%E5%8A%A9%E6%89%8B%E5%87%BD%E6%95%B0/">助手函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/11/BUU15/">BUU15</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/">BUU流量分析1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/10/BUU14/">BUU14</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/09/BUU13/">BUU13</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/">2020上海大学生网络安全赛MISC可乐加冰</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/06/BUU12/">BUU12</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/05/BUU11/">BUU11</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/04/BUU10/">BUU10</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/03/BUU9/">BUU9</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/01/BUU8/">BUU8</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/28/BUU7/">BUU7</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/27/BUU6/">BUU6</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/25/BUU5/">BUU5</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/24/BUU4/">BUU4</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/23/NEWSCTF/">NEWSCTF</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/22/BUU3/">BUU3</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/22/ACTF-Junior-2021/">ACTF-Junior-2021</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/21/BUU2/">BUU2</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/">攻防世界2</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/12/BUU1/">BUU1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/20/Bugku1/">Bugku1</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/">不错的misc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/">西南石油大学[智仁杯]MISC</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/30/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/">攻防世界misc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/27/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/04/misc%E4%B9%8B%E7%BC%96%E7%A0%81%E4%B8%8E%E5%8A%A0%E8%A7%A3%E5%AF%86/">编码与加解密</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/03/misc%E4%B9%8B%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/">misc之内存取证</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">misc之流量分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/">misc之隐写</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/31/misc%E6%80%BB%E7%BB%93/">misc总结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2021 xiaolaodi520
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

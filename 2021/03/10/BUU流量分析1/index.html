@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="xiaolaodi520" />
+
+
+
+<meta name="description" content="菜刀666菜刀一般都是POST上传 所以我们直接过滤出POST数据包 http.request.method&#x3D;&#x3D;POST 在tcp.stream eq 7中发现了大量数据 FF D8开头FF D9结尾，判断为jpg图片，将这些十六进制复制出来，以原始文件流写入文件 123456789101112#Author: MoChu7import structa &#x3D; open(&quot;str.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUU流量分析1">
+<meta property="og:url" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/index.html">
+<meta property="og:site_name" content="小老弟">
+<meta property="og:description" content="菜刀666菜刀一般都是POST上传 所以我们直接过滤出POST数据包 http.request.method&#x3D;&#x3D;POST 在tcp.stream eq 7中发现了大量数据 FF D8开头FF D9结尾，判断为jpg图片，将这些十六进制复制出来，以原始文件流写入文件 123456789101112#Author: MoChu7import structa &#x3D; open(&quot;str.">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/1.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/2.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/3.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/4.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/5.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/6.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/7.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/8.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/9.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/10.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/11.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/13.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/14.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/15.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/16.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/17.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/18.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/19.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/20.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/21.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/22.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/23.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/24.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/25.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/26.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/27.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/28.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/29.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/30.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/31.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/32.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/33.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/34.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/35.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/36.png">
+<meta property="og:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/37.png">
+<meta property="article:published_time" content="2021-03-10T06:00:50.000Z">
+<meta property="article:modified_time" content="2021-03-13T15:25:15.563Z">
+<meta property="article:author" content="xiaolaodi520">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/1.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="小老弟" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/qq1.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>BUU流量分析1 | 小老弟</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/qq1.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/xiaolaodi520" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/qq1.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xiaolaodi520" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-BUU流量分析1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/" class="article-date">
+      <time datetime="2021-03-10T06:00:50.000Z" itemprop="datePublished">2021-03-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BUU流量分析1
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="菜刀666"><a href="#菜刀666" class="headerlink" title="菜刀666"></a><strong>菜刀666</strong></h1><p>菜刀一般都是POST上传</p>
+<p>所以我们直接过滤出POST数据包</p>
+<p>http.request.method==POST</p>
+<p>在tcp.stream eq 7中发现了大量数据<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/1.png"><br> FF D8开头FF D9结尾，判断为jpg图片，将这些十六进制复制出来，以原始文件流写入文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#Author: MoChu7</span><br><span class="line">import struct</span><br><span class="line"></span><br><span class="line">a &#x3D; open(&quot;str.txt&quot;,&quot;r&quot;)#十六进制数据文件</span><br><span class="line">lines &#x3D; a.read()</span><br><span class="line">res &#x3D; [lines[i:i+2] for i in range(0,len(lines),2)]</span><br><span class="line"></span><br><span class="line">with open(&quot;res.jpg&quot;,&quot;wb&quot;) as f:</span><br><span class="line">	for i in res:</span><br><span class="line">		s &#x3D; struct.pack(&#39;B&#39;,int(i,16))</span><br><span class="line">		f.write(s)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>脚本2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s&#x3D;&#39;填写16进制数据&#39;</span><br><span class="line">import binascii</span><br><span class="line">out&#x3D;open(&#39;2.jpg&#39;,&#39;wb&#39;)</span><br><span class="line">out.write(binascii.unhexlify(s))</span><br><span class="line">out.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/2.png"><br>在这个流中还发现了传输了一个hello.zip<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/3.png"></p>
+<p> foremost分离流量包，得到一个zip，输入上面图片上的密码<br>解压得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;3OpWdJ-JP6FzK-koCMAK-VkfWBq-75Un2z&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="被偷走的文件"><a href="#被偷走的文件" class="headerlink" title="被偷走的文件"></a><strong>被偷走的文件</strong></h1><p> 传输文件看到了ftp协议，过滤，追踪，</p>
+<p><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/4.png"><br>看到了压缩包，foremost分离</p>
+<p><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/5.png"></p>
+<p>数字暴力破解得到flag<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/6.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;6fe99a5d03fb01f833ec3caa80358fa3&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="秘密文件"><a href="#秘密文件" class="headerlink" title="秘密文件"></a><strong>秘密文件</strong></h1><p>binwalk 分离得到一个压缩包<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/7.png"><br>暴力破解得到密码1903<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/8.png"><br>得到flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;d72e5a671aa50fa5f400e5d10eedeaa5&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<hr>
+<h1 id="sqltest"><a href="#sqltest" class="headerlink" title="sqltest"></a><strong>sqltest</strong></h1><p>是个流量包,拖进wireshark里,发现有很多盲注痕迹<br>常规操作,导出HTTP进行分析,save all后在文件夹里进行排序<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/9.png"><br>当盲注结果为true时文件大小都是780b,经过文件内容的对比,发现都有Version被注出,根据条件找到有flag信息的盲注点,按名称和文件大小的排序提取ascil值<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/10.png"><br>转换后:flag{47edb8300ed5f9b28fc54b0d09ecdef7}</p>
+<hr>
+<hr>
+<hr>
+<h1 id="john-in-the-middle"><a href="#john-in-the-middle" class="headerlink" title="john-in-the-middle"></a><strong>john-in-the-middle</strong></h1><p> 可以看到都是HTTP的数据包，导出HTTP得到如下：<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/11.png"><br>看文件的名字仿佛是一个线索<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/13.png"><br>使用stegslove打开scanlines.png，在很多通道都发现了一条线<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/14.png"><br> 然后发现logo.png图片中貌似有条缺口<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/15.png"><br> 将两张图片使用stegslove进行Image Combiner进行对比<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/16.png"><br> 调整到SUB时发现flag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;J0hn_th3_Sn1ff3r&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="V-amp-N2020-公开赛-拉胯的三条命令"><a href="#V-amp-N2020-公开赛-拉胯的三条命令" class="headerlink" title="[V&amp;N2020 公开赛]拉胯的三条命令"></a><strong>[V&amp;N2020 公开赛]拉胯的三条命令</strong></h1><p> 题目文件zip</p>
+<p><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/17.png"><br> zip文件，添加后缀zip<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/18.png"><br> 说明.txt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在参加网络安全大赛第二届世界巡回赛新加坡站一场与SP战队的比赛时，作为K&amp;K战队主防手的你使用经典的“三条命令”检查端口封闭状况。可是这次比赛平台没有回显，你能查出来有哪些端口是开放的嘛？</span><br><span class="line">请将开放端口按由小到大顺序写入flag中 如：开放1、22、234端口，flag&#123;122234&#125;</span><br></pre></td></tr></table></figure>
+<p>wireshark打开nmapll.pcapng，在编辑-&gt;首选项-&gt;外观-&gt;列添加一个Port类型选择Dest port(unresolved)<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/19.png"><br> 以port列降序排序，查找每个端口是否有[ACK]响应标志，众所周知在TCP三次握手中，[SYN]标志表示建立连接，[ACK]表示响应，查看开放端口，肯定会返回[ACK]标志<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/20.png"><br> 这样手工找下去可以得到开放的端口有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1.21</span><br><span class="line">127.0.0.1.22</span><br><span class="line">127.0.0.1.631</span><br><span class="line">127.0.0.1.801</span><br><span class="line">127.0.0.1.3306</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用工具Tcpdump</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tcpdump -n -r nmapll.pcapng &#39;tcp[13] &#x3D; 18&#39; | awk &#39;&#123;print $3&#125;&#39; | sort -u</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@mochu7:&#x2F;mnt&#x2F;c&#x2F;Users&#x2F;Administrator&#x2F;Downloads&#x2F;zip1# tcpdump -n -r nmapll.pcapng &#39;tcp[13] &#x3D; 18&#39; | awk &#39;&#123;print $3&#125;&#39; | sort -u</span><br><span class="line">reading from file nmapll.pcapng, link-type EN10MB (Ethernet)</span><br><span class="line">127.0.0.1.21</span><br><span class="line">127.0.0.1.22</span><br><span class="line">127.0.0.1.3306</span><br><span class="line">127.0.0.1.631</span><br><span class="line">127.0.0.1.801</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;21226318013306&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="ACTF新生赛2020-swp"><a href="#ACTF新生赛2020-swp" class="headerlink" title="[ACTF新生赛2020]swp"></a><strong>[ACTF新生赛2020]swp</strong></h1><p>解压后在wget.zip中发现个数据包，解压后用wireshark打开，看着像http数据传输</p>
+<p>导出http<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/21.png"><br>在导出的文件中发现一个secret.zip<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/22.png"><br>打开得到flag<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/23.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">actf&#123;c5558bcf-26da-4f8b-b181-b61f3850b9e5&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="百里挑一"><a href="#百里挑一" class="headerlink" title="百里挑一"></a><strong>百里挑一</strong></h1><p>解压文件得到的是pcap数据包，题目提示好多图片，<br>wireshark打开导出http对象，保存到一个文件夹中。然后在kali中使用一条命令找到一半的flag<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/24.png"><br> 另一半需要在wireshark中找, 看了wp发现是114……郁闷💔<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/25.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;ae58d0408e26e8f26a3c0589d23edeec&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="安洵杯-2019-Attack"><a href="#安洵杯-2019-Attack" class="headerlink" title="[安洵杯 2019]Attack"></a><strong>[安洵杯 2019]Attack</strong></h1><p>流量分析题，学到了一个新工具mimikatz</p>
+<blockquote>
+<p>mimikatz 在内网渗透中是个很有用的工具。它可能让攻击者从内存中抓到明文密码。</p>
+</blockquote>
+<p><strong>考点:</strong></p>
+<ol>
+<li>数据包流量分析</li>
+<li>蚁剑流量特征</li>
+<li>procdump的使用</li>
+</ol>
+<p><strong>题解：</strong><br>使用wireshark打开数据包，简单看一下应该是进行了扫目录操作：<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/26.png"><br>然后对TCP流进行分析，发现一处对upload.php的POST请求：<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/27.png"><br>然后追踪TCP流，发现上传了一句话木马：<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/28.png"><br>接着往下分析，发现一组TCP流量疑似执行了命令，请求流量经过了base64混淆，返回流量用了ROT13<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/29.png"><br>继续跟TCP流发现列目录列出来了一个s3cret.zip<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/30.png"><br>下一组流量中出现了一组看起来是zip的数据：<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/31.png"><br>查看hex数据发现50 4B 03 04的zip文件头，将其拿出来导入到010editor中保存为zip：<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/32.png"><br>但是发现需要解压密码，打开发现hint<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/33.png"><br>然后可以得到意思是解压密码为administrator的密码，于是继续回去看流量，发现执行了procdump.exe这个工具<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/34.png"><br>如果不熟悉的这个工具话可以使用搜索引擎得知该工具一般用来抓取windows的lsass进程中的用户明文密码</p>
+<p>紧接着发现攻击者通过http下载了lsass.dmp文件<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/35.png"><br>我们将该文件导出，然后导入mimikatz即可得到administrator的密码<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/36.png"><br>之后再拿过去解压就得到flag<br><img src="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/37.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flag：D0g3&#123;3466b11de8894198af3636c5bd1efce2&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/">BUU流量分析1</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2021-03-10, 14:00:50</p>
+        <p><span>最后更新:</span>2021-03-13, 23:25:15</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/" title="BUU流量分析1">http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2021/03/11/BUU15/">
+                    BUU15
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2021/03/10/BUU14/">
+                    BUU14
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8F%9C%E5%88%80666"><span class="toc-number">1.</span> <span class="toc-text">菜刀666</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A2%AB%E5%81%B7%E8%B5%B0%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">被偷走的文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%98%E5%AF%86%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">秘密文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqltest"><span class="toc-number">4.</span> <span class="toc-text">sqltest</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#john-in-the-middle"><span class="toc-number">5.</span> <span class="toc-text">john-in-the-middle</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#V-amp-N2020-%E5%85%AC%E5%BC%80%E8%B5%9B-%E6%8B%89%E8%83%AF%E7%9A%84%E4%B8%89%E6%9D%A1%E5%91%BD%E4%BB%A4"><span class="toc-number">6.</span> <span class="toc-text">[V&amp;N2020 公开赛]拉胯的三条命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020-swp"><span class="toc-number">7.</span> <span class="toc-text">[ACTF新生赛2020]swp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BE%E9%87%8C%E6%8C%91%E4%B8%80"><span class="toc-number">8.</span> <span class="toc-text">百里挑一</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E6%B4%B5%E6%9D%AF-2019-Attack"><span class="toc-number">9.</span> <span class="toc-text">[安洵杯 2019]Attack</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"BUU流量分析1　| 小老弟　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function(){
+            this.page.url = 'http://example.com/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/';
+            this.page.identifier = '2021/03/10/BUU流量分析1/';
+        };
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '//xiaolaodi.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+</section>
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2021/03/11/BUU15/" title="上一篇: BUU15">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2021/03/10/BUU14/" title="下一篇: BUU14">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/10/06/hexo%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">hexo一些基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/11/%E5%8A%A9%E6%89%8B%E5%87%BD%E6%95%B0/">助手函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/11/BUU15/">BUU15</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/10/BUU%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%901/">BUU流量分析1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/10/BUU14/">BUU14</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/09/BUU13/">BUU13</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/">2020上海大学生网络安全赛MISC可乐加冰</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/06/BUU12/">BUU12</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/05/BUU11/">BUU11</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/04/BUU10/">BUU10</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/03/BUU9/">BUU9</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/01/BUU8/">BUU8</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/28/BUU7/">BUU7</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/27/BUU6/">BUU6</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/25/BUU5/">BUU5</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/24/BUU4/">BUU4</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/23/NEWSCTF/">NEWSCTF</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/22/BUU3/">BUU3</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/22/ACTF-Junior-2021/">ACTF-Junior-2021</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/21/BUU2/">BUU2</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C2/">攻防世界2</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/12/BUU1/">BUU1</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/01/20/Bugku1/">Bugku1</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/08/%E4%B8%8D%E9%94%99%E7%9A%84misc/">不错的misc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/06/%E8%A5%BF%E5%8D%97%E7%9F%B3%E6%B2%B9%E5%A4%A7%E5%AD%A6-%E6%99%BA%E4%BB%81%E6%9D%AF-MISC/">西南石油大学[智仁杯]MISC</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/30/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cmisc/">攻防世界misc</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/27/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/04/misc%E4%B9%8B%E7%BC%96%E7%A0%81%E4%B8%8E%E5%8A%A0%E8%A7%A3%E5%AF%86/">编码与加解密</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/03/misc%E4%B9%8B%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/">misc之内存取证</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/02/misc%E4%B9%8B%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">misc之流量分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/11/01/misc%E4%B9%8B%E9%9A%90%E5%86%99/">misc之隐写</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/31/misc%E6%80%BB%E7%BB%93/">misc总结</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2021 xiaolaodi520
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 1;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
