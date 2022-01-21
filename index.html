@@ -265,6 +265,268 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-C++数组或vector的最大最小值" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/01/17/C++%E6%95%B0%E7%BB%84%E6%88%96vector%E7%9A%84%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E5%80%BC/" class="article-date">
+      <time datetime="2022-01-17T13:58:32.000Z" itemprop="datePublished">2022-01-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/17/C++%E6%95%B0%E7%BB%84%E6%88%96vector%E7%9A%84%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E5%80%BC/">C++数组或vector的最大最小值</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>头文件：#include<algorithm></algorithm></strong><br>1）vector容器</p>
+<p>例 vector<int> vec</int></p>
+<p>最大值：int maxValue = *max_element(v.begin(),v.end()); </p>
+<p>最小值：int minValue = *min_element(v.begin(),v.end());</p>
+<p>2）普通数组</p>
+<p>例 a[]={1,2,3,4,5,6};</p>
+<p>最大值：int maxValue = *max_element(a,a+6); </p>
+<p>最小值：int minValue = *min_element(a,a+6);</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-acwing2022寒假每日一题week3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/01/17/acwing2022%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98week3/" class="article-date">
+      <time datetime="2022-01-17T09:09:30.000Z" itemprop="datePublished">2022-01-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/01/17/acwing2022%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98week3/">寒假每日一题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="01-17-1934-贝茜放慢脚步"><a href="#01-17-1934-贝茜放慢脚步" class="headerlink" title="01-17 1934.贝茜放慢脚步"></a><strong>01-17 1934.贝茜放慢脚步</strong></h1><p><strong>题目链接：</strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1936/">1934.贝茜放慢脚步</a><br><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N &#x3D; 10010;</span><br><span class="line"></span><br><span class="line">int n;</span><br><span class="line">vector&lt;int&gt; a, b;&#x2F;&#x2F;减速的时间和距离</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);&#x2F;&#x2F;读入减速次数</span><br><span class="line">    char str[2];</span><br><span class="line">    int x;&#x2F;&#x2F;存入每一个数据x，添加至向量中</span><br><span class="line">    while (n -- )</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%s%d&quot;, str, &amp;x);&#x2F;&#x2F;读入减速时间和距离</span><br><span class="line"></span><br><span class="line">        if (*str &#x3D;&#x3D; &#39;T&#39;) a.push_back(x);&#x2F;&#x2F;时间存储到a</span><br><span class="line">        else b.push_back(x);&#x2F;&#x2F;距离存储到b</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    b.push_back(1000);&#x2F;&#x2F;总距离是1000</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;将两个数组排序</span><br><span class="line">    sort(a.begin(), a.end());</span><br><span class="line">    sort(b.begin(), b.end());</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;对了两个数组进行运算得到</span><br><span class="line">    double t &#x3D; 0, s &#x3D; 0, v &#x3D; 1;  &#x2F;&#x2F; v 是速度的倒数</span><br><span class="line">    int i &#x3D; 0, j &#x3D; 0;</span><br><span class="line">    while (i &lt; a.size() || j &lt; b.size())&#x2F;&#x2F;只要有一个没有超出就循环</span><br><span class="line">        if (j &#x3D;&#x3D; b.size() || i &lt; a.size() &amp;&amp; a[i] - t &lt; (b[j] - s) * v)&#x2F;&#x2F;时间比距离更早并且a没有走完&#x2F;&#x2F;if条件先判断与再判断或</span><br><span class="line">        &#123;</span><br><span class="line">            s +&#x3D; (a[i] - t) &#x2F; v;&#x2F;&#x2F;前进的距离</span><br><span class="line">            t &#x3D; a[i];&#x2F;&#x2F;经历的时间</span><br><span class="line">            v ++ ;</span><br><span class="line">            i ++ ;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            t +&#x3D; (b[j] - s) * v;</span><br><span class="line">            s &#x3D; b[j];</span><br><span class="line">            v ++ ;</span><br><span class="line">            j ++ ;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;%.0lf\n&quot;, t);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="01-18-AcWing-1929-镜子田地"><a href="#01-18-AcWing-1929-镜子田地" class="headerlink" title="01-18 AcWing 1929. 镜子田地"></a><strong>01-18 AcWing 1929. 镜子田地</strong></h1><p><strong>原题链接：</strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1931/">AcWing 1929. 镜子田地</a><br><strong>代码如下：</strong></p>
+<p>#include <iostream></iostream></p>
+<p>using namespace std;</p>
+<p>const int N=1010;<br>char g[N][N];<br>int dx[4]={-1,0,1,0},dy[4]={0,1,0,-1};<br>int n,m;</p>
+<p>int dfs(int x,int y ,int d)<br>{<br>    if(x&lt;0||y&lt;0||x&gt;n-1||y&gt;m-1) return 0;<br>    if(g[x][y]==’/‘) d^=1;<br>    else d^=3;<br>    return dfs(x+dx[d],y+dy[d],d)+1;<br>}<br>int main()<br>{<br>    scanf(“%d%d”,&amp;n,&amp;m);<br>    for(int i=0;i&lt;n;i++)<br>        scanf(“%s”,g[i]);</p>
+<pre><code>int res=0;
+for(int i=0;i&lt;n;i++)
+&#123;
+    res=max(res,dfs(i,0,1));
+    res=max(res,dfs(i,m-1,3));
+&#125;
+for(int i=0;i&lt;m;i++)
+&#123;
+    res=max(res,dfs(0,i,2));
+    res=max(res,dfs(n-1,i,0));
+&#125;
+printf(&quot;%d&quot;,res);
+return 0;</code></pre>
+<p>}</p>
+<h1 id="01-19-AcWing-1922-懒惰的牛"><a href="#01-19-AcWing-1922-懒惰的牛" class="headerlink" title="01-19 AcWing 1922. 懒惰的牛"></a><strong>01-19 AcWing 1922. 懒惰的牛</strong></h1><p><strong>题目链接：</strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1924/">AcWing 1922. 懒惰的牛</a><br><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int MAP[1000010]&#x3D;&#123;0&#125;;</span><br><span class="line">vector&lt;int&gt; x;</span><br><span class="line">int n,k;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a,b;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;a,&amp;b);</span><br><span class="line">        MAP[b]&#x3D;a;</span><br><span class="line">        x.push_back(b);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(x.begin(),x.end());</span><br><span class="line"></span><br><span class="line">    int sum&#x3D;0,max_sum&#x3D;0;</span><br><span class="line">    int i&#x3D;0,j&#x3D;0;</span><br><span class="line">    for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum+&#x3D;MAP[x[i]];</span><br><span class="line">        while(x[i]-x[j]&gt;2*k) sum-&#x3D;MAP[x[j++]];</span><br><span class="line">        max_sum&#x3D;max(max_sum,sum);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d&quot;,max_sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="01-20-AcWing-1913-公平摄影"><a href="#01-20-AcWing-1913-公平摄影" class="headerlink" title="01-20 AcWing 1913. 公平摄影"></a><strong>01-20 AcWing 1913. 公平摄影</strong></h1><p><strong>题目链接：</strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1915/">AcWing 1913. 公平摄影</a><br><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;代码待写</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="01-21-AcWing-1904-奶牛慢跑"><a href="#01-21-AcWing-1904-奶牛慢跑" class="headerlink" title="01-21 AcWing 1904. 奶牛慢跑"></a><strong>01-21 AcWing 1904. 奶牛慢跑</strong></h1><p><strong>题目链接：</strong><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1906/">AcWing 1904. 奶牛慢跑</a><br><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N&#x3D;1e5+50;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    int d[N],v[N];</span><br><span class="line">    int sum&#x3D;1;</span><br><span class="line">    for(int i&#x3D;n;i&gt;0;i--)</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;d[n-i],&amp;v[n-i]);</span><br><span class="line"></span><br><span class="line">    int min_v&#x3D;v[n-1];</span><br><span class="line">    n--;</span><br><span class="line">    while(n--)</span><br><span class="line">    &#123;</span><br><span class="line">        if(v[n]&lt;&#x3D;min_v)</span><br><span class="line">        &#123;</span><br><span class="line">            sum++;</span><br><span class="line">            min_v&#x3D;v[n];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot; , sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="01-23"><a href="#01-23" class="headerlink" title="**01-23 **"></a>**01-23 **</h1>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="acwing-快速排序" class="article article-type-acwing" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/10/10/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="article-date">
+      <time datetime="2021-10-10T08:00:28.000Z" itemprop="datePublished">2021-10-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/10/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">AcWing 785. 快速排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>有些情况下取中间比去两边更快</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N &#x3D; 1000010;</span><br><span class="line"></span><br><span class="line">int q[N];</span><br><span class="line"></span><br><span class="line">void quick_sort(int q[], int l, int r)</span><br><span class="line">&#123;</span><br><span class="line">    if (l &gt;&#x3D; r) return;</span><br><span class="line"></span><br><span class="line">    int i &#x3D; l - 1, j &#x3D; r + 1, x &#x3D; q[(l+r)&#x2F;2];</span><br><span class="line">    while (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        do i ++ ; while (q[i] &lt; x);</span><br><span class="line">        do j -- ; while (q[j] &gt; x);</span><br><span class="line">        if (i &lt; j) swap(q[i], q[j]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    quick_sort(q, l, j);</span><br><span class="line">    quick_sort(q, j + 1, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line"></span><br><span class="line">    for (int i &#x3D; 0; i &lt; n; i ++ ) scanf(&quot;%d&quot;, &amp;q[i]);</span><br><span class="line"></span><br><span class="line">    quick_sort(q, 0, n - 1);</span><br><span class="line"></span><br><span class="line">    for (int i &#x3D; 0; i &lt; n; i ++ ) printf(&quot;%d &quot;, q[i]);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-scanf（）与scanf-s（）函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/10/10/scanf%EF%BC%88%EF%BC%89%E4%B8%8Escanf-s%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0/" class="article-date">
+      <time datetime="2021-10-10T03:47:39.000Z" itemprop="datePublished">2021-10-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/10/scanf%EF%BC%88%EF%BC%89%E4%B8%8Escanf-s%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0/">scanf（）与scanf_s（）函数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo一些基本命令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -365,10 +627,21 @@
 <p><strong>算法步骤示例：</strong><br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/001.gif" alt="冒泡排序"><br><strong>模板总结</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void bubbleSort(int a[], int n)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i &#x3D; n - 1; i &gt; 0; i--)</span><br><span class="line">        for(int j &#x3D; 0; j &lt; i; j++)</span><br><span class="line">            if(a[j] &gt; a[j+1]) </span><br><span class="line">                swap(a[j], a[j+1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>快速排序是优化的冒泡排序，他的每次交换都是跳跃式的，这种排序是不稳定的。<br>依然亦从小到大为例，对下列数据进行排序<br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/002.png" alt="数字"><br>快速排序要首先在序列中找一个基准数，一第一个数为基准数较为方便<br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/003.png" alt="标记基准数"><br>我们的任务是找到这个数应该在的位置然后把他换过去。从右往左找小于6的数，从左往右找大于6的数，然后交换他们的位置<br>整个过程如下图所示<br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/004.png" alt="图片"><br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/005.png" alt="图片"><br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/006.png" alt="图片"><br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/007.png" alt="图片"><br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/008.png" alt="图片"><br>再将依次左边和右边分别排序</p>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>快速排序是优化的冒泡排序，他的每次交换都是跳跃式的，这种排序是不稳定的。<br>依然亦从小到大为例，对下列数据进行排序<br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/002.png" alt="数字"><br>快速排序要首先在序列中找一个基准数，一第一个数为基准数较为方便（也可以是左边的数或者右边的数）<br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/003.png" alt="标记基准数"><br>我们的任务是找到这个数应该在的位置然后把他换过去。从右往左找小于6的数，从左往右找大于6的数，然后交换他们的位置<br>再将依次左边和右边分别排序,每次排序之后中间的数不一定是选取的数。</p>
 <p>快速排序之所以比较快，是因为与冒泡排序相比，每次的交换时跳跃式的，每次排序的时候设置一个基准点，将小于等于基准点的数全部放到基准点的左边，将大于等于基准点的数全部放到基准点的右边。这样在每次交换的时候就不会像冒泡排序一样每次只能在相邻的数之间进行交换，交换的距离就大的多了。因此总的比较和交换次数就少了，速度自然就提高了。当然在最坏的情况下，仍可能是相邻的两个数进行了交换。因此快速排序的最差时间复杂度和冒泡排序是一样的都是 O ( n 2 ) O(n^2) O(n2)，它的平均时间复杂度为 O ( n log ⁡ 2 n ) O(n\log_2n) O(nlog2​n)。</p>
 <p><strong>模板总结</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void Quick_Sort(int *arr, int begin, int end)&#123;</span><br><span class="line">    if(begin &gt; end)</span><br><span class="line">        return;</span><br><span class="line">    int tmp &#x3D; arr[begin];</span><br><span class="line">    int i &#x3D; begin;</span><br><span class="line">    int j &#x3D; end;</span><br><span class="line">    while(i !&#x3D; j)&#123;</span><br><span class="line">        while(arr[j] &gt;&#x3D; tmp &amp;&amp; j &gt; i)</span><br><span class="line">            j--;</span><br><span class="line">        while(arr[i] &lt;&#x3D; tmp &amp;&amp; j &gt; i)</span><br><span class="line">            i++;</span><br><span class="line">        if(j &gt; i)&#123;</span><br><span class="line">            int t &#x3D; arr[i];</span><br><span class="line">            arr[i] &#x3D; arr[j];</span><br><span class="line">            arr[j] &#x3D; t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[begin] &#x3D; arr[i];</span><br><span class="line">    arr[i] &#x3D; tmp;</span><br><span class="line">    Quick_Sort(arr, begin, i-1);</span><br><span class="line">    Quick_Sort(arr, i+1, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void Quick_Sort(int *arr, int begin, int end)&#123;</span><br><span class="line">    if(begin &gt;&#x3D; end)</span><br><span class="line">        return;</span><br><span class="line">    int tmp &#x3D; arr[begin];</span><br><span class="line">    int i &#x3D; begin;</span><br><span class="line">    int j &#x3D; end;</span><br><span class="line">    while(i !&#x3D; j)&#123;</span><br><span class="line">        while(arr[j] &gt;&#x3D; tmp &amp;&amp; j &gt; i)</span><br><span class="line">            j--;</span><br><span class="line">        while(arr[i] &lt;&#x3D; tmp &amp;&amp; j &gt; i)</span><br><span class="line">            i++;</span><br><span class="line">        if(j &gt; i)&#123;</span><br><span class="line">            int t &#x3D; arr[i];</span><br><span class="line">            arr[i] &#x3D; arr[j];</span><br><span class="line">            arr[j] &#x3D; t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[begin] &#x3D; arr[i];</span><br><span class="line">    arr[i] &#x3D; tmp;</span><br><span class="line">    Quick_Sort(arr, begin, i-1);</span><br><span class="line">    Quick_Sort(arr, i+1, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><ol>
+<li>排序思想：将初始序列的n个元素看成n个有序的子序列，每个子序列中只有一个元素，将其两两归并，得到n/2个长度为2(或1、子序列不为偶数则有落单)的有序子序列，再两两归并…以此类推直到得到n长的有序序列。</li>
+<li>归并思想：两个子序列，分别有一个指针指向其首部，指针指向的元素进行对比，小的放入辅助数组里，指针后移，大的不动，直到两两对比完成，此时如果有某一子序列中的元素并没有对比完，则直接放入辅助数组。</li>
+<li>优缺点：效率高且稳定，但是消耗的辅助空间与原数据空间成正比。</li>
+<li>复杂度：时间复杂度O(nlogn) 空间复杂度O(n)</li>
+<li>稳定性：稳定<br><img src="/2021/10/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/009.png" alt="图片"></li>
+</ol>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**************************</span><br><span class="line"> 题目：归并排序</span><br><span class="line">	划分成很小的组，然后两两归并</span><br><span class="line">***************************&#x2F;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void Merge(int[], int, int[], int, int, int)  &#x2F;&#x2F;归并函数的声明【把归并函数提到该函数前面，则不用声明】</span><br><span class="line">&#x2F;&#x2F;归并排序</span><br><span class="line">&#x2F;&#x2F;参数：</span><br><span class="line">&#x2F;&#x2F;		numbers[]：原数组</span><br><span class="line">&#x2F;&#x2F;		length：数组元素的个数（数组长度）</span><br><span class="line">&#x2F;&#x2F;		temp[]：辅助数组</span><br><span class="line">&#x2F;&#x2F;		begin：数组开头的下标</span><br><span class="line">&#x2F;&#x2F;		end：数组结尾的下标</span><br><span class="line">void MergeSort(int numbers[], int length, int temp[], int begin, int end)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;1. 同样判断传入的参数是否有效</span><br><span class="line">	if (numbers &#x3D;&#x3D; nullptr || length &lt;&#x3D; 0 || begin &lt; 0 || end &gt;&#x3D; length)</span><br><span class="line">		throw new exception(&quot;Invalid input.&quot;);</span><br><span class="line">	</span><br><span class="line">	&#x2F;&#x2F;2. 作为递归的结束条件，开始下标和结束下标相等时，说明子序列中只有一个元素，看作有序的</span><br><span class="line">	if (end - begin &#x3D;&#x3D; 0)</span><br><span class="line">		return;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;3. 定义中间变量，将数组分半【如果有7个元素，下标0-6，则middle&#x3D;3，数组分为长度为4和3的两段】</span><br><span class="line">	int middle &#x3D; ((end - begin) &#x2F; 2 ) + begin;</span><br><span class="line">	&#x2F;&#x2F;4. 递归，先递归左半边，再递归右半边，将左右子序列不断分为长度为1的子序列才停止递归</span><br><span class="line">	MergeSort(numbers, length, temp, begin, middle);</span><br><span class="line">	MergeSort(numbers, length, temp, middle + 1, end);</span><br><span class="line">	&#x2F;&#x2F;5. 再慢慢归并</span><br><span class="line">	Merge(numbers, length, temp, begin, end, middle);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;归并函数</span><br><span class="line">&#x2F;&#x2F;参数：</span><br><span class="line">&#x2F;&#x2F;		numbers[]：原数组</span><br><span class="line">&#x2F;&#x2F;		length：数组元素的个数（数组长度）</span><br><span class="line">&#x2F;&#x2F;		temp[]：辅助数组</span><br><span class="line">&#x2F;&#x2F;		begin：数组开头的下标</span><br><span class="line">&#x2F;&#x2F;		end：数组结尾的下标</span><br><span class="line">&#x2F;&#x2F;		middle：数组中间的下标</span><br><span class="line">void Merge(int numbers[], int length, int temp[], int begin, int end, int middle)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;1. 判断是否有不符合要求的参数传入，有则抛出错误</span><br><span class="line">	if (numbers &#x3D;&#x3D; nullptr || length &lt;&#x3D; 0 || begin &lt; 0 || end &gt;&#x3D; length)</span><br><span class="line">		throw new exception(&quot;Invalid input.&quot;);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;2. 将原序列从中分开</span><br><span class="line">	int leftIndex &#x3D; begin;		&#x2F;&#x2F;左边序列的开始（左边序列的结尾是middle）</span><br><span class="line">	int rightIndex &#x3D; middle + 1;&#x2F;&#x2F;右边序列的开始（右边序列的结尾是end）</span><br><span class="line">	int tempIndex &#x3D; begin;		&#x2F;&#x2F;辅助数组的下标</span><br><span class="line">	&#x2F;&#x2F;3. 当左右子序列尚未到头时，循环</span><br><span class="line">	while (leftIndex &lt;&#x3D; middle &amp;&amp; rightIndex &lt;&#x3D; end)</span><br><span class="line">	&#123;</span><br><span class="line">		&#x2F;&#x2F;4. 两两对比判断，谁大谁就放入辅助数组，同时指针后移</span><br><span class="line">		if (numbers[leftIndex] &lt; numbers[rightIndex])</span><br><span class="line">			temp[tempIndex] &#x3D; numbers[leftIndex++];</span><br><span class="line">		else</span><br><span class="line">			temp[tempIndex] &#x3D; numbers[rightIndex++];</span><br><span class="line">		&#x2F;&#x2F;5. 辅助数组下标++</span><br><span class="line">		++tempIndex;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;6. 当左边或右边子序列尚未到头时，直接放入辅助数组</span><br><span class="line">	while (leftIndex &lt;&#x3D; middle)</span><br><span class="line">		temp[tempIndex++] &#x3D; numbers[leftIndex++];</span><br><span class="line"></span><br><span class="line">	while (rightIndex &lt;&#x3D; end)</span><br><span class="line">		temp[tempIndex++] &#x3D; numbers[rightIndex++];</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;7. 再将辅助数组中已经有序的元素覆盖掉原数组中无序的元素，使原数组变成部分有序</span><br><span class="line">	for (int i &#x3D; begin; i &lt;&#x3D; end; ++i)</span><br><span class="line">		numbers[i] &#x3D; temp[i];</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;简单测试</span><br><span class="line">int main(int arvc, char* argv[])</span><br><span class="line">&#123;</span><br><span class="line">	const int length &#x3D; 9;</span><br><span class="line">	int nums[length] &#x3D; &#123; 18, 7, 23, 3, 9, 32, 10 , 99, 0&#125;;</span><br><span class="line">	int *temp &#x3D; new int[length];</span><br><span class="line"></span><br><span class="line">	MergeSort(nums, length, temp, 0, 8);</span><br><span class="line"></span><br><span class="line">	for (int i &#x3D; 0; i &lt; length; i++)</span><br><span class="line">		cout &lt;&lt; nums[i] &lt;&lt; &quot;  &quot;;</span><br><span class="line"></span><br><span class="line">	delete[] temp;</span><br><span class="line">	temp &#x3D; nullptr;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -749,396 +1022,6 @@
 
 
   
-    <article id="post-BUU13" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/03/09/BUU13/" class="article-date">
-      <time datetime="2021-03-09T03:33:45.000Z" itemprop="datePublished">2021-03-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/09/BUU13/">BUU13</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="wireshark-voip"><a href="#wireshark-voip" class="headerlink" title="wireshark voip"></a><strong>wireshark voip</strong></h1><hr>
-<hr>
-<hr>
-<h1 id="UTCTF2020-zero"><a href="#UTCTF2020-zero" class="headerlink" title="[UTCTF2020]zero"></a><strong>[UTCTF2020]zero</strong></h1><p>一个文本文件 刚开始以为类似凯撒之类的 ，用自己写的脚本跑出来奇奇怪怪的结果<br>放cyberchef 贴进去就可以看到很多点 猜测零宽字节<br><img src="/2021/03/09/BUU13/2.png"><br>应该是零字节解密： <a target="_blank" rel="noopener" href="http://330k.github.io/misc_tools/unicode_steganography.html">http://330k.github.io/misc_tools/unicode_steganography.html</a><br><img src="/2021/03/09/BUU13/3.png"><br>得到flag</p>
-<hr>
-<hr>
-<hr>
-<h1 id="QCTF2018-X-man-A-face"><a href="#QCTF2018-X-man-A-face" class="headerlink" title="[QCTF2018]X-man-A face"></a><strong>[QCTF2018]X-man-A face</strong></h1><p>补全二维码得到一串base32字符<br><img src="/2021/03/09/BUU13/3.png"><br>解码得到flag<br><img src="/2021/03/09/BUU13/4.png"></p>
-<hr>
-<hr>
-<hr>
-<h1 id="Business-Planning-Group"><a href="#Business-Planning-Group" class="headerlink" title="Business Planning Group"></a><strong>Business Planning Group</strong></h1><p>winhex打开在结尾找到bpg图片<br><img src="/2021/03/09/BUU13/5.png"><br>在网上搜了一下，这种bpg图片可以用Honeyview打开<br><img src="/2021/03/09/BUU13/6.png"><br>解码base64得到flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;BPG_i5_b3tt3r_7h4n_JPG&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<hr>
-<hr>
-<h1 id="ACTF新生赛2020-剑龙"><a href="#ACTF新生赛2020-剑龙" class="headerlink" title="[ACTF新生赛2020]剑龙"></a><strong>[ACTF新生赛2020]剑龙</strong></h1><p>打开后发现有一个hint<br><img src="/2021/03/09/BUU13/7.png"><br>先将pwd解密<br><img src="/2021/03/09/BUU13/8.png"><br>steghide将图片解密<br><img src="/2021/03/09/BUU13/9.png"><br>des加密，密钥藏在属性里<br><img src="/2021/03/09/BUU13/10.png"><br>揭秘得到要用stegsaurus<br><img src="/2021/03/09/BUU13/11.png"><br>这里搞不出来了<br><img src="/2021/03/09/BUU13/12.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2020上海大学生网络安全赛MISC可乐加冰" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/" class="article-date">
-      <time datetime="2021-03-08T04:53:47.000Z" itemprop="datePublished">2021-03-08</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/">2020上海大学生网络安全赛MISC可乐加冰</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>题目附件是一张PNG图片：<br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/1.png"><br> 丢到tweakpng里检测一下，发现两个报错：<br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/2.png"><br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/3.png"><br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/4.png"><br> 分析发现三个IDAT块是没问题的，但是多出了一个无法识别的DATx块，而且没有识别出结尾块IEND，放进Winhex里查看也证实了这一点。<br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/5.png"><br>在Winhex中看出文件尾是不完整的，正常的文件尾应该是 0000 49454E44 AE426082</p>
-<p>结合之前tweakpng里的报错：Incorrect crc for DATx chunk (is 9c4e1c00,should be 886b1f6d)，即DATx块的CRC校验码不正确，断定DATx中存在大问题。</p>
-<p>（PS：注意一下这里tweakpng提示的CRC校验码不正确是因为DATx里藏了zlib把结尾的CRC校验码覆盖了，不要试着改回去，不然就把路走窄了，别问我怎么知道的！）<br>binwalk跑一下发现存在zlib：<br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/6.png"><br> 在DATx块开头的地方也找到了zlib的文件头：<br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/15.png"><br>（这里选zlib一直选到文件尾也是可以的，解出来的字符串是一样的）</p>
-<p>右键-&gt;Edit-&gt;CopyBlock-&gt;HexValues把16进制数值复制出来用Python脚本解压缩：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import zlib</span><br><span class="line">import binascii</span><br><span class="line"></span><br><span class="line">#Winhex提取的十六进制zlib数据</span><br><span class="line">data &#x3D;&quot;789C558EC111C02008049B72AE012736660DDBAF0449800FC7B8B0B89724E65E0259005EDFDE48441BD01CCFF0878BB958B1C38FA9F4532555091F2269C8BABAFEAD6B9B843C6EE000679C4E1C00&quot;</span><br><span class="line"></span><br><span class="line">#默认将十六进制作为字符串解码，会出现错误，要将十六进制转换成字节码</span><br><span class="line">data1 &#x3D; bytes.fromhex(data)#十六进制转字节码</span><br><span class="line">#print(data1)</span><br><span class="line"></span><br><span class="line">data2 &#x3D; zlib.decompress(data1)#zlib解压字节码</span><br><span class="line">#print(data2)</span><br><span class="line"></span><br><span class="line">data3 &#x3D; binascii.hexlify(data2)#字节码转十六进制</span><br><span class="line">print(data3)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>跑出来一串纯数字的字符串：<br>b’834636363695438346369595364383469595954383469595364383463636363643834636363695438346369595364383469595364334453443834636953636438346369536954383463636953643834636369543344534438346369595438346369536954383463636363643834636363643344534438346369595364383463695953643834636369543834695363643344534438346363695364383463695369543834636369536438346369595954383469595364383469536954383463636363643834636953643834636369543834695369543834636959543834636369536’</p>
-<p>每两位作一个十进制数，将字符串转为Ascii码（此处经大佬点化）</p>
-<p>Python脚本每两位加空格：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">data &#x3D; &quot;834636363695438346369595364383469595954383469595364383463636363643834636363695438346369595364383469595364334453443834636953636438346369536954383463636953643834636369543344534438346369595438346369536954383463636363643834636363643344534438346369595364383463695953643834636369543834695363643344534438346363695364383463695369543834636369536438346369595954383469595364383469536954383463636363643834636953643834636369543834695369543834636959543834636369536&quot;</span><br><span class="line">data_list &#x3D; re.findall(&quot;.&#123;2&#125;&quot;,data)</span><br><span class="line">data1 &#x3D; &quot; &quot;.join(data_list)</span><br><span class="line"></span><br><span class="line">print(data1)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>十进制转Ascii码+删除空格：（<a target="_blank" rel="noopener" href="http://www.ab126.com/goju/1711.html%EF%BC%89">http://www.ab126.com/goju/1711.html）</a></p>
-<p><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/7.png"><br>转换后：</p>
-<p><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/8.png"><br> 将S转为$:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">str &#x3D; &#39;S.$$$_+S.$__$+S.___+S.__$+S.$$$$+S.$$$_+S.$__$+S.__$+&quot;-&quot;+S.$_$$+S.$_$_+S.$$_$+S.$$_+&quot;-&quot;+S.$__+S.$_$_+S.$$$$+S.$$$+&quot;-&quot;+S.$__$+S.$__$+S.$$_+S._$$+&quot;-&quot;+S.$$_$+S.$_$_+S.$$_$+S.$___+S.__$+S._$_+S.$$$$+S.$_$+S.$$_+S._$_+S.$__+S.$$_$&#39;;</span><br><span class="line"></span><br><span class="line">str1 &#x3D; str.replace(&#39;S&#39;, &#39;$&#39;);</span><br><span class="line"></span><br><span class="line">print(str1)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>转换后：<br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/9.png"><br>得到一串JJEncod码。<br>这里贴一点我对JJEncode的理解：<br>先看别处拿来的解释：</p>
-<p><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/10.png"><br>亲自尝试后发现这个JJEncode加密之后有一个外壳（就是你加密的JavaScript的代码，这里是alert(“”);）<br>（<a target="_blank" rel="noopener" href="http://www.atoolbox.net/Tool.php?Id=704%EF%BC%89">http://www.atoolbox.net/Tool.php?Id=704）</a></p>
-<p><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/11.png"><br> 综上，解出来的JJEncode是里面那一串（相当于555），所以构造一个外壳之后是这样的：<br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/12.png"><br>注意不要少了与壳连接的+号，不然会报错无法运行。</p>
-<p>放到浏览器控制台跑一下：<br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/13.png"><br><img src="/2021/03/08/2020%E4%B8%8A%E6%B5%B7%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9BMISC%E5%8F%AF%E4%B9%90%E5%8A%A0%E5%86%B0/14.png"><br> 得到flag为flag{e901fe91-bad6-4af7-9963-dad812f5624d}</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-BUU12" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/03/06/BUU12/" class="article-date">
-      <time datetime="2021-03-06T02:24:49.000Z" itemprop="datePublished">2021-03-06</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/06/BUU12/">BUU12</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="真的很杂"><a href="#真的很杂" class="headerlink" title="真的很杂"></a><strong>真的很杂</strong></h1><p>foremost分离出一个压缩包，里面的内容看着像apk文件，考虑进行反汇编</p>
-<p>方法一：apktools</p>
-<p>改后缀名为apk，命令：apktool d 00000010.apk<br><img src="/2021/03/06/BUU12/1.png"><br>生成的00000010文件就是源码了，在\smali\com\example\flag\MainActivity$1.smali文件里发现字符串：”TOO YOUNG TOO SIMPLE:flag{25f991b27f”，”dc2f7a82a2b34”，”86e81c4}”<br><img src="/2021/03/06/BUU12/2.png"><br>猜测flag{25f991b27f?dc2f7a82a2b34?86e81c4}，前一个是字母，后一个数字，爆破即可flag{25f991b27fcdc2f7a82a2b34386e81c4}</p>
-<p>方法二：dex2jar和jd-gui</p>
-<p>解压后的classes.dex放到dex2jar目录，命令：d2j-dex2jar classes.dex<br><img src="/2021/03/06/BUU12/3.png"><br>将生成的classes-dex2jar.jar用jd-gui打开，同样得到：</p>
-<p>flag{25f991b27f?dc2f7a82a2b34?86e81c4}，再爆破，flag{25f991b27fcdc2f7a82a2b34386e81c4}<br><img src="/2021/03/06/BUU12/4.png"><br>作者：Du1in9<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1a318f2b4082">https://www.jianshu.com/p/1a318f2b4082</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<hr>
-<hr>
-<hr>
-<h1 id="湖南省赛2019-Findme"><a href="#湖南省赛2019-Findme" class="headerlink" title="[湖南省赛2019]Findme"></a><strong>[湖南省赛2019]Findme</strong></h1><p>下载得到五个图片如图<br><img src="/2021/03/06/BUU12/10.png"></p>
-<blockquote>
-<p><strong>1.png</strong><br>第一张图明显是修改图片大小<br><img src="/2021/03/06/BUU12/5.png"><br>这里有大佬的脚本</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import zlib</span><br><span class="line">import struct</span><br><span class="line">file &#x3D; &#39;1.png&#39;</span><br><span class="line">fr &#x3D; open(file,&#39;rb&#39;).read()</span><br><span class="line">data &#x3D; bytearray(fr[12:29])</span><br><span class="line">#crc32key &#x3D; eval(str(fr[29:33]).replace(&#39;\\x&#39;,&#39;&#39;).replace(&quot;b&#39;&quot;,&#39;0x&#39;).replace(&quot;&#39;&quot;,&#39;&#39;)) </span><br><span class="line">crc32key &#x3D; 0xC4ED3 </span><br><span class="line">#data &#x3D; bytearray(b&#39;\x49\x48\x44\x52\x00\x00\x01\xF4\x00\x00\x01\xF1\x08\x06\x00\x00\x00&#39;) </span><br><span class="line">n &#x3D; 4095 </span><br><span class="line">for w in range(n): </span><br><span class="line">    width &#x3D; bytearray(struct.pack(&#39;&gt;i&#39;, w))</span><br><span class="line">    for h in range(n): </span><br><span class="line">        height &#x3D; bytearray(struct.pack(&#39;&gt;i&#39;, h)) </span><br><span class="line">        for x in range(4): </span><br><span class="line">            data[x+4] &#x3D; width[x] </span><br><span class="line">            data[x+8] &#x3D; height[x] </span><br><span class="line">            #print(data) </span><br><span class="line">        crc32result &#x3D; zlib.crc32(data) </span><br><span class="line">        if crc32result &#x3D;&#x3D; crc32key: </span><br><span class="line">            print(width,height) </span><br><span class="line">            print(data) </span><br><span class="line">            newpic &#x3D; bytearray(fr) </span><br><span class="line">            for x in range(4): </span><br><span class="line">                newpic[x+16] &#x3D; width[x]</span><br><span class="line">                newpic[x+20] &#x3D; height[x] </span><br><span class="line">            fw &#x3D; open(file+&#39;.png&#39;,&#39;wb&#39;) </span><br><span class="line">            fw.write(newpic) </span><br><span class="line">            fw.close </span><br></pre></td></tr></table></figure>
-
-<p>复原之后如图所示<br><img src="/2021/03/06/BUU12/6.png"><br>这里又学到了IDAT标识<br>010 editor打开，发现chunk[2]、chunk[3]缺少IDAT标识<br>IDAT十六进制标识为：49 44 41 54，将两个chunk的IDAT在union CTYPE type的位置补上即可得到完整的图片<br><img src="/2021/03/06/BUU12/7.png"><br>在stegsolve中发现了二维码<br><img src="/2021/03/06/BUU12/8.png"><br>解码得到第一段base64<br><img src="/2021/03/06/BUU12/9.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.png &#x3D;&gt; ZmxhZ3s0X3</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>2.png</strong></p>
-</blockquote>
-<p>zsteg分析后发现了异常，貌似有7z压缩包<br>但是binwalk没有检测也无法分离<br><img src="/2021/03/06/BUU12/11.png"><br>到了010editor提取后无法打开，发现应该是将PK改为了7z<br><img src="/2021/03/06/BUU12/12.png"><br>将7z全部改为PK，发现可以打开了<br><img src="/2021/03/06/BUU12/13.png"><br>将txt文件从大到小排列，得到第二段base64<br><img src="/2021/03/06/BUU12/14.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P2：1RVcmVfc</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>3.png</strong><br>虚拟机中图片打不开，说明图片是有问题的<br><img src="/2021/03/06/BUU12/15.png"><br>在010editor中检查发现图片的crc值是有问题的<br><img src="/2021/03/06/BUU12/16.png"><br>将每段都提取出来，转换得到第三段base64<br><img src="/2021/03/06/BUU12/17.png"></p>
-</blockquote>
-<blockquote>
-<p><strong>4.png</strong><br>这个就比较简单了，在十六进制尾端直接发现了base64</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P4：cExlX1BsY</span><br></pre></td></tr></table></figure>
-<p><img src="/2021/03/06/BUU12/18.png"></p>
-<blockquote>
-<p><strong>5.png</strong><br>同样在十六进制尾端<br><img src="/2021/03/06/BUU12/19.png"></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P5：Yzcllfc0lN</span><br></pre></td></tr></table></figure>
-
-<p>组合在一起</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">P1:ZmxhZ3s0X3</span><br><span class="line">P2:1RVcmVfc</span><br><span class="line">P3:3RlZ30&#x3D;</span><br><span class="line">P4:cExlX1BsY</span><br><span class="line">P5:Yzcllfc0lN</span><br></pre></td></tr></table></figure>
-<p>P1是开头，P3是结尾<br>其他的一个一个试得到最终的base64</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZmxhZ3s0X3Yzcllfc0lNcExlX1BsY1RVcmVfc3RlZ30&#x3D;</span><br></pre></td></tr></table></figure>
-<p>解码得到flag<br><img src="/2021/03/06/BUU12/20.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;4_v3rY_sIMpLe_PlcTUre_steg&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-BUU11" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2021/03/05/BUU11/" class="article-date">
-      <time datetime="2021-03-04T23:38:58.000Z" itemprop="datePublished">2021-03-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/05/BUU11/">BUU11</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="UTCTF2020-basic-forensics"><a href="#UTCTF2020-basic-forensics" class="headerlink" title="[UTCTF2020]basic-forensics"></a><strong>[UTCTF2020]basic-forensics</strong></h1><p>打开后看到了很长的英文文章，还像是啥字频分析，结果直接搜了出来<br><img src="/2021/03/05/BUU11/1.png"><br><img src="/2021/03/05/BUU11/2.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">utflag&#123;fil3_ext3nsi0ns_4r3nt_r34l&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h1 id="SCTF2019-电单车"><a href="#SCTF2019-电单车" class="headerlink" title="[SCTF2019]电单车"></a><strong>[SCTF2019]电单车</strong></h1><p>打开音频文件看到了长短波，<br><img src="/2021/03/05/BUU11/3.png"><br>半天没搞明白要干嘛，结果发现了原题里有描述</p>
-<blockquote>
-<p>题目描述：截获了一台电动车的钥匙发出的锁车信号，3分钟之内，我要获得它地址位的全部信息。flag内容二进制表示即可。</p>
-</blockquote>
-<p>整理出二进制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0111010010101010011000100 0111010010101010011000100</span><br></pre></td></tr></table></figure>
-<p>地址位是中间的前20个bit:<br>得到flag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;01110100101010100110&#125;</span><br></pre></td></tr></table></figure>
-<p>参考链接地址：<a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/wireless/191534.html">https://www.freebuf.com/articles/wireless/191534.html</a></p>
-<hr>
-<hr>
-<hr>
-<h1 id="CTF2019-otaku"><a href="#CTF2019-otaku" class="headerlink" title="*[CTF2019]otaku"></a>*<em>[<em>CTF2019]otaku</em></em></h1><p>始终没明白这个明文攻击<br>大佬的wp(<a target="_blank" rel="noopener" href="https://blog.csdn.net/zxnimud5/article/details/108800686">https://blog.csdn.net/zxnimud5/article/details/108800686</a>) </p>
-<hr>
-<hr>
-<hr>
-<h1 id="hashcat"><a href="#hashcat" class="headerlink" title="hashcat"></a><strong>hashcat</strong></h1><p>1文件没有后缀，用file命令后，除了知道有密码，没啥可用信息，binwalk分析后发现是office文件<br><img src="/2021/03/05/BUU11/4.png"><br>将后缀改为doc，发现需要密码<br><img src="/2021/03/05/BUU11/8.png"><br>破解办公文件用Accent OFFICE Password Recovery v5.1 CracKed By Hmily[LCG][LSG]工具<br><img src="/2021/03/05/BUU11/5.png"><br>爆出9919，<br>结果word文件打不开，xls打不开，改后缀为pptx打开了，<br><img src="/2021/03/05/BUU11/6.png"><br>第7张白白的，搜索flag,有，替换颜色。<br><img src="/2021/03/05/BUU11/7.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Flag&#123;okYOUWIN&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1150,7 +1033,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2021 xiaolaodi520
+                2022 xiaolaodi520
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
